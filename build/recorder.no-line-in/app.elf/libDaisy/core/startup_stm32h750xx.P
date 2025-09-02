@@ -1,0 +1,5 @@
+build/recorder.no-line-in/app.elf/libDaisy/core/startup_stm32h750xx.o: \
+ libDaisy/core/startup_stm32h750xx.c \
+ /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/lib/gcc/arm-none-eabi/13.2.1/include/stddef.h
+ libDaisy/core/startup_stm32h750xx.c :
+ /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/lib/gcc/arm-none-eabi/13.2.1/include/stddef.h :
