@@ -89,8 +89,9 @@ public:
     void Process(float (&block)[kAudioOSFactor],
                  const bool button[kNumVoices],
                  float chord_pot,
-                 float strum_pot,
                  float hold_pot,
+                 int strum_idx,
+                 int strum_idx_changed,
                  bool mode,
                  bool major7,
                  bool minor7)
@@ -136,8 +137,7 @@ public:
 
             // strum trigger (now 6 positions for 6 voices)
             
-            int strum_idx = int(strum_pot * 5.99f); // 0-5 for 6 strum positions            
-            if (strum_idx != last_strum_)
+            if (strum_idx_changed)
             { 
                 
                 last_strum_ = strum_idx;

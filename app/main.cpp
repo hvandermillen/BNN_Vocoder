@@ -59,6 +59,7 @@ namespace recorder
 
     std::atomic<State> state_;
     uint32_t idle_timeout_;
+    uint32_t playback_timeout_;
     EdgeDetector play_button_;
 
     SampleMemory<__fp16> sample_memory_;
@@ -139,6 +140,9 @@ namespace recorder
         int strum_idx = int(strum_pot * 5.99f); // 0-5 for 6 strum positions 
         strum_idx_changed = (strum_idx != last_strum_idx); //did we change positions
         last_strum_idx = strum_idx;
+        //if we are holding the record button, we are recording
+        //maybe change record and playback to one button? hold vs tap?
+        bool record = io_.human.in.sw[SWITCH_RECORD];
 
         // Process each key button
         for (int i = 0; i < numButtons; ++i)
@@ -184,13 +188,17 @@ namespace recorder
 
         if (cur == STATE_IDLE)
         {
-            // Wake on play, any key, or strum move
-            if (play_button_.is_high() || buttons[0].is_high() || buttons[1].is_high() || buttons[2].is_high() || strum_idx_changed)
+            // Wake on any key, or strum move
+            if (buttons[0].is_high() || buttons[1].is_high() || buttons[2].is_high() || strum_idx_changed)
             {
                 // Start audio+ADC
                 analog_.Start(true);
                 idle_timeout_ = 0; // Reset timeout on activity
                 Transition(STATE_SYNTH);
+            }
+            //reset playback timeout when we press the play button
+            else if (play_button_.is_high()) {
+                playback_timeout_ = 0;
             }
             else if (kEnableIdleStandby &&
                      ++idle_timeout_ > kIdleStandbyTime * 1000)
@@ -205,7 +213,7 @@ namespace recorder
         else if (cur == STATE_SYNTH)
         {
             // Reset idle timeout on any activity
-            if (play_button_.is_high() || button_1_.is_high() || button_2_.is_high() || 
+            if (button_1_.is_high() || button_2_.is_high() || 
                 button_3_.is_high() || button_4_.is_high() || strum_idx_changed)
             {
                 idle_timeout_ = 0;
@@ -222,7 +230,7 @@ namespace recorder
                         anyKey = true;
                         break;
                     }
-                //THIS IS THE NOISE ISSUE
+
                 if (anyKey || strum_idx_changed || play_button_.is_high())
                 {
                     analog_.Start(true);
@@ -255,6 +263,124 @@ namespace recorder
                 synthReleaseCounter = 0;
             }
         }
+
+        else if (cur == STATE_RECORD)
+        {
+            ledPin.Write(1);
+            if (!record)
+            {
+                analog_.Stop();
+                Transition(STATE_IDLE);
+                sample_memory_.StopRecording();
+            }
+        }
+        else if (cur == STATE_PLAY)
+        {
+            ledPin.Write(1);
+            if (analog_.running())
+            {
+                if ((++playback_timeout_ == kPlaybackExpireTime * 1000) ||
+                    (play_button_.rising() && playback_.playing()))
+                {
+                    playback_.Stop();
+                }
+                else if (play_button_.rising() && playback_.stopping())
+                {
+                    playback_.Play();
+                }
+                else if (playback_.ended())
+                {
+                    analog_.Stop();
+                }
+            }
+            else if (analog_.stopped())
+            {
+                Transition(STATE_STOP);
+            }
+        }
+        else if (cur == STATE_STOP)
+        {
+            if (play_button_.is_low())
+            {
+                Transition(STATE_IDLE);
+            }
+        }
+        else if (cur == STATE_SAVE)
+        {
+            if (sample_memory_.dirty())
+            {
+                if (sample_memory_.BeginErase())
+                {
+                    Transition(STATE_SAVE_ERASE);
+                }
+                else
+                {
+                    printf("Erase failed\n");
+                    Transition(STATE_STANDBY);
+                }
+            }
+            else
+            {
+                Transition(STATE_STANDBY);
+            }
+        }
+        else if (cur == STATE_SAVE_ERASE)
+        {
+            if (sample_memory_.FinishErase())
+            {
+                Transition(STATE_SAVE_BEGIN_WRITE);
+            }
+            else if (record || play_button_.is_high())
+            {
+                printf("Save aborted\n");
+                sample_memory_.AbortErase();
+                Transition(STATE_IDLE);
+            }
+        }
+        else if (cur == STATE_SAVE_BEGIN_WRITE)
+        {
+            if (sample_memory_.write_complete())
+            {
+                Transition(STATE_SAVE_COMMIT);
+            }
+            else if (sample_memory_.BeginWrite())
+            {
+                Transition(STATE_SAVE_WRITE);
+            }
+            else
+            {
+                printf("Write failed\n");
+                Transition(STATE_STANDBY);
+            }
+        }
+        else if (cur == STATE_SAVE_WRITE)
+        {
+            if (sample_memory_.FinishWrite())
+            {
+                Transition(STATE_SAVE_BEGIN_WRITE);
+            }
+            else if (record || play_button_.is_high())
+            {
+                printf("Save aborted\n");
+                sample_memory_.AbortWrite();
+                Transition(STATE_IDLE);
+            }
+        }
+        else if (cur == STATE_SAVE_COMMIT)
+        {
+            if (sample_memory_.Commit())
+            {
+                printf("Save completed\n");
+                sample_memory_.PrintInfo("    ");
+            }
+            else
+            {
+                printf("Commit failed\n");
+            }
+
+            Transition(STATE_STANDBY);
+        }
+
         else if (cur == STATE_STANDBY)
         {
             system::SerialFlushTx();
