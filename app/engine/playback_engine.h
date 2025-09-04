@@ -75,7 +75,7 @@ namespace recorder
                 state_ = STATE_SCRUBBING;
             }
             // Normalize the potentiometerValue between 0 and 1
-            pot = std::clamp<float>(pot, 0, 1);
+            pot = 0;//std::clamp<float>(pot, 0, 1);
             sample_player_.Scrub(pot);
         }
         void StopScrub(void)

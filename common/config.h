@@ -15,6 +15,7 @@ constexpr float kAudioFadeTime = 20e-3;
 constexpr uint32_t kButtonDebounceDuration_ms = 10;
 constexpr float kIdleStandbyTime = 30;
 constexpr float kPlaybackExpireTime = 60 * 5;
+constexpr float kButtonTapLength_ms = 500; //what is considered a tap vs hold
 
 constexpr uint32_t kProfileIRQPriority = 0;
 constexpr uint32_t kADCIRQPriority = 1;

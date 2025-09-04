@@ -55,12 +55,15 @@ namespace recorder
     JingleEngine jingle_engine_; // New jingle engine instance
     EdgeDetector button_1_, button_2_, button_3_, button_4_;
     EdgeDetector buttons[numButtons] = {button_1_, button_2_, button_3_, button_4_};
-    SwitchID buttonIDs[numButtons] = {SWITCH_KEY_1, SWITCH_KEY_2, SWITCH_KEY_3, SWITCH_KEY_4};
+    SwitchID buttonIDs[numButtons] = {SWITCH_KEY_1, SWITCH_KEY_2, SWITCH_KEY_3, SWITCH_PLAY};
 
     std::atomic<State> state_;
     uint32_t idle_timeout_;
     uint32_t playback_timeout_;
     EdgeDetector play_button_;
+
+    uint32_t record_button_hold_timer; //how long has the record button been held (tap or hold)
+    EdgeDetector record_button_;
 
     SampleMemory<__fp16> sample_memory_;
     RecordingEngine recording_{sample_memory_};
@@ -129,7 +132,8 @@ namespace recorder
     {
         // Refresh inputs
         switches_.Process(io_.human.in);
-        play_button_.Process(io_.human.in.sw[SWITCH_PLAY]);
+        play_button_.Process(io_.human.in.sw[SWITCH_LOOP]);
+        //record_button_.Process(io_.human.in.sw[SWITCH_RECORD]);
 
         // Read strum pot and detect movement
         float strum_pot = io_.human.in.pot[POT_2];
@@ -142,6 +146,28 @@ namespace recorder
         last_strum_idx = strum_idx;
         //if we are holding the record button, we are recording
         //maybe change record and playback to one button? hold vs tap?
+
+        //bool record; //true if we have held rec button for long enough
+        //bool tap; //true if we have not been holding record button for long
+
+        //timer for how long record button has been held
+        /*
+        if (record_button_.is_high()) {
+            record_button_hold_timer++;
+            //if it has been held for long enough, start recording
+            if (record_button_hold_timer * 1000 > kButtonTapLength_ms) {
+                record = true;
+                tap = false;
+            } else {
+                tap = true; 
+                record = false;
+            }
+        } else {
+            //we are not recording, reset timer
+            record = false;
+            record_button_hold_timer = 0;
+        } */
+
         bool record = io_.human.in.sw[SWITCH_RECORD];
 
         // Process each key button
@@ -189,16 +215,28 @@ namespace recorder
         if (cur == STATE_IDLE)
         {
             // Wake on any key, or strum move
-            if (buttons[0].is_high() || buttons[1].is_high() || buttons[2].is_high() || strum_idx_changed)
+            if (buttons[0].is_high() || buttons[1].is_high() || buttons[2].is_high() || buttons[3].is_high() || strum_idx_changed)
             {
                 // Start audio+ADC
                 analog_.Start(true);
                 idle_timeout_ = 0; // Reset timeout on activity
                 Transition(STATE_SYNTH);
             }
-            //reset playback timeout when we press the play button
+            else if (record)
+            {
+                recording_.Reset();
+                analog_.StartRecording();
+                sample_memory_.StartRecording();
+                Transition(STATE_RECORD);
+            }
+            //reset playback timeout when we release the play button (after a tap, not hold)
             else if (play_button_.is_high()) {
+                playback_.Reset();
+                playback_.Play();
+                analog_.StartPlayback();
+                sample_memory_.StartPlayback();
                 playback_timeout_ = 0;
+                Transition(STATE_PLAY);
             }
             else if (kEnableIdleStandby &&
                      ++idle_timeout_ > kIdleStandbyTime * 1000)
@@ -223,8 +261,7 @@ namespace recorder
             {
                 // Wake on key or strum
                 bool anyKey = false;
-                //don't include button 4
-                for (int i = 0; i < numButtons-1; ++i)
+                for (int i = 0; i < numButtons; ++i)
                     if (buttons[i].is_high())
                     {
                         anyKey = true;
@@ -275,7 +312,7 @@ namespace recorder
             }
         }
         else if (cur == STATE_PLAY)
-        {
+        { 
             ledPin.Write(1);
             if (analog_.running())
             {
@@ -409,7 +446,7 @@ namespace recorder
                 synth_buttons[i] = buttons[i].is_high();
             
             // Button 4 (index 3) is now what play_button was
-            synth_buttons[3] = play_button_.is_high();
+            //synth_buttons[3] = play_button_.is_high();
 
             float chord_pot = pot[POT_5];
             float strum = pot[POT_2];
@@ -417,8 +454,10 @@ namespace recorder
             bool mode = io_.human.in.sw[SWITCH_LOOP];
             
             // Use button_4 for seventh parameter instead of play_button
-            bool seventh = buttons[3].is_high();
-            bool minor_seventh = io_.human.in.sw[SWITCH_RECORD];
+            //FOR NOW
+            bool seventh = false; //buttons[3].is_high();
+            //FOR NOW
+            bool minor_seventh = false; //io_.human.in.sw[SWITCH_RECORD];
 
             synth_engine_.Process(
                 audio_out[AUDIO_OUT_LINE],
@@ -426,10 +465,21 @@ namespace recorder
                 chord_pot, hold, last_strum_idx, strum_idx_changed,
                 mode, seventh, minor_seventh);
         }
-        else if (cur == STATE_STARTUP || cur == STATE_ENDING)
+
+        if (cur == STATE_STARTUP || cur == STATE_ENDING)
         {
             // Process jingle audio
             jingle_engine_.Process(audio_out[AUDIO_OUT_LINE]);
+        } else if (cur == STATE_PLAY) {
+            playback_.Process(audio_out[AUDIO_OUT_LINE], true, false, pot);
+        }
+
+        if (cur == STATE_RECORD)
+        {
+            AudioInputID id = io_.human.in.detect[DETECT_LINE_IN] ?
+                AUDIO_IN_LINE : AUDIO_IN_MIC;
+            float pitch = 1;//(1-io_.human.in.pot[POT_1]) * 2 - 1;
+            recording_.Process(audio_in[id], pitch);
         }
 
         return audio_out;

@@ -94,12 +94,12 @@ build/recorder.no-line-in/app.elf/app/main.o: app/main.cpp \
  /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/c++/13.2.1/tr1/poly_hermite.tcc \
  /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/c++/13.2.1/tr1/poly_laguerre.tcc \
  /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/c++/13.2.1/tr1/riemann_zeta.tcc \
- /Users/henryvandermillen/Documents/BNN/bnn_synth/drivers/system.h \
- /Users/henryvandermillen/Documents/BNN/bnn_synth/drivers/profiling.h \
- /Users/henryvandermillen/Documents/BNN/bnn_synth/drivers/gpio.h \
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/drivers/system.h \
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/drivers/profiling.h \
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/drivers/gpio.h \
  /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/c++/13.2.1/cassert \
  /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/assert.h \
- /Users/henryvandermillen/Documents/BNN/bnn_synth/libDaisy/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_gpio.h \
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/libDaisy/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_gpio.h \
  libDaisy/Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h \
  libDaisy/Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h750xx.h \
  libDaisy/Drivers/CMSIS/Include/core_cm7.h \
@@ -195,33 +195,33 @@ build/recorder.no-line-in/app.elf/app/main.o: app/main.cpp \
  libDaisy/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_usb.h \
  libDaisy/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pcd_ex.h \
  libDaisy/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_hcd.h \
- /Users/henryvandermillen/Documents/BNN/bnn_synth/drivers/profiling_impl.inc.h \
- /Users/henryvandermillen/Documents/BNN/bnn_synth/drivers/switches.h \
- /Users/henryvandermillen/Documents/BNN/bnn_synth/common/config.h \
- /Users/henryvandermillen/Documents/BNN/bnn_synth/common/io.h \
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/drivers/profiling_impl.inc.h \
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/drivers/switches.h \
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/common/config.h \
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/common/io.h \
  /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/c++/13.2.1/array \
  /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/c++/13.2.1/bits/range_access.h \
- /Users/henryvandermillen/Documents/BNN/bnn_synth/util/debouncer.h \
- /Users/henryvandermillen/Documents/BNN/bnn_synth/drivers/analog.h \
- /Users/henryvandermillen/Documents/BNN/bnn_synth/drivers/adc.h \
- /Users/henryvandermillen/Documents/BNN/bnn_synth/libDaisy/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h \
- /Users/henryvandermillen/Documents/BNN/bnn_synth/util/hysteresis_filter.h \
- /Users/henryvandermillen/Documents/BNN/bnn_synth/util/interpolator.h \
- /Users/henryvandermillen/Documents/BNN/bnn_synth/drivers/dac.h \
- /Users/henryvandermillen/Documents/BNN/bnn_synth/drivers/sample_memory.h \
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/util/debouncer.h \
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/drivers/analog.h \
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/drivers/adc.h \
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/libDaisy/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h \
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/util/hysteresis_filter.h \
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/util/interpolator.h \
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/drivers/dac.h \
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/drivers/sample_memory.h \
  /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/c++/13.2.1/cstdio \
  /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/stdio.h \
  /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/lib/gcc/arm-none-eabi/13.2.1/include/stdarg.h \
  /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/sys/stdio.h \
- /Users/henryvandermillen/Documents/BNN/bnn_synth/drivers/flash.h \
- /Users/henryvandermillen/Documents/BNN/bnn_synth/drivers/crc.h \
- /Users/henryvandermillen/Documents/BNN/bnn_synth/libDaisy/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_crc.h \
- /Users/henryvandermillen/Documents/BNN/bnn_synth/drivers/save_data.h \
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/drivers/flash.h \
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/drivers/crc.h \
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/libDaisy/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_crc.h \
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/drivers/save_data.h \
  /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/c++/13.2.1/cstring \
  /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/string.h \
  /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/strings.h \
  /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/sys/string.h \
- /Users/henryvandermillen/Documents/BNN/bnn_synth/util/buffer_chain.h \
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/util/buffer_chain.h \
  /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/c++/13.2.1/iterator \
  /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/c++/13.2.1/bits/stream_iterator.h \
  /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/c++/13.2.1/iosfwd \
@@ -282,18 +282,18 @@ build/recorder.no-line-in/app.elf/app/main.o: app/main.cpp \
  /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/c++/13.2.1/typeinfo \
  /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/c++/13.2.1/bits/nested_exception.h \
  /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/c++/13.2.1/bits/streambuf.tcc \
- /Users/henryvandermillen/Documents/BNN/bnn_synth/util/edge_detector.h \
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/util/edge_detector.h \
  app/monitor/monitor.h \
- /Users/henryvandermillen/Documents/BNN/bnn_synth/app/monitor/a85.h \
- /Users/henryvandermillen/Documents/BNN/bnn_synth/app/monitor/packet.h \
- /Users/henryvandermillen/Documents/BNN/bnn_synth/app/monitor/message.h \
- /Users/henryvandermillen/Documents/BNN/bnn_synth/app/engine/recording_engine.h \
- /Users/henryvandermillen/Documents/BNN/bnn_synth/app/engine/resampler.h \
- /Users/henryvandermillen/Documents/BNN/bnn_synth/util/fifo.h \
- /Users/henryvandermillen/Documents/BNN/bnn_synth/app/engine/aafilter.h \
- /Users/henryvandermillen/Documents/BNN/bnn_synth/app/engine/sos.h \
- /Users/henryvandermillen/Documents/BNN/bnn_synth/app/engine/playback_engine.h \
- /Users/henryvandermillen/Documents/BNN/bnn_synth/app/engine/sample_player.h \
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/app/monitor/a85.h \
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/app/monitor/packet.h \
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/app/monitor/message.h \
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/app/engine/recording_engine.h \
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/app/engine/resampler.h \
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/util/fifo.h \
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/app/engine/aafilter.h \
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/app/engine/sos.h \
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/app/engine/playback_engine.h \
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/app/engine/sample_player.h \
  /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/c++/13.2.1/chrono \
  /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/c++/13.2.1/bits/chrono.h \
  /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/c++/13.2.1/ratio \
@@ -355,16 +355,16 @@ build/recorder.no-line-in/app.elf/app/main.o: app/main.cpp \
  /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/c++/13.2.1/bits/enable_special_members.h \
  /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/c++/13.2.1/span \
  /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/c++/13.2.1/variant \
- /Users/henryvandermillen/Documents/BNN/bnn_synth/app/engine/delay_engine.h \
- /Users/henryvandermillen/Documents/BNN/bnn_synth/app/engine/compressor.h \
- /Users/henryvandermillen/Documents/BNN/bnn_synth/app/engine/envelope_follower.h \
- /Users/henryvandermillen/Documents/BNN/bnn_synth/app/engine/one_pole.h \
- /Users/henryvandermillen/Documents/BNN/bnn_synth/app/engine/resonant_filter.h \
- /Users/henryvandermillen/Documents/BNN/bnn_synth/app/engine/ring_modulator.h \
- /Users/henryvandermillen/Documents/BNN/bnn_synth/app/engine/biquad.h \
- /Users/henryvandermillen/Documents/BNN/bnn_synth/app/engine/synth_engine.h \
- /Users/henryvandermillen/Documents/BNN/bnn_synth/app/engine/waveform_generator.h \
- /Users/henryvandermillen/Documents/BNN/bnn_synth/app/engine/jingle_engine.h
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/app/engine/delay_engine.h \
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/app/engine/compressor.h \
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/app/engine/envelope_follower.h \
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/app/engine/one_pole.h \
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/app/engine/resonant_filter.h \
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/app/engine/ring_modulator.h \
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/app/engine/biquad.h \
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/app/engine/synth_engine.h \
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/app/engine/waveform_generator.h \
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/app/engine/jingle_engine.h
 app/main.cpp :
  /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/c++/13.2.1/cstdint :
  /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/c++/13.2.1/arm-none-eabi/thumb/v7e-m+dp/hard/bits/c++config.h :
@@ -461,12 +461,12 @@ app/main.cpp :
  /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/c++/13.2.1/tr1/poly_hermite.tcc :
  /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/c++/13.2.1/tr1/poly_laguerre.tcc :
  /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/c++/13.2.1/tr1/riemann_zeta.tcc :
- /Users/henryvandermillen/Documents/BNN/bnn_synth/drivers/system.h :
- /Users/henryvandermillen/Documents/BNN/bnn_synth/drivers/profiling.h :
- /Users/henryvandermillen/Documents/BNN/bnn_synth/drivers/gpio.h :
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/drivers/system.h :
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/drivers/profiling.h :
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/drivers/gpio.h :
  /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/c++/13.2.1/cassert :
  /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/assert.h :
- /Users/henryvandermillen/Documents/BNN/bnn_synth/libDaisy/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_gpio.h :
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/libDaisy/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_gpio.h :
  libDaisy/Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h :
  libDaisy/Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h750xx.h :
  libDaisy/Drivers/CMSIS/Include/core_cm7.h :
@@ -562,33 +562,33 @@ app/main.cpp :
  libDaisy/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_usb.h :
  libDaisy/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pcd_ex.h :
  libDaisy/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_hcd.h :
- /Users/henryvandermillen/Documents/BNN/bnn_synth/drivers/profiling_impl.inc.h :
- /Users/henryvandermillen/Documents/BNN/bnn_synth/drivers/switches.h :
- /Users/henryvandermillen/Documents/BNN/bnn_synth/common/config.h :
- /Users/henryvandermillen/Documents/BNN/bnn_synth/common/io.h :
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/drivers/profiling_impl.inc.h :
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/drivers/switches.h :
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/common/config.h :
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/common/io.h :
  /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/c++/13.2.1/array :
  /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/c++/13.2.1/bits/range_access.h :
- /Users/henryvandermillen/Documents/BNN/bnn_synth/util/debouncer.h :
- /Users/henryvandermillen/Documents/BNN/bnn_synth/drivers/analog.h :
- /Users/henryvandermillen/Documents/BNN/bnn_synth/drivers/adc.h :
- /Users/henryvandermillen/Documents/BNN/bnn_synth/libDaisy/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h :
- /Users/henryvandermillen/Documents/BNN/bnn_synth/util/hysteresis_filter.h :
- /Users/henryvandermillen/Documents/BNN/bnn_synth/util/interpolator.h :
- /Users/henryvandermillen/Documents/BNN/bnn_synth/drivers/dac.h :
- /Users/henryvandermillen/Documents/BNN/bnn_synth/drivers/sample_memory.h :
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/util/debouncer.h :
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/drivers/analog.h :
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/drivers/adc.h :
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/libDaisy/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h :
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/util/hysteresis_filter.h :
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/util/interpolator.h :
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/drivers/dac.h :
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/drivers/sample_memory.h :
  /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/c++/13.2.1/cstdio :
  /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/stdio.h :
  /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/lib/gcc/arm-none-eabi/13.2.1/include/stdarg.h :
  /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/sys/stdio.h :
- /Users/henryvandermillen/Documents/BNN/bnn_synth/drivers/flash.h :
- /Users/henryvandermillen/Documents/BNN/bnn_synth/drivers/crc.h :
- /Users/henryvandermillen/Documents/BNN/bnn_synth/libDaisy/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_crc.h :
- /Users/henryvandermillen/Documents/BNN/bnn_synth/drivers/save_data.h :
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/drivers/flash.h :
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/drivers/crc.h :
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/libDaisy/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_crc.h :
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/drivers/save_data.h :
  /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/c++/13.2.1/cstring :
  /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/string.h :
  /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/strings.h :
  /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/sys/string.h :
- /Users/henryvandermillen/Documents/BNN/bnn_synth/util/buffer_chain.h :
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/util/buffer_chain.h :
  /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/c++/13.2.1/iterator :
  /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/c++/13.2.1/bits/stream_iterator.h :
  /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/c++/13.2.1/iosfwd :
@@ -649,18 +649,18 @@ app/main.cpp :
  /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/c++/13.2.1/typeinfo :
  /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/c++/13.2.1/bits/nested_exception.h :
  /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/c++/13.2.1/bits/streambuf.tcc :
- /Users/henryvandermillen/Documents/BNN/bnn_synth/util/edge_detector.h :
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/util/edge_detector.h :
  app/monitor/monitor.h :
- /Users/henryvandermillen/Documents/BNN/bnn_synth/app/monitor/a85.h :
- /Users/henryvandermillen/Documents/BNN/bnn_synth/app/monitor/packet.h :
- /Users/henryvandermillen/Documents/BNN/bnn_synth/app/monitor/message.h :
- /Users/henryvandermillen/Documents/BNN/bnn_synth/app/engine/recording_engine.h :
- /Users/henryvandermillen/Documents/BNN/bnn_synth/app/engine/resampler.h :
- /Users/henryvandermillen/Documents/BNN/bnn_synth/util/fifo.h :
- /Users/henryvandermillen/Documents/BNN/bnn_synth/app/engine/aafilter.h :
- /Users/henryvandermillen/Documents/BNN/bnn_synth/app/engine/sos.h :
- /Users/henryvandermillen/Documents/BNN/bnn_synth/app/engine/playback_engine.h :
- /Users/henryvandermillen/Documents/BNN/bnn_synth/app/engine/sample_player.h :
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/app/monitor/a85.h :
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/app/monitor/packet.h :
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/app/monitor/message.h :
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/app/engine/recording_engine.h :
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/app/engine/resampler.h :
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/util/fifo.h :
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/app/engine/aafilter.h :
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/app/engine/sos.h :
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/app/engine/playback_engine.h :
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/app/engine/sample_player.h :
  /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/c++/13.2.1/chrono :
  /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/c++/13.2.1/bits/chrono.h :
  /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/c++/13.2.1/ratio :
@@ -722,13 +722,13 @@ app/main.cpp :
  /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/c++/13.2.1/bits/enable_special_members.h :
  /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/c++/13.2.1/span :
  /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/c++/13.2.1/variant :
- /Users/henryvandermillen/Documents/BNN/bnn_synth/app/engine/delay_engine.h :
- /Users/henryvandermillen/Documents/BNN/bnn_synth/app/engine/compressor.h :
- /Users/henryvandermillen/Documents/BNN/bnn_synth/app/engine/envelope_follower.h :
- /Users/henryvandermillen/Documents/BNN/bnn_synth/app/engine/one_pole.h :
- /Users/henryvandermillen/Documents/BNN/bnn_synth/app/engine/resonant_filter.h :
- /Users/henryvandermillen/Documents/BNN/bnn_synth/app/engine/ring_modulator.h :
- /Users/henryvandermillen/Documents/BNN/bnn_synth/app/engine/biquad.h :
- /Users/henryvandermillen/Documents/BNN/bnn_synth/app/engine/synth_engine.h :
- /Users/henryvandermillen/Documents/BNN/bnn_synth/app/engine/waveform_generator.h :
- /Users/henryvandermillen/Documents/BNN/bnn_synth/app/engine/jingle_engine.h :
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/app/engine/delay_engine.h :
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/app/engine/compressor.h :
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/app/engine/envelope_follower.h :
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/app/engine/one_pole.h :
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/app/engine/resonant_filter.h :
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/app/engine/ring_modulator.h :
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/app/engine/biquad.h :
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/app/engine/synth_engine.h :
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/app/engine/waveform_generator.h :
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/app/engine/jingle_engine.h :
