@@ -128,6 +128,30 @@ namespace recorder
         state_.store(new_state, std::memory_order_acq_rel);
     }
 
+    //starts appropriate processes if record or playback buttons are pressed
+    //return true if either record or playback are held
+    bool checkRecordPlayback(bool record, bool playback) {
+        if (record)
+        {
+            recording_.Reset();
+            analog_.StartRecording();
+            sample_memory_.StartRecording();
+            Transition(STATE_RECORD);
+            return true;
+        }
+        else if (playback) 
+        {
+            playback_.Reset();
+            playback_.Play();
+            analog_.StartPlayback();
+            sample_memory_.StartPlayback();
+            playback_timeout_ = 0;
+            Transition(STATE_PLAY);
+            return true;
+        }
+        return false;
+    }
+
     void StateMachine(bool standby)
     {
         // Refresh inputs
@@ -211,32 +235,19 @@ namespace recorder
             Transition(STATE_ENDING);
             return;
         }
+        
 
         if (cur == STATE_IDLE)
         {
+            if (checkRecordPlayback(record, play_button_.is_high())) {
+            }
             // Wake on any key, or strum move
-            if (buttons[0].is_high() || buttons[1].is_high() || buttons[2].is_high() || buttons[3].is_high() || strum_idx_changed)
+            else if (buttons[0].is_high() || buttons[1].is_high() || buttons[2].is_high() || buttons[3].is_high() || strum_idx_changed)
             {
                 // Start audio+ADC
                 analog_.Start(true);
                 idle_timeout_ = 0; // Reset timeout on activity
                 Transition(STATE_SYNTH);
-            }
-            else if (record)
-            {
-                recording_.Reset();
-                analog_.StartRecording();
-                sample_memory_.StartRecording();
-                Transition(STATE_RECORD);
-            }
-            //reset playback timeout when we release the play button (after a tap, not hold)
-            else if (play_button_.is_high()) {
-                playback_.Reset();
-                playback_.Play();
-                analog_.StartPlayback();
-                sample_memory_.StartPlayback();
-                playback_timeout_ = 0;
-                Transition(STATE_PLAY);
             }
             else if (kEnableIdleStandby &&
                      ++idle_timeout_ > kIdleStandbyTime * 1000)
@@ -268,11 +279,14 @@ namespace recorder
                         break;
                     }
 
-                if (anyKey || strum_idx_changed || play_button_.is_high())
+                if (anyKey || strum_idx_changed)
                 {
                     analog_.Start(true);
                     synth_inactive_ = false;
                     idle_timeout_ = 0; // Reset timeout on activity
+                }
+                else if (checkRecordPlayback(record, play_button_.is_high())) {
+                    //handled in function
                 }
                 else if (kEnableIdleStandby &&
                          ++idle_timeout_ > kIdleStandbyTime * 1000)
