@@ -29,7 +29,7 @@ public:
         {
             current_freq_[v] = 0.0f;
             target_freq_[v] = 0.0f;
-            voices_[v].SetWaveform(WaveformGenerator::Waveform::TRIANGLE);
+            voices_[v].SetWaveform(WaveformGenerator::Waveform::SAW);
             voices_[v].SetFrequency(0.0f);
             env_state_[v] = ENV_IDLE;
             env_level_[v] = 0.0f;

@@ -14,11 +14,11 @@ class VocoderBand {
 public:
     void Init(float sampleRate, float frequency) {
         //initialize the analysis filter
-        analyzer.Init(sampleRate, frequency, Q, filterGain);
+        analyzer.Init(sampleRate, frequency, Q*2, filterGain);
         //initialize the output (synthesis) filter
         outFilter.Init(sampleRate, frequency, Q, filterGain);
         //initialize the envelope follower (attack ms, decay ms, hold ms, sample rate)
-        env.Init(50, 20, 20, sampleRate);
+        env.Init(1, 1, 1, sampleRate);
     }
 
     float Process(float modulatorInput, float carrierInput) {
@@ -45,11 +45,11 @@ private:
     EnvelopeFollower env;
 
     //the Q for each filter
-    static constexpr float Q = 16;
+    static constexpr float Q = 8;
     //the gain for the biquad filter
-    static constexpr float filterGain = 1;
+    static constexpr float filterGain = 10;
     //the makeup gain on each vocoder band (after filtering)
-    static constexpr float makeupGain = 10;
+    static constexpr float makeupGain = 0.5;
 };
 
 class Vocoder 
@@ -61,8 +61,10 @@ public:
         //initialize all the analysis bands
         for (int i = 0; i < numBands; i++) {
             bands[i].Init(kAudioSampleRate, cutoffFreqs[i]);
-            bandOutputGains[i] = log(i+1);
+            bandOutputGains[i] = log(i+2);
         }
+
+        //env.Init(1, 1, 1, kAudioSampleRate);
     }
 
     float Process(float modulatorInput, float carrierInput) {
@@ -72,7 +74,13 @@ public:
         //process each vocoder band and add to the output signal
         for (int i = 0; i < numBands; i++) {
             out += bands[i].Process(modulatorInput, carrierInput) * 0.5 * bandOutputGains[i];
+            out = (out*(1-dry_amount)) + (modulatorInput*dry_amount);
         }
+
+        //testing with a single envelope follower
+        // float modLevel = env.Process(modulatorInput);
+
+        // out = carrierInput * modLevel;
 
         return out;
     }
@@ -80,13 +88,18 @@ public:
 
 private:
     //there will be this many analysis bands and this many synthesis bands
-    static constexpr int numBands = 8;
+    static constexpr int numBands = 6;
     //the cutoff frequencies for the analysis and synthesis filters
-    float cutoffFreqs[numBands] = {300, 420, 600, 840, 1200, 1680, 2400, 3360};
+    //float cutoffFreqs[numBands] = {300, 420, 600, 840, 1200, 1680, 2400, 3360};
+    float cutoffFreqs[numBands] = {300, 420, 600, 840, 1200, 2400};
+
     //the array that will contain all the vocoder bands
     VocoderBand bands[numBands];
     //array of gain constants that will be applied to the output of each band
     float bandOutputGains[numBands];
+    float dry_amount = 0.0f;
+
+    EnvelopeFollower env;
 
 };
 

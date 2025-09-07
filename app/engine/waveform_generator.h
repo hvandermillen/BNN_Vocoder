@@ -8,7 +8,7 @@ namespace recorder {
 
 class WaveformGenerator {
 public:
-    enum class Waveform { SINE, TRIANGLE };
+    enum class Waveform { SINE, TRIANGLE, SAW };
 
     WaveformGenerator()
       : phase_(0.0f),
@@ -27,7 +27,7 @@ public:
         float out;
         if (waveform_ == Waveform::SINE) {
             out = sinf(phase_);
-        } else {
+        } else if (waveform_ == Waveform::TRIANGLE) {
             // TRIANGLE
             // normalize φ = phase_/π in [0,2)
             float phi = phase_ * kInvPi;
@@ -35,6 +35,11 @@ public:
                       ? phi
                       : (phi < 2.0f ? 2.0f - phi : 0.0f);
             out = tri * 2.0f - 1.0f;
+        } else if (waveform_ == Waveform::SAW) {
+            // normalize φ = phase_/π in [0,2)
+            float phi = phase_ * kInvPi;
+            float saw = phi / 2;
+            out = saw * 2.0f - 1.0f;
         }
         phase_ += phase_inc_;
         if (phase_ >= kTwoPi) phase_ -= kTwoPi;

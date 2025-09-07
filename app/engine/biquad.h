@@ -43,6 +43,7 @@ protected:
         float alpha = sin(omega) / (2 * Q_);
         float A = gain_;
 
+        //change these to bandpass
         b0_ = 1 + alpha * A;
         b1_ = -2 * cos(omega);
         b2_ = 1 - alpha * A;

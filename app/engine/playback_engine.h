@@ -117,15 +117,16 @@ namespace recorder
                      const PotInput &pot, bool vocoderOn, float synthSample)
         {
             float pitch;
-            if (state_ != STATE_SCRUBBING)
-            {
-                pitch = (1 - pot[kPotPitch]) * 2 - 1; // pot values reversed due to wiring change
-            }
-            else
-            {
-                pitch = 1.0;
-            }
-            float speed = std::exp2(pitch);
+            // if (state_ != STATE_SCRUBBING)
+            // {
+            //     pitch = (1 - pot[kPotPitch]) * 2 - 1; // pot values reversed due to wiring change
+            // }
+            // else
+            // {
+            //     pitch = 1.0;
+            // }
+            pitch = 1.0f;
+            float speed = 2.0f;//std::exp2(pitch);
             float sample = 0;
 
             if (state_ == STATE_STOPPED)
@@ -191,9 +192,13 @@ namespace recorder
             }
 
             //process vocoder
-            if (vocoderOn) {
-                sample = vocoder_.Process(sample, synthSample);
-            }
+            //this is never true..
+            // if (vocoderOn) {
+            //     sample = vocoder_.Process(sample, synthSample);
+            // }
+
+            //sample = sample + synthSample;
+            sample = vocoder_.Process(sample, synthSample);
 
             // sample = main_filter_.Process(sample); //main filter, used to boost output in certain frequency ranges for different units (vocal, kalimba, etc.)
             sample *= kAudioOSFactor * kAudioOutputLevel;

@@ -451,28 +451,26 @@ namespace recorder
         AudioOutput audio_out = {};
         State cur = state_.load(std::memory_order_acquire);
 
+        //synth stuff
+        float chord_pot = pot[POT_5];
+        float strum = pot[POT_2];
+        float hold = pot[POT_1];
+        bool mode = io_.human.in.sw[SWITCH_LOOP];
+        
+        // Use button_4 for seventh parameter instead of play_button
+        //FOR NOW
+        bool seventh = false; //buttons[3].is_high();
+        //FOR NOW
+        bool minor_seventh = false; //io_.human.in.sw[SWITCH_RECORD];
+
+        bool synth_buttons[numButtons];
+        
+        // Use first 3 synth buttons normally
+        for (int i = 0; i < numButtons; ++i)
+            synth_buttons[i] = buttons[i].is_high();
+
         if (cur == STATE_SYNTH)
         {
-            bool synth_buttons[numButtons];
-            
-            // Use first 3 synth buttons normally
-            for (int i = 0; i < numButtons; ++i)
-                synth_buttons[i] = buttons[i].is_high();
-            
-            // Button 4 (index 3) is now what play_button was
-            //synth_buttons[3] = play_button_.is_high();
-
-            float chord_pot = pot[POT_5];
-            float strum = pot[POT_2];
-            float hold = pot[POT_1];
-            bool mode = io_.human.in.sw[SWITCH_LOOP];
-            
-            // Use button_4 for seventh parameter instead of play_button
-            //FOR NOW
-            bool seventh = false; //buttons[3].is_high();
-            //FOR NOW
-            bool minor_seventh = false; //io_.human.in.sw[SWITCH_RECORD];
-
             synth_engine_.Process(
                 audio_out[AUDIO_OUT_LINE],
                 synth_buttons,
@@ -485,7 +483,16 @@ namespace recorder
             // Process jingle audio
             jingle_engine_.Process(audio_out[AUDIO_OUT_LINE]);
         } else if (cur == STATE_PLAY) {
-            playback_.Process(audio_out[AUDIO_OUT_LINE], true, false, pot);
+
+            float synth_sample = synth_engine_.ProcessSample(
+                synth_buttons,
+                chord_pot, hold, last_strum_idx, strum_idx_changed,
+                mode, seventh, minor_seventh);
+
+            //process playback with vocoder
+            playback_.Process(audio_out[AUDIO_OUT_LINE], true, false, pot, true, synth_sample);
+
+            
         }
 
         if (cur == STATE_RECORD)
