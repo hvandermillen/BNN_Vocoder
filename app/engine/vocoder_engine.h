@@ -14,9 +14,11 @@ class VocoderBand {
 public:
     void Init(float sampleRate, float frequency) {
         //initialize the analysis filter
-        analyzer.Init(sampleRate, frequency, Q*2, filterGain);
+        analyzer.Init(true, sampleRate, frequency, Q, filterGain);
+        // analyzer.MakeBandpass();
         //initialize the output (synthesis) filter
-        outFilter.Init(sampleRate, frequency, Q, filterGain);
+        outFilter.Init(true, sampleRate, frequency, Q, filterGain);
+        // outFilter.MakeBandpass();
         //initialize the envelope follower (attack ms, decay ms, hold ms, sample rate)
         env.Init(1, 1, 1, sampleRate);
     }
@@ -25,11 +27,11 @@ public:
         float out = 0.0f;
 
         //isolate this band of the input signal
-        float inputFiltered = analyzer.Process(modulatorInput);
+        float inputFiltered = analyzer.Process(modulatorInput) * 10;
         //get the level of the isolated signal
         float inputLevel = env.Process(inputFiltered);
         //filter the output signal
-        float carrierFiltered = outFilter.Process(carrierInput);
+        float carrierFiltered = outFilter.Process(carrierInput) * 40;
         //apply the level of the envelope follower to the level of the output
         out = carrierFiltered * inputLevel * makeupGain;
 
@@ -45,7 +47,7 @@ private:
     EnvelopeFollower env;
 
     //the Q for each filter
-    static constexpr float Q = 8;
+    static constexpr float Q = 16;
     //the gain for the biquad filter
     static constexpr float filterGain = 10;
     //the makeup gain on each vocoder band (after filtering)
@@ -90,8 +92,8 @@ private:
     //there will be this many analysis bands and this many synthesis bands
     static constexpr int numBands = 6;
     //the cutoff frequencies for the analysis and synthesis filters
-    //float cutoffFreqs[numBands] = {300, 420, 600, 840, 1200, 1680, 2400, 3360};
-    float cutoffFreqs[numBands] = {300, 420, 600, 840, 1200, 2400};
+    // float cutoffFreqs[numBands] = {300, 420, 600, 840, 1200, 1680, 2400, 3360};
+    float cutoffFreqs[numBands] = {300, 500, 800, 1300, 2000, 2700};
 
     //the array that will contain all the vocoder bands
     VocoderBand bands[numBands];

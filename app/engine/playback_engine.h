@@ -30,7 +30,7 @@ namespace recorder
             //initialize the vocoder
             vocoder_.Init();
             // below is the filter responsible for boosting level in certain freq ranges (vocals, kalimba, etc), currently commented out here and on line 184. Arguments are Init(samplerate, freq, Q, db boost) and SetParameters(freq, Q, dbBoost).
-            main_filter_.Init(16000, 900, .5, 10);
+            main_filter_.Init(false, 16000, 900, .5, 10);
             main_filter_.SetParameters(900, .5, 10);
             Reset();
         }

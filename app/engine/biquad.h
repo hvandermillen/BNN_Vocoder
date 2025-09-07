@@ -7,10 +7,12 @@ namespace recorder
 class Biquad
 {
 public:
-    void Init(float sampleRate, float centerFrequency, float Q, float gainDB)
+    void Init(bool is_bandpass, float sampleRate, float centerFrequency, float Q, float gainDB)
     {
+        is_bandpass_ = is_bandpass;
         sampleRate_ = sampleRate;
         SetParameters(centerFrequency, Q, gainDB);
+
     }
 
     void SetParameters(float centerFrequency, float Q, float gainDB)
@@ -18,6 +20,8 @@ public:
         centerFrequency_ = centerFrequency;
         Q_ = Q;
         gain_ = std::pow(10, gainDB / 20.0); // Convert gain from dB to linear scale
+
+        x1_ = x2_ = y1_ = y2_ = 0;
 
         UpdateFilter();
     }
@@ -39,17 +43,29 @@ public:
 protected:
     void UpdateFilter()
     {
-        float omega = 2 * M_PI * centerFrequency_ / sampleRate_;
-        float alpha = sin(omega) / (2 * Q_);
-        float A = gain_;
+        omega = 2 * M_PI * centerFrequency_ / sampleRate_;
+        alpha = sin(omega) / (2 * Q_);
+        A = gain_;
 
-        //change these to bandpass
-        b0_ = 1 + alpha * A;
-        b1_ = -2 * cos(omega);
-        b2_ = 1 - alpha * A;
-        a0_ = 1 + alpha / A;
-        a1_ = -2 * cos(omega);
-        a2_ = 1 - alpha / A;
+        if (!is_bandpass_)
+        {
+            //coefficients for lowpass
+            b0_ = 1 + alpha * A;
+            b1_ = -2 * cos(omega);
+            b2_ = 1 - alpha * A;
+            a0_ = 1 + alpha / A;
+            a1_ = -2 * cos(omega);
+            a2_ = 1 - alpha / A;
+
+        } else {
+            //coefficients for bandpass
+            b0_ =   alpha;
+            b1_ =   0.0;
+            b2_ =  -alpha;
+            a0_ =   1.0 + alpha;
+            a1_ =  -2.0 * cos(omega);
+            a2_ =   1.0 - alpha;
+        }
 
         // Scaling coefficients for unity gain at the center frequency
         b0_ /= a0_;
@@ -57,7 +73,11 @@ protected:
         b2_ /= a0_;
         a1_ /= a0_;
         a2_ /= a0_;
+
     }
+
+    //true if the filter is a bandpass and now lowpass
+    bool is_bandpass_;
 
     float sampleRate_;
     float centerFrequency_;
@@ -68,6 +88,8 @@ protected:
     float b0_, b1_, b2_;
     float x1_, x2_;
     float y1_, y2_;
+
+    float omega, alpha, A;
 };
 
 }
