@@ -83,10 +83,29 @@ public:
         return base_frequency_;
     }
 
+    void Process(float (&block)[kAudioOSFactor],
+                 const bool button[kNumVoices],
+                 float chord_pot,
+                 float hold_pot,
+                 int strum_idx,
+                 int strum_idx_changed,
+                 bool mode,
+                 bool major7,
+                 bool minor7) {
+
+        float mix = ProcessSample(button, chord_pot, hold_pot, strum_idx, 
+            strum_idx_changed, mode, major7, minor7);
+        for (uint32_t i = 0; i < kAudioOSFactor; ++i){
+           // block[i] = aa_filter_.Process(i == 0 ? mix : 0.0f);
+           block[i] = mix;
+        }
+
+    }
+
     // mode = false → major scale, true → minor scale
     // major7: apply major seventh; minor7: apply minor seventh
     // if both major7 and minor7: apply major sixth
-    void Process(float (&block)[kAudioOSFactor],
+    float ProcessSample(
                  const bool button[kNumVoices],
                  float chord_pot,
                  float hold_pot,
@@ -319,11 +338,10 @@ public:
         // 8) oversample‑pack
         mix *= kAudioOSFactor * kAudioOutputLevel;
         mix = std::clamp(mix, -1.0f, 1.0f);
-        for (uint32_t i = 0; i < kAudioOSFactor; ++i){
-           // block[i] = aa_filter_.Process(i == 0 ? mix : 0.0f);
-           block[i] = mix;
-        }
+        return mix;
     }
+
+    
 
     bool getActive() const
     {

@@ -106,6 +106,7 @@ namespace recorder
         {
             ringModOn = ring;
         }
+
         void Process(float (&block)[kAudioOSFactor], bool loop, bool reverse,
                      const PotInput &pot)
         {
