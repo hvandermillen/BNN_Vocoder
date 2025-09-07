@@ -9,6 +9,7 @@
 #include "app/engine/resonant_filter.h"
 #include "app/engine/ring_modulator.h"
 #include "app/engine/biquad.h"
+#include "app/engine/vocoder_engine.h"
 
 namespace recorder
 {
@@ -26,6 +27,8 @@ namespace recorder
             aa_filter_.Init();
             res_filter_.Init(16000, 700, 10);
             ring_mod_.Init(16000, 400, .7);
+            //initialize the vocoder
+            vocoder_.Init();
             // below is the filter responsible for boosting level in certain freq ranges (vocals, kalimba, etc), currently commented out here and on line 184. Arguments are Init(samplerate, freq, Q, db boost) and SetParameters(freq, Q, dbBoost).
             main_filter_.Init(16000, 900, .5, 10);
             main_filter_.SetParameters(900, .5, 10);
@@ -107,8 +110,11 @@ namespace recorder
             ringModOn = ring;
         }
 
+        //added two variables at the end for vocoder purpose:
+        //bool vocoderOn (whether or not to use vocoder)
+        //float synthSample (will be used as carrier signal)
         void Process(float (&block)[kAudioOSFactor], bool loop, bool reverse,
-                     const PotInput &pot)
+                     const PotInput &pot, bool vocoderOn, float synthSample)
         {
             float pitch;
             if (state_ != STATE_SCRUBBING)
@@ -184,6 +190,11 @@ namespace recorder
                 // sample = ring_mod_.Process(sample);
             }
 
+            //process vocoder
+            if (vocoderOn) {
+                sample = vocoder_.Process(sample, synthSample);
+            }
+
             // sample = main_filter_.Process(sample); //main filter, used to boost output in certain frequency ranges for different units (vocal, kalimba, etc.)
             sample *= kAudioOSFactor * kAudioOutputLevel;
 
@@ -217,6 +228,7 @@ namespace recorder
         RingModulator ring_mod_;
         Biquad main_filter_;
         AAFilter<float> aa_filter_;
+        Vocoder vocoder_;
         bool ringModOn = false;
         static constexpr PotID kPotPitch = POT_1;
         static constexpr PotID kPotDelayTime = POT_2;

@@ -362,6 +362,7 @@ build/recorder.no-line-in/app.elf/app/main.o: app/main.cpp \
  /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/app/engine/resonant_filter.h \
  /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/app/engine/ring_modulator.h \
  /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/app/engine/biquad.h \
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/app/engine/vocoder_engine.h \
  /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/app/engine/synth_engine.h \
  /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/app/engine/waveform_generator.h \
  /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/app/engine/jingle_engine.h
@@ -729,6 +730,7 @@ app/main.cpp :
  /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/app/engine/resonant_filter.h :
  /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/app/engine/ring_modulator.h :
  /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/app/engine/biquad.h :
+ /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/app/engine/vocoder_engine.h :
  /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/app/engine/synth_engine.h :
  /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/app/engine/waveform_generator.h :
  /Users/henryvandermillen/Documents/BNN/BNN_Vocoder/app/engine/jingle_engine.h :

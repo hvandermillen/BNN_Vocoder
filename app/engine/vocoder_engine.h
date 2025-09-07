@@ -5,44 +5,6 @@
 
 namespace recorder {
 
-class VocoderEngine 
-{
-
-public:
-
-    void Init() {
-        //initialize all the analysis bands
-        for (int i = 0; i < numBands; i++) {
-            bands[i].Init(kAudioSampleRate, cutoffFreqs[i]);
-            bandOutputGains[i] = log(i+1);
-        }
-    }
-
-    float Process(float modulatorInput, float carrierInput) {
-        
-        float out = 0;
-
-        //process each vocoder band and add to the output signal
-        for (int i = 0; i < numBands; i++) {
-            out += bands[i].Process(modulatorInput, carrierInput) * 0.5 * bandOutputGains[i];
-        }
-
-        return out;
-    }
-
-
-private:
-    //there will be this many analysis bands and this many synthesis bands
-    static constexpr int numBands = 8;
-    //the cutoff frequencies for the analysis and synthesis filters
-    float cutoffFreqs[numBands] = {300, 420, 600, 840, 1200, 1680, 2400, 3360};
-    //the array that will contain all the vocoder bands
-    VocoderBand bands[numBands];
-    //array of gain constants that will be applied to the output of each band
-    float bandOutputGains[numBands];
-
-};
-
 /*
     This class represents a single band of the vocoder.
     It contains an analysis and output (synthesis) IIR biquad filter
@@ -88,7 +50,45 @@ private:
     static constexpr float filterGain = 1;
     //the makeup gain on each vocoder band (after filtering)
     static constexpr float makeupGain = 10;
-}
+};
+
+class Vocoder 
+{
+
+public:
+
+    void Init() {
+        //initialize all the analysis bands
+        for (int i = 0; i < numBands; i++) {
+            bands[i].Init(kAudioSampleRate, cutoffFreqs[i]);
+            bandOutputGains[i] = log(i+1);
+        }
+    }
+
+    float Process(float modulatorInput, float carrierInput) {
+        
+        float out = 0;
+
+        //process each vocoder band and add to the output signal
+        for (int i = 0; i < numBands; i++) {
+            out += bands[i].Process(modulatorInput, carrierInput) * 0.5 * bandOutputGains[i];
+        }
+
+        return out;
+    }
+
+
+private:
+    //there will be this many analysis bands and this many synthesis bands
+    static constexpr int numBands = 8;
+    //the cutoff frequencies for the analysis and synthesis filters
+    float cutoffFreqs[numBands] = {300, 420, 600, 840, 1200, 1680, 2400, 3360};
+    //the array that will contain all the vocoder bands
+    VocoderBand bands[numBands];
+    //array of gain constants that will be applied to the output of each band
+    float bandOutputGains[numBands];
+
+};
 
 
 }
