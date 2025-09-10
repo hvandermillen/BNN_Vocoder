@@ -31,9 +31,9 @@ public:
         //get the level of the isolated signal
         float inputLevel = env.Process(inputFiltered);
         //filter the output signal
-        float carrierFiltered = outFilter.Process(carrierInput) * 40;
+        float carrierFiltered = outFilter.Process(carrierInput) * 20;
         //apply the level of the envelope follower to the level of the output
-        out = carrierFiltered * inputLevel * makeupGain;
+        out = carrierFiltered * inputLevel;
 
         return out;
     }
@@ -76,7 +76,7 @@ public:
         //process each vocoder band and add to the output signal
         for (int i = 0; i < numBands; i++) {
             out += bands[i].Process(modulatorInput, carrierInput) * 0.5 * bandOutputGains[i];
-            out = (out*(1-dry_amount)) + (modulatorInput*dry_amount);
+            //out = (out*(1-dry_amount)) + (modulatorInput*dry_amount);
         }
 
         //testing with a single envelope follower
@@ -93,7 +93,7 @@ private:
     static constexpr int numBands = 6;
     //the cutoff frequencies for the analysis and synthesis filters
     // float cutoffFreqs[numBands] = {300, 420, 600, 840, 1200, 1680, 2400, 3360};
-    float cutoffFreqs[numBands] = {300, 500, 800, 1300, 2000, 2700};
+    static constexpr float cutoffFreqs[numBands] = {300, 500, 800, 1300, 2000, 2700};
 
     //the array that will contain all the vocoder bands
     VocoderBand bands[numBands];

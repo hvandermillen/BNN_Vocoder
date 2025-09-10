@@ -55,7 +55,7 @@ namespace recorder
     JingleEngine jingle_engine_; // New jingle engine instance
     EdgeDetector button_1_, button_2_, button_3_, button_4_;
     EdgeDetector buttons[numButtons] = {button_1_, button_2_, button_3_, button_4_};
-    SwitchID buttonIDs[numButtons] = {SWITCH_KEY_1, SWITCH_KEY_2, SWITCH_KEY_3, SWITCH_PLAY};
+    SwitchID buttonIDs[numButtons] = {SWITCH_KEY_1, SWITCH_KEY_2, SWITCH_KEY_3, SWITCH_LOOP};
 
     std::atomic<State> state_;
     uint32_t idle_timeout_;
@@ -156,7 +156,7 @@ namespace recorder
     {
         // Refresh inputs
         switches_.Process(io_.human.in);
-        play_button_.Process(io_.human.in.sw[SWITCH_LOOP]);
+        play_button_.Process(io_.human.in.sw[SWITCH_PLAY]);
         //record_button_.Process(io_.human.in.sw[SWITCH_RECORD]);
 
         // Read strum pot and detect movement
@@ -455,7 +455,7 @@ namespace recorder
         float chord_pot = pot[POT_5];
         float strum = pot[POT_2];
         float hold = pot[POT_1];
-        bool mode = io_.human.in.sw[SWITCH_LOOP];
+        bool mode = io_.human.in.sw[SWITCH_KEY_4];
         
         // Use button_4 for seventh parameter instead of play_button
         //FOR NOW

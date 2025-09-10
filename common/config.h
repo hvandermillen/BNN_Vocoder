@@ -22,7 +22,7 @@ constexpr uint32_t kADCIRQPriority = 1;
 constexpr uint32_t kTickIRQPriority = 10;
 constexpr uint32_t kSerialIRQPriority = 11;
 
-constexpr bool kEnableDelay = true;
+constexpr bool kEnableDelay = false;
 constexpr bool kEnableLineIn = VARIANT_LINE_IN;
 constexpr bool kEnableReverse = false;
 
