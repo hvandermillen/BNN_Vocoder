@@ -11,9 +11,9 @@ class EnvelopeFollower
 public:
     void Init(float attack_ms, float decay_ms, float hold_ms, float sample_rate)
     {
-        attack_rate_ = 1 - std::exp(-1000 / (attack_ms * (sample_rate/2)));
-        decay_rate_ = 1 - std::exp(-1000 / (decay_ms * (sample_rate/2)));
-        hold_samples_ = std::round(hold_ms * (sample_rate/2) / 1000);
+        attack_rate_ = 1 - std::exp(-1000 / (attack_ms * (sample_rate)));
+        decay_rate_ = 1 - std::exp(-1000 / (decay_ms * (sample_rate)));
+        hold_samples_ = std::round(hold_ms * (sample_rate) / 1000);
         Reset();
     }
 

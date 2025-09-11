@@ -38,8 +38,7 @@ public:
         } else if (waveform_ == Waveform::SAW) {
             // normalize φ = phase_/π in [0,2)
             float phi = phase_ * kInvPi;
-            float saw = phi / 2;
-            out = saw * 2.0f - 1.0f;
+            out = phi - 1.0f;
         }
         phase_ += phase_inc_;
         if (phase_ >= kTwoPi) phase_ -= kTwoPi;

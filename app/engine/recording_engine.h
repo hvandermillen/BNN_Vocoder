@@ -27,6 +27,7 @@ public:
     {
         resampler_.Reset();
         aa_filter_.Reset();
+        sampleSum = 0;
     }
 
     void Process(const float (&block)[kAudioOSFactor], float pitch)
@@ -43,14 +44,24 @@ public:
 
         while (resampler_.Pop(sample))
         {
+            sampleSum += sample;
+            numSamples++;
             memory_.Append(sample);
         }
+    }
+
+    float AverageLevel() {
+        return (float)(sampleSum/ ((double)(numSamples)) );
     }
 
 protected:
     T& memory_;
     Resampler<16> resampler_;
     AAFilter<float> aa_filter_;
+
+    //for calculating average level
+    double sampleSum;
+    long numSamples;
 };
 
 }

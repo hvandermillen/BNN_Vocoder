@@ -27,11 +27,11 @@ public:
         float out = 0.0f;
 
         //isolate this band of the input signal
-        float inputFiltered = analyzer.Process(modulatorInput) * 10;
+        float inputFiltered = analyzer.Process(modulatorInput) * kFilterInputGain;
         //get the level of the isolated signal
         float inputLevel = env.Process(inputFiltered);
         //filter the output signal
-        float carrierFiltered = outFilter.Process(carrierInput) * 20;
+        float carrierFiltered = outFilter.Process(carrierInput) * kFilterOutputGain;
         //apply the level of the envelope follower to the level of the output
         out = carrierFiltered * inputLevel;
 
@@ -52,6 +52,9 @@ private:
     static constexpr float filterGain = 10;
     //the makeup gain on each vocoder band (after filtering)
     static constexpr float makeupGain = 0.5;
+
+    static constexpr float kFilterInputGain = 10.0f;
+    static constexpr float kFilterOutputGain = 30.0f;
 };
 
 class Vocoder 
@@ -61,9 +64,9 @@ public:
 
     void Init() {
         //initialize all the analysis bands
-        for (int i = 0; i < numBands; i++) {
+        for (int i = 0; i < kNumBands; i++) {
             bands[i].Init(kAudioSampleRate, cutoffFreqs[i]);
-            bandOutputGains[i] = log(i+2);
+            bandOutputGains[i] = log(i+2) * 0.5f;
         }
 
         //env.Init(1, 1, 1, kAudioSampleRate);
@@ -74,15 +77,11 @@ public:
         float out = 0;
 
         //process each vocoder band and add to the output signal
-        for (int i = 0; i < numBands; i++) {
-            out += bands[i].Process(modulatorInput, carrierInput) * 0.5 * bandOutputGains[i];
+        #pragma unroll
+        for (int i = 0; i < kNumBands; i++) {
+            out += bands[i].Process(modulatorInput, carrierInput) * bandOutputGains[i];
             //out = (out*(1-dry_amount)) + (modulatorInput*dry_amount);
         }
-
-        //testing with a single envelope follower
-        // float modLevel = env.Process(modulatorInput);
-
-        // out = carrierInput * modLevel;
 
         return out;
     }
@@ -90,19 +89,17 @@ public:
 
 private:
     //there will be this many analysis bands and this many synthesis bands
-    static constexpr int numBands = 6;
+    static constexpr int kNumBands = 5;
     //the cutoff frequencies for the analysis and synthesis filters
-    // float cutoffFreqs[numBands] = {300, 420, 600, 840, 1200, 1680, 2400, 3360};
-    static constexpr float cutoffFreqs[numBands] = {300, 500, 800, 1300, 2000, 2700};
+    // float cutoffFreqs[kNumBands] = {300, 420, 600, 840, 1200, 1680, 2400, 3360};
+    //static constexpr float cutoffFreqs[kNumBands] = {300, 500, 800, 1300, 2000, 2700};
+    static constexpr std::array<float, kNumBands> cutoffFreqs = {300, 500, 900, 1600, 2900};
 
     //the array that will contain all the vocoder bands
-    VocoderBand bands[numBands];
+    VocoderBand bands[kNumBands];
     //array of gain constants that will be applied to the output of each band
-    float bandOutputGains[numBands];
+    float bandOutputGains[kNumBands];
     float dry_amount = 0.0f;
-
-    EnvelopeFollower env;
-
 };
 
 

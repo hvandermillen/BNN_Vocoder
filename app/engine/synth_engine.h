@@ -91,10 +91,11 @@ public:
                  int strum_idx_changed,
                  bool mode,
                  bool major7,
-                 bool minor7) {
+                 bool minor7,
+                 bool strum_on) {
 
         float mix = ProcessSample(button, chord_pot, hold_pot, strum_idx, 
-            strum_idx_changed, mode, major7, minor7);
+            strum_idx_changed, mode, major7, minor7, strum_on);
         for (uint32_t i = 0; i < kAudioOSFactor; ++i){
            // block[i] = aa_filter_.Process(i == 0 ? mix : 0.0f);
            block[i] = mix;
@@ -113,7 +114,8 @@ public:
                  int strum_idx_changed,
                  bool mode,
                  bool major7,
-                 bool minor7)
+                 bool minor7,
+                 bool strum_on)
     {
         // Check for entering/exiting base frequency mode
         if (major7 && minor7) {
