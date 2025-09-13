@@ -157,8 +157,7 @@ public:
             updateChordTargets(major7, minor7);
 
             // strum trigger (now 6 positions for 6 voices)
-            
-            if (strum_idx_changed)
+            if (strum_on && strum_idx_changed)
             { 
                 
                 last_strum_ = strum_idx;
@@ -229,11 +228,13 @@ public:
             voices_[v].SetFrequency(current_freq_[v]);
         }
 
-        // slew strum freqs
-        for (int s = 0; s < kNumStrum; ++s)
-        {
-            slew(strum_current_[s], strum_target_[s], kStrumFreqSlew);
-            strum_voices_[s].SetFrequency(strum_current_[s]);
+        if (strum_on) {
+            // slew strum freqs
+            for (int s = 0; s < kNumStrum; ++s)
+            {
+                slew(strum_current_[s], strum_target_[s], kStrumFreqSlew);
+                strum_voices_[s].SetFrequency(strum_current_[s]);
+            }
         }
 
         // 5) gates → envelopes (hold=1 → infinite sustain)
@@ -293,7 +294,7 @@ public:
         }
 
         // strum mix with dynamic release and attenuation
-        if (!in_base_freq_mode_) {
+        if (strum_on && !in_base_freq_mode_) {
             for (int s = 0; s < kNumStrum; ++s)
             {
                 switch (strum_state_[s])

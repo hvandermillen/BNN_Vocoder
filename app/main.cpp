@@ -154,20 +154,27 @@ namespace recorder
 
     void StateMachine(bool standby)
     {
+        State cur = state_.load(std::memory_order_relaxed);
+
         // Refresh inputs
         switches_.Process(io_.human.in);
         play_button_.Process(io_.human.in.sw[SWITCH_PLAY]);
         //record_button_.Process(io_.human.in.sw[SWITCH_RECORD]);
 
-        // Read strum pot and detect movement
-        float strum_pot = io_.human.in.pot[POT_2];
-        // consider movement significant above threshold
-        // bool strum_moved = fabsf(strum_pot - last_strum_pot) > 0.00001f;          
+        float strum_pot;
+        int strum_idx;
+
+        //only update strum pot if not in playback mode
+        if (cur != STATE_PLAY) {
+            // Read strum pot and detect movement
+            strum_pot = io_.human.in.pot[POT_2];
+            //also update index of strum position
+            strum_idx = int(strum_pot * 5.99f); // 0-5 for 6 strum positions 
+            strum_idx_changed = (strum_idx != last_strum_idx); //did we change positions
+        }
         last_strum_pot = strum_pot;
-        //also update index of strum position
-        int strum_idx = int(strum_pot * 5.99f); // 0-5 for 6 strum positions 
-        strum_idx_changed = (strum_idx != last_strum_idx); //did we change positions
         last_strum_idx = strum_idx;
+
         //if we are holding the record button, we are recording
         //maybe change record and playback to one button? hold vs tap?
 
@@ -197,8 +204,6 @@ namespace recorder
         // Process each key button
         for (int i = 0; i < numButtons; ++i)
             buttons[i].Process(io_.human.in.sw[buttonIDs[i]]);
-
-        State cur = state_.load(std::memory_order_relaxed);
 
         // Handle jingle states
         if (cur == STATE_STARTUP)
@@ -471,11 +476,12 @@ namespace recorder
 
         if (cur == STATE_SYNTH)
         {
+            //strum mode is on
             synth_engine_.Process(
                 audio_out[AUDIO_OUT_LINE],
                 synth_buttons,
                 chord_pot, hold, last_strum_idx, strum_idx_changed,
-                mode, seventh, minor_seventh);
+                mode, seventh, minor_seventh, true);
         }
 
         if (cur == STATE_STARTUP || cur == STATE_ENDING)
@@ -483,11 +489,11 @@ namespace recorder
             // Process jingle audio
             jingle_engine_.Process(audio_out[AUDIO_OUT_LINE]);
         } else if (cur == STATE_PLAY) {
-
+            //strum mode is off
             float synth_sample = synth_engine_.ProcessSample(
                 synth_buttons,
                 chord_pot, hold, last_strum_idx, strum_idx_changed,
-                mode, seventh, minor_seventh);
+                mode, seventh, minor_seventh, false);
 
             //process playback with vocoder
             playback_.Process(audio_out[AUDIO_OUT_LINE], true, false, pot, true, synth_sample);
