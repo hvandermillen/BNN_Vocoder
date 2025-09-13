@@ -54,7 +54,7 @@ private:
     static constexpr float makeupGain = 0.5;
 
     static constexpr float kFilterInputGain = 10.0f;
-    static constexpr float kFilterOutputGain = 30.0f;
+    static constexpr float kFilterOutputGain = 40.0f;
 };
 
 class Vocoder 

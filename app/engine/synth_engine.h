@@ -62,6 +62,13 @@ public:
         updateChordTargets(false, false);
     }
 
+    void SetWaveform(WaveformGenerator::Waveform wave_shape) {
+        for (int v = 0; v < kNumVoices; ++v)
+        {
+            voices_[v].SetWaveform(wave_shape);
+        }
+    }
+
     //used for note setting
     float Min(float a, float b) {
         if (a < b) {

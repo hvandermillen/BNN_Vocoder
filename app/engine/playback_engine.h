@@ -192,13 +192,12 @@ namespace recorder
             }
 
             //process vocoder
-            //this is never true..
-            // if (vocoderOn) {
-            //     sample = vocoder_.Process(sample, synthSample);
-            // }
+            if (vocoderOn) {
+                sample = vocoder_.Process(sample, synthSample);
+            }
 
             //sample = sample + synthSample;
-            sample = vocoder_.Process(sample, synthSample);
+            // sample = vocoder_.Process(sample, synthSample);
 
             // sample = main_filter_.Process(sample); //main filter, used to boost output in certain frequency ranges for different units (vocal, kalimba, etc.)
             sample *= kAudioOSFactor * kAudioOutputLevel;

@@ -19,6 +19,7 @@
 #include "monitor/monitor.h"
 #include "app/engine/recording_engine.h"
 #include "app/engine/playback_engine.h"
+#include "app/engine/waveform_generator.h"
 
 // CYCLOPS INCLUDES
 #include "app/engine/synth_engine.h"
@@ -215,9 +216,12 @@ namespace recorder
                 analog_.MutePowerStage();
                 synth_inactive_ = true;   // Set the inactive flag
                 
-                Transition(STATE_IDLE);
+                //Transition(STATE_IDLE);
+                //try starting and stopping playback?
+                Transition(STATE_PLAY);
                 
             }
+
             return;
         }
         else if (cur == STATE_ENDING)
@@ -272,6 +276,9 @@ namespace recorder
             {
                 idle_timeout_ = 0;
             }
+
+            //set waveforms to triangles
+            synth_engine_.SetWaveform(WaveformGenerator::Waveform::TRIANGLE);
             
             if (synth_inactive_)
             {
@@ -332,6 +339,9 @@ namespace recorder
         }
         else if (cur == STATE_PLAY)
         { 
+            //set synth waveform to saw waves
+            synth_engine_.SetWaveform(WaveformGenerator::Waveform::SAW);
+
             ledPin.Write(1);
             if (analog_.running())
             {
@@ -470,9 +480,14 @@ namespace recorder
 
         bool synth_buttons[numButtons];
         
-        // Use first 3 synth buttons normally
-        for (int i = 0; i < numButtons; ++i)
+        bool anyNote = false;
+
+        // process synth buttons
+        for (int i = 0; i < numButtons; ++i) {
             synth_buttons[i] = buttons[i].is_high();
+            if (synth_buttons[i]) 
+                anyNote = true;
+        }
 
         if (cur == STATE_SYNTH)
         {
@@ -496,7 +511,7 @@ namespace recorder
                 mode, seventh, minor_seventh, false);
 
             //process playback with vocoder
-            playback_.Process(audio_out[AUDIO_OUT_LINE], true, false, pot, true, synth_sample);
+            playback_.Process(audio_out[AUDIO_OUT_LINE], true, false, pot, anyNote, synth_sample);
 
             
         }

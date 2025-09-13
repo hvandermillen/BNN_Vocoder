@@ -35,10 +35,13 @@ public:
         float ratio = std::exp2(pitch);
         float sample = 0;
 
+        /*
         for (uint32_t i = 0; i < kAudioOSFactor; i++)
         {
             sample = aa_filter_.Process(block[i]);
-        }
+        } */
+
+        sample = block[i];
 
         resampler_.Push(sample, ratio);
 
