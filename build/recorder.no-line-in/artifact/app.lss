@@ -5,21 +5,21 @@ Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
   0 .isr_vector   00000298  08000000  08000000  00001000  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  1 .text         0000d0a4  080002a0  080002a0  000012a0  2**4
+  1 .text         0000d0b4  080002a0  080002a0  000012a0  2**4
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .ARM.extab    00000000  0800d344  0800d344  0000f08c  2**0
+  2 .ARM.extab    00000000  0800d354  0800d354  0000f08c  2**0
                   CONTENTS
-  3 .exidx        00000008  0800d344  0800d344  0000e344  2**2
+  3 .exidx        00000008  0800d354  0800d354  0000e354  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  4 .ARM.attributes 00000030  0800d34c  0800d34c  0000f08c  2**0
+  4 .ARM.attributes 00000030  0800d35c  0800d35c  0000f08c  2**0
                   CONTENTS, READONLY
-  5 .init_array   0000000c  0800d34c  0800d34c  0000e34c  2**2
+  5 .init_array   0000000c  0800d35c  0800d35c  0000e35c  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  6 .fini_array   00000004  0800d358  0800d358  0000e358  2**2
+  6 .fini_array   00000004  0800d368  0800d368  0000e368  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  7 .data         0000008c  20000000  0800d35c  0000f000  2**2
+  7 .data         0000008c  20000000  0800d36c  0000f000  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  8 .bss          0001154c  20000400  0800d3e8  0000f400  2**10
+  8 .bss          0001154c  20000400  0800d3f8  0000f400  2**10
                   ALLOC
   9 .sram1        00080000  24000000  24000000  00010000  2**2
                   ALLOC
@@ -33,36 +33,36 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS
  14 .reserved_for_stack 00000000  2001194c  2001194c  0000f0bc  2**0
                   CONTENTS
- 15 .debug_info   0004f159  00000000  00000000  0000f0bc  2**0
+ 15 .debug_info   0004ecf2  00000000  00000000  0000f0bc  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_abbrev 000078ac  00000000  00000000  0005e215  2**0
+ 16 .debug_abbrev 000078ac  00000000  00000000  0005ddae  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_loclists 00016da9  00000000  00000000  00065ac1  2**0
+ 17 .debug_loclists 00016da9  00000000  00000000  0006565a  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_aranges 00000b70  00000000  00000000  0007c86a  2**0
+ 18 .debug_aranges 00000b70  00000000  00000000  0007c403  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_rnglists 0000526f  00000000  00000000  0007d3da  2**0
+ 19 .debug_rnglists 0000526f  00000000  00000000  0007cf73  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .debug_macro  000536d6  00000000  00000000  00082649  2**0
+ 20 .debug_macro  000536d6  00000000  00000000  000821e2  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .debug_line   0002fa4b  00000000  00000000  000d5d1f  2**0
+ 21 .debug_line   0002fa4b  00000000  00000000  000d58b8  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 22 .debug_str    0020864c  00000000  00000000  0010576a  2**0
+ 22 .debug_str    00208349  00000000  00000000  00105303  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 23 .comment      00000044  00000000  00000000  0030ddb6  2**0
+ 23 .comment      00000044  00000000  00000000  0030d64c  2**0
                   CONTENTS, READONLY
- 24 .debug_frame  00002fb4  00000000  00000000  0030ddfc  2**2
+ 24 .debug_frame  00002fb4  00000000  00000000  0030d690  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 25 .debug_line_str 000001d4  00000000  00000000  00310db0  2**0
+ 25 .debug_line_str 000001d4  00000000  00000000  00310644  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 SYMBOL TABLE:
 08000000 l    d  .isr_vector	00000000 .isr_vector
 080002a0 l    d  .text	00000000 .text
-0800d344 l    d  .ARM.extab	00000000 .ARM.extab
-0800d344 l    d  .exidx	00000000 .exidx
-0800d34c l    d  .ARM.attributes	00000000 .ARM.attributes
-0800d34c l    d  .init_array	00000000 .init_array
-0800d358 l    d  .fini_array	00000000 .fini_array
+0800d354 l    d  .ARM.extab	00000000 .ARM.extab
+0800d354 l    d  .exidx	00000000 .exidx
+0800d35c l    d  .ARM.attributes	00000000 .ARM.attributes
+0800d35c l    d  .init_array	00000000 .init_array
+0800d368 l    d  .fini_array	00000000 .fini_array
 20000000 l    d  .data	00000000 .data
 20000400 l    d  .bss	00000000 .bss
 24000000 l    d  .sram1	00000000 .sram1
@@ -91,10 +91,10 @@ SYMBOL TABLE:
 080006e4 l     F .text	00000000 register_tm_clones
 08000708 l     F .text	00000000 __do_global_dtors_aux
 20000400 l     O .bss	00000000 completed.1
-0800d358 l     O .fini_array	00000000 __do_global_dtors_aux_fini_array_entry
+0800d368 l     O .fini_array	00000000 __do_global_dtors_aux_fini_array_entry
 08000730 l     F .text	00000000 frame_dummy
 20000404 l     O .bss	00000000 object.0
-0800d34c l     O .init_array	00000000 __frame_dummy_init_array_entry
+0800d35c l     O .init_array	00000000 __frame_dummy_init_array_entry
 00000000 l    df *ABS*	00000000 main.cpp
 08000754 l     F .text	00000050 recorder::Analog::Start(bool) [clone .part.0]
 20000424 l     O .bss	00000004 recorder::last_strum_idx
@@ -128,14 +128,14 @@ SYMBOL TABLE:
 00000000 l    df *ABS*	00000000 stm32h7xx_ll_adc.c
 00000000 l    df *ABS*	00000000 stm32h7xx_ll_dac.c
 00000000 l    df *ABS*	00000000 stm32h7xx_ll_dma.c
-0800c728 l     O .text	00000008 LL_DMA_STR_OFFSET_TAB
+0800c734 l     O .text	00000008 LL_DMA_STR_OFFSET_TAB
 00000000 l    df *ABS*	00000000 stm32h7xx_ll_gpio.c
 00000000 l    df *ABS*	00000000 stm32h7xx_ll_mdma.c
-0800c730 l     O .text	00000040 LL_MDMA_CH_OFFSET_TAB
+0800c73c l     O .text	00000040 LL_MDMA_CH_OFFSET_TAB
 00000000 l    df *ABS*	00000000 stm32h7xx_ll_rcc.c
 00000000 l    df *ABS*	00000000 stm32h7xx_ll_tim.c
 00000000 l    df *ABS*	00000000 stm32h7xx_ll_usart.c
-0800c780 l     O .text	00000018 USART_PRESCALER_TAB
+0800c78c l     O .text	00000018 USART_PRESCALER_TAB
 00000000 l    df *ABS*	00000000 sf_exp2.c
 00000000 l    df *ABS*	00000000 log.c
 00000000 l    df *ABS*	00000000 sinf.c
@@ -144,9 +144,9 @@ SYMBOL TABLE:
 0800a9dc l     F .text	0000001c with_errnof
 0800a9f8 l     F .text	0000001e xflowf
 00000000 l    df *ABS*	00000000 sf_tanh.c
-0800d2b8 l     O .text	00000004 one
-0800d2b0 l     O .text	00000004 tiny
-0800d2b4 l     O .text	00000004 two
+0800d2c8 l     O .text	00000004 one
+0800d2c0 l     O .text	00000004 tiny
+0800d2c4 l     O .text	00000004 two
 00000000 l    df *ABS*	00000000 math_err.c
 0800ab54 l     F .text	0000001c with_errno
 00000000 l    df *ABS*	00000000 sf_expm1.c
@@ -215,12 +215,12 @@ SYMBOL TABLE:
 08007e6c  w    F .text	00000002 RTC_Alarm_IRQHandler
 08007e6c  w    F .text	00000002 HASH_RNG_IRQHandler
 08007e6c  w    F .text	00000002 EXTI2_IRQHandler
-0800c770 g     O .text	00000010 LL_RCC_PrescTable
+0800c77c g     O .text	00000010 LL_RCC_PrescTable
 08007cf4 g     F .text	00000006 recorder::system::Reset()
 08007e6c  w    F .text	00000002 TIM8_CC_IRQHandler
 0800bf30 g     F .text	00000020 _isatty_r
 08007604 g     F .text	00000094 recorder::Serial::InterruptService()
-20010c54 g     O .bss	00000004 recorder::play_button_
+20010e4c g     O .bss	00000004 recorder::play_button_
 0800c118 g     F .text	00000010 _getpid
 0800b17c g     F .text	000000aa _puts_r
 08007e6c  w    F .text	00000002 HRTIM1_Master_IRQHandler
@@ -246,7 +246,7 @@ SYMBOL TABLE:
 08000988  w    F .text	000000d4 recorder::Flash::Writable(unsigned long, unsigned long)
 08007e6c  w    F .text	00000002 HRTIM1_FLT_IRQHandler
 08007e6c  w    F .text	00000002 JPEG_IRQHandler
-20011120  w    O .bss	00000004 recorder::Analog::instance_
+20011318  w    O .bss	00000004 recorder::Analog::instance_
 08007e6c  w    F .text	00000002 DMA1_Stream5_IRQHandler
 0800bb68 g     F .text	0000000c __malloc_unlock
 08007e6c  w    F .text	00000002 SysTick_Handler
@@ -254,10 +254,10 @@ SYMBOL TABLE:
 0800ab70 g     F .text	00000030 .hidden __math_divzero
 08007e6c  w    F .text	00000002 HRTIM1_TIMD_IRQHandler
 08007e6c  w    F .text	00000002 TAMP_STAMP_IRQHandler
-0800d35c g       *ABS*	00000000 _sidata
+0800d36c g       *ABS*	00000000 _sidata
 08007e6c  w    F .text	00000002 PendSV_Handler
 08007e6c  w    F .text	00000002 NMI_Handler
-20010fb4 g     O .bss	00000164 recorder::analog_
+200111ac g     O .bss	00000164 recorder::analog_
 08007e6c  w    F .text	00000002 EXTI3_IRQHandler
 080084fc g     F .text	0000011c HAL_RCC_GetSysClockFreq
 08007e6c  w    F .text	00000002 LPTIM4_IRQHandler
@@ -273,11 +273,11 @@ SYMBOL TABLE:
 0800bf0c g     F .text	00000024 _fstat_r
 080077d8 g     F .text	000003f4 recorder::system::Init()
 20011944 g     O .bss	00000004 errno
-0800d344 g       .text	00000000 _etext
+0800d354 g       .text	00000000 _etext
 08007e6c  w    F .text	00000002 DMAMUX2_OVR_IRQHandler
 20000400 g       .bss	00000000 _sbss
 08006654 g     F .text	000000b4 recorder::Adc::Stop()
-20010c7c g     O .bss	00000004 recorder::button_2_
+20010e74 g     O .bss	00000004 recorder::button_2_
 08007f40 g     F .text	0000000c HAL_GetREVID
 08007e6c  w    F .text	00000002 TIM8_UP_TIM13_IRQHandler
 08007e6c  w    F .text	00000002 I2C3_ER_IRQHandler
@@ -286,8 +286,8 @@ SYMBOL TABLE:
 08009fa4 g     F .text	000001e8 LL_RCC_GetUSARTClockFreq
 08006058 g     F .text	000000dc recorder::Adc::InitAudioSequence()
 08007e6c  w    F .text	00000002 MDMA_IRQHandler
-0800c798 g     O .text	00000148 .hidden __exp2f_data
-20010c80 g     O .bss	00000004 recorder::button_1_
+0800c7a8 g     O .text	00000148 .hidden __exp2f_data
+20010e78 g     O .bss	00000004 recorder::button_1_
 08007e6c  w    F .text	00000002 LPTIM3_IRQHandler
 0800b0f8 g     F .text	00000060 getc
 20000554 g     O .bss	0000002c recorder::io_
@@ -319,7 +319,7 @@ SYMBOL TABLE:
 0800c01c g     F .text	00000004 _getpid_r
 20000400 g       .bss	00000000 __bss_start__
 08007e6c  w    F .text	00000002 HRTIM1_TIME_IRQHandler
-20010c60 g     O .bss	00000001 recorder::state_
+20010e58 g     O .bss	00000001 recorder::state_
 080005d4 g     F .text	0000001e .hidden __aeabi_ui2d
 08009758 g     F .text	0000006e LL_DAC_Init
 20000000 g       .data	00000000 _sdata
@@ -339,17 +339,17 @@ SYMBOL TABLE:
 20000028 g     O .data	00000004 SystemD2Clock
 08000618 g     F .text	00000042 .hidden __extendsfdf2
 08007c04 g     F .text	000000e0 recorder::system::Standby()
-2001111c  w    O .bss	00000004 recorder::Analog::callback_
+20011314  w    O .bss	00000004 recorder::Analog::callback_
 0800035c g     F .text	00000276 .hidden __adddf3
 08007574 g     F .text	00000058 recorder::Serial::Write(unsigned char, bool)
 08007e6c  w    F .text	00000002 DMA2_Stream3_IRQHandler
 0800a258 g     F .text	0000010c LL_USART_Init
 0800c128 g     F .text	00000010 _isatty
-0800c718 g     O .text	00000010 D1CorePrescTable
+0800c724 g     O .text	00000010 D1CorePrescTable
 0800b2ac g     F .text	00000048 __libc_init_array
 080007a4  w    F .text	000001e4 recorder::Switches::Init()
 08007e6c  w    F .text	00000002 SAI2_IRQHandler
-20010aa8 g     O .bss	00000158 recorder::recording_
+20010ca0 g     O .bss	00000158 recorder::recording_
 0800b316 g     F .text	0000000e abort
 080005d4 g     F .text	0000001e .hidden __floatunsidf
 08006134 g     F .text	000001dc recorder::Adc::InitPotSequence()
@@ -357,9 +357,9 @@ SYMBOL TABLE:
 08007e6c  w    F .text	00000002 DFSDM1_FLT3_IRQHandler
 08007e6c  w    F .text	00000002 USART6_IRQHandler
 08005fc8 g     F .text	0000008c recorder::Adc::InitADC(ADC_TypeDef*)
-0800d32c g     F .text	00000000 _init
-0800c600  w    O .text	00000014 recorder::Vocoder::cutoffFreqs
-0800d1d0 g     O .text	000000e0 .hidden __sincosf_table
+0800d33c g     F .text	00000000 _init
+0800c600  w    O .text	00000020 recorder::Vocoder::cutoffFreqs
+0800d1e0 g     O .text	000000e0 .hidden __sincosf_table
 0800a808 g     F .text	000001d4 cosf
 08007e6c  w    F .text	00000002 TIM17_IRQHandler
 0800c598  w    O .text	00000020 recorder::SynthEngine::major_scale_multipliers_
@@ -367,7 +367,7 @@ SYMBOL TABLE:
 08007e6c  w    F .text	00000002 CRYP_IRQHandler
 08007e6c  w    F .text	00000002 BDMA_Channel7_IRQHandler
 2001194c g       .bss	00000000 _ebss
-0800c8e0 g     O .text	00000890 .hidden __log_data
+0800c8f0 g     O .text	00000890 .hidden __log_data
 08007e70 g     F .text	00000044 Reset_Handler
 08007e6c  w    F .text	00000002 LPTIM5_IRQHandler
 08007e6c  w    F .text	00000002 UART5_IRQHandler
@@ -376,7 +376,7 @@ SYMBOL TABLE:
 08007e6c  w    F .text	00000002 ADC3_IRQHandler
 08007e6c  w    F .text	00000002 DMA2_Stream0_IRQHandler
 08005c6c g     F .text	00000350 recorder::Adc::DMAService()
-20010c58 g     O .bss	00000004 recorder::playback_timeout_
+20010e50 g     O .bss	00000004 recorder::playback_timeout_
 200117fc g     O .bss	00000138 __sf
 0800c548  w    O .text	00000010 recorder::SynthEngine::diminished_chord_multipliers_
 0800a18c g     F .text	000000cc LL_TIM_Init
@@ -443,7 +443,7 @@ SYMBOL TABLE:
 080005f4 g     F .text	00000022 .hidden __aeabi_i2d
 3800fc30  w    O .dma	00000018 recorder::Dac::dma_buffer_
 08007e6c  w    F .text	00000002 TIM5_IRQHandler
-20010c00 g     O .bss	00000054 recorder::sample_memory_
+20010df8 g     O .bss	00000054 recorder::sample_memory_
 08007e6c  w    F .text	00000002 DMA2_Stream7_IRQHandler
 08007e6c  w    F .text	00000002 TIM15_IRQHandler
 08007e6c  w    F .text	00000002 PVD_AVD_IRQHandler
@@ -453,7 +453,7 @@ SYMBOL TABLE:
 38000000  w    O .sram3	0000fc00 recorder::SampleMemoryBase::buffer3_
 08007e6c  w    F .text	00000002 RTC_WKUP_IRQHandler
 08007e6c  w    F .text	00000002 LTDC_IRQHandler
-20010c5c g     O .bss	00000004 recorder::idle_timeout_
+20010e54 g     O .bss	00000004 recorder::idle_timeout_
 0800bb74 g     F .text	00000022 __sread
 08007e6c  w    F .text	00000002 SAI3_IRQHandler
 08007e6c  w    F .text	00000002 ETH_WKUP_IRQHandler
@@ -475,7 +475,7 @@ SYMBOL TABLE:
 08007e6c  w    F .text	00000002 SVC_Handler
 0800bbf2 g     F .text	00000008 __sclose
 08007e6c  w    F .text	00000002 CRS_IRQHandler
-0800d358 g       .init_array	00000000 __init_array_end
+0800d368 g       .init_array	00000000 __init_array_end
 0800b5ec g     F .text	00000100 _malloc_r
 20000024 g     O .data	00000004 recorder::buttonIDs
 08003110 g     F .text	000000d0 recorder::Transition(recorder::State)
@@ -485,10 +485,10 @@ SYMBOL TABLE:
 0800c568  w    O .text	00000010 recorder::SynthEngine::major_chord_multipliers_
 08007eb4 g     F .text	00000080 SystemInit
 08007e6c  w    F .text	00000002 HRTIM1_TIMB_IRQHandler
-0800d338 g     F .text	00000000 _fini
+0800d348 g     F .text	00000000 _fini
 0800b158 g     F .text	00000024 iprintf
 08006c58 g     F .text	00000060 recorder::Dac::Stop()
-20010ea8 g     O .bss	00000001 recorder::synth_inactive_
+200110a0 g     O .bss	00000001 recorder::synth_inactive_
 08006be0 g     F .text	00000078 recorder::Dac::Start()
 08007e6c  w    F .text	00000002 FDCAN2_IT1_IRQHandler
 0800c040 g     F .text	00000024 _write_r
@@ -504,13 +504,13 @@ SYMBOL TABLE:
 08007e6c  w    F .text	00000002 OTG_HS_EP1_OUT_IRQHandler
 0800b0bc g     F .text	0000003c _fwalk_sglue
 0800c528  w    O .text	00000020 recorder::SynthEngine::major_scale_chord_types_
-20011118  w    O .bss	00000004 recorder::Adc::instance_
-0800d34c g       .ARM.attributes	00000000 __preinit_array_end
+20011310  w    O .bss	00000004 recorder::Adc::instance_
+0800d35c g       .ARM.attributes	00000000 __preinit_array_end
 0800be04 g     F .text	000000e8 __srefill_r
 08007e6c  w    F .text	00000002 WWDG_IRQHandler
 08007e6c  w    F .text	00000002 SPI6_IRQHandler
 080031e0 g     F .text	000002bc recorder::checkRecordPlayback(bool, bool)
-20010eac g     O .bss	00000108 recorder::switches_
+200110a4 g     O .bss	00000108 recorder::switches_
 08007e6c  w    F .text	00000002 I2C4_EV_IRQHandler
 08007e6c  w    F .text	00000002 MDIOS_IRQHandler
 08007e6c  w    F .text	00000002 FDCAN2_IT0_IRQHandler
@@ -525,9 +525,9 @@ SYMBOL TABLE:
 08007e6c  w    F .text	00000002 OTG_HS_IRQHandler
 08007e6c  w    F .text	00000002 DMA2D_IRQHandler
 08007e6c  w    F .text	00000002 TIM1_BRK_IRQHandler
-20010c78 g     O .bss	00000004 recorder::button_3_
+20010e70 g     O .bss	00000004 recorder::button_3_
 0800bd24 g     F .text	0000004c __swhatbuf_r
-20000580 g     O .bss	00010528 recorder::playback_
+20000580 g     O .bss	00010720 recorder::playback_
 20020000 g       *ABS*	00000000 _estack
 08007e6c  w    F .text	00000002 EXTI1_IRQHandler
 08007e6c  w    F .text	00000002 SDMMC2_IRQHandler
@@ -538,10 +538,10 @@ SYMBOL TABLE:
 08007e6c  w    F .text	00000002 OTG_FS_EP1_OUT_IRQHandler
 20000420 g     O .bss	00000001 recorder::strum_idx_changed
 08002478 g     F .text	00000c98 recorder::Process(std::array<float [3], 2u> const&, std::array<float, 8u> const&)
-20010c9c g     O .bss	0000020c recorder::synth_engine_
+20010e94 g     O .bss	0000020c recorder::synth_engine_
 08007e6c  w    F .text	00000002 BDMA_Channel3_IRQHandler
 08006a74 g     F .text	00000144 recorder::Analog::Init(std::array<float [3], 1u> const (*)(std::array<float [3], 2u> const&, std::array<float, 8u> const&))
-0800c614  w    O .text	00000104 recorder::Adc::PotFilter::kPotCorrection
+0800c620  w    O .text	00000104 recorder::Adc::PotFilter::kPotCorrection
 08007e6c  w    F .text	00000002 UART7_IRQHandler
 080097c8 g     F .text	000000c4 LL_DMA_Init
 08007e6c  w    F .text	00000002 MDIOS_WKUP_IRQHandler
@@ -558,14 +558,14 @@ SYMBOL TABLE:
 08007698 g     F .text	0000000c recorder::Serial::InterruptHandler()
 20000040 g     O .data	0000004c _impure_data
 08007e6c  w    F .text	00000002 I2C2_ER_IRQHandler
-20010c64 g     O .bss	00000010 recorder::buttons
+20010e5c g     O .bss	00000010 recorder::buttons
 0800b05c g     F .text	0000000c __sfp_lock_release
 0800c4e8  w    O .text	00000010 recorder::JingleEngine::ending_jingle_
 08007e6c  w    F .text	00000002 DMA2_Stream1_IRQHandler
 080076c8 g     F .text	0000001c TickHandler
 3800fc00  w    O .dma	00000030 recorder::Adc::dma_buffer_
 08007d80 g     F .text	00000070 _read
-0800d34c g       .init_array	00000000 __init_array_start
+0800d35c g       .init_array	00000000 __init_array_start
 08007e6c  w    F .text	00000002 FLASH_IRQHandler
 0800c174 g     F .text	00000002 _exit
 08007bf8 g     F .text	0000000c recorder::system::SerialFlushTx(bool)
@@ -585,12 +585,12 @@ SYMBOL TABLE:
 08007e6c  w    F .text	00000002 DMA1_Stream4_IRQHandler
 2001193c g     O .bss	00000004 __malloc_sbrk_start
 08007e6c  w    F .text	00000002 OTG_FS_EP1_IN_IRQHandler
-20010c74 g     O .bss	00000004 recorder::button_4_
+20010e6c g     O .bss	00000004 recorder::button_4_
 08007e6c  w    F .text	00000002 I2C1_ER_IRQHandler
 08007f6c g     F .text	00000010 HAL_DBGMCU_DisableDBGStandbyMode
 08007e6c  w    F .text	00000002 FMC_IRQHandler
 08000618 g     F .text	00000042 .hidden __aeabi_f2d
-0800d170 g     O .text	00000060 .hidden __inv_pio4
+0800d180 g     O .text	00000060 .hidden __inv_pio4
 08007e6c  w    F .text	00000002 FDCAN_CAL_IRQHandler
 20011940 g     O .bss	00000004 __malloc_free_list
 08007e6c  w    F .text	00000002 SWPMI1_IRQHandler
@@ -599,7 +599,7 @@ SYMBOL TABLE:
 08007ce4 g     F .text	00000010 recorder::system::WakeupWasPlayButton()
 08000358 g     F .text	0000027a .hidden __subdf3
 0800b378 g     F .text	00000230 _vfprintf_r
-0800d34c g       .ARM.attributes	00000000 __preinit_array_start
+0800d35c g       .ARM.attributes	00000000 __preinit_array_start
 08007e6c  w    F .text	00000002 I2C4_ER_IRQHandler
 0800c5ec  w    O .text	00000014 recorder::SynthEngine::kAttenuationLevels
 0800abc0 g     F .text	0000026c expm1f
@@ -612,7 +612,7 @@ SYMBOL TABLE:
 20011939 g     O .bss	00000001 __lock___sfp_recursive_mutex
 0800c0f8 g     F .text	00000010 _close
 0800bfc4 g     F .text	00000010 raise
-20010c84 g     O .bss	00000018 recorder::jingle_engine_
+20010e7c g     O .bss	00000018 recorder::jingle_engine_
 08006e14 g     F .text	000003b8 recorder::Flash::Init()
 
 
@@ -1036,7 +1036,7 @@ Disassembly of section .text:
  8000722:	bd10      	pop	{r4, pc}
  8000724:	20000400 	.word	0x20000400
  8000728:	00000000 	.word	0x00000000
- 800072c:	0800d344 	.word	0x0800d344
+ 800072c:	0800d354 	.word	0x0800d354
 
 08000730 <frame_dummy>:
  8000730:	b508      	push	{r3, lr}
@@ -1050,7 +1050,7 @@ Disassembly of section .text:
  8000746:	bf00      	nop
  8000748:	00000000 	.word	0x00000000
  800074c:	20000404 	.word	0x20000404
- 8000750:	0800d344 	.word	0x0800d344
+ 8000750:	0800d354 	.word	0x0800d354
 
 08000754 <recorder::Analog::Start(bool) [clone .part.0]>:
 
@@ -4905,14 +4905,14 @@ public:
  8002872:	3748      	adds	r7, #72	@ 0x48
  8002874:	e7f7      	b.n	8002866 <recorder::Process(std::array<float [3], 2u> const&, std::array<float, 8u> const&)+0x3ee>
  8002876:	bf00      	nop
- 8002878:	20010aa8 	.word	0x20010aa8
- 800287c:	20010ab0 	.word	0x20010ab0
+ 8002878:	20010ca0 	.word	0x20010ca0
+ 800287c:	20010ca8 	.word	0x20010ca8
  8002880:	20000420 	.word	0x20000420
  8002884:	20000424 	.word	0x20000424
- 8002888:	20010c9c 	.word	0x20010c9c
+ 8002888:	20010e94 	.word	0x20010e94
  800288c:	20000554 	.word	0x20000554
- 8002890:	20010c64 	.word	0x20010c64
- 8002894:	20010c60 	.word	0x20010c60
+ 8002890:	20010e5c 	.word	0x20010e5c
+ 8002894:	20010e58 	.word	0x20010e58
         }
 
         // Process audio samples just like SynthEngine
@@ -5073,8 +5073,8 @@ public:
  8002998:	eeb3 5a0e 	vmov.f32	s10, #62	@ 0x41f00000  30.0
         float out = 0;
  800299c:	eddf 7a7d 	vldr	s15, [pc, #500]	@ 8002b94 <recorder::Process(std::array<float [3], 2u> const&, std::array<float, 8u> const&)+0x71c>
- 80029a0:	f503 7247 	add.w	r2, r3, #796	@ 0x31c
- 80029a4:	f503 704d 	add.w	r0, r3, #820	@ 0x334
+ 80029a0:	f503 62a1 	add.w	r2, r3, #1288	@ 0x508
+ 80029a4:	f503 60a4 	add.w	r0, r3, #1312	@ 0x520
         in = std::abs(in);
 
         if (in >= envelope_)
@@ -5316,7 +5316,7 @@ public:
             if (index < chain_[i].length)
  8002b5c:	4662      	mov	r2, ip
  8002b5e:	e02a      	b.n	8002bb6 <recorder::Process(std::array<float [3], 2u> const&, std::array<float, 8u> const&)+0x73e>
- 8002b60:	20010c84 	.word	0x20010c84
+ 8002b60:	20010e7c 	.word	0x20010e7c
  8002b64:	0800c4e8 	.word	0x0800c4e8
  8002b68:	0800c4f8 	.word	0x0800c4f8
  8002b6c:	39cde32e 	.word	0x39cde32e
@@ -5325,7 +5325,7 @@ public:
  8002b78:	20000420 	.word	0x20000420
  8002b7c:	20000424 	.word	0x20000424
  8002b80:	20000580 	.word	0x20000580
- 8002b84:	20010c9c 	.word	0x20010c9c
+ 8002b84:	20010e94 	.word	0x20010e94
  8002b88:	2001076c 	.word	0x2001076c
  8002b8c:	43a00000 	.word	0x43a00000
  8002b90:	3b4ccccd 	.word	0x3b4ccccd
@@ -6034,7 +6034,7 @@ public:
  80031a2:	e7c8      	b.n	8003136 <recorder::Transition(recorder::State)+0x26>
  80031a4:	0800c230 	.word	0x0800c230
  80031a8:	0800c294 	.word	0x0800c294
- 80031ac:	20010c60 	.word	0x20010c60
+ 80031ac:	20010e58 	.word	0x20010e58
  80031b0:	0800c29c 	.word	0x0800c29c
  80031b4:	0800c238 	.word	0x0800c238
  80031b8:	0800c240 	.word	0x0800c240
@@ -6416,16 +6416,16 @@ public:
  8003462:	bf00      	nop
  8003464:	f3af 8000 	nop.w
 	...
- 8003470:	20010ab0 	.word	0x20010ab0
- 8003474:	20010fb4 	.word	0x20010fb4
- 8003478:	20010c00 	.word	0x20010c00
+ 8003470:	20010ca8 	.word	0x20010ca8
+ 8003474:	200111ac 	.word	0x200111ac
+ 8003478:	20010df8 	.word	0x20010df8
  800347c:	0800c230 	.word	0x0800c230
  8003480:	0800c248 	.word	0x0800c248
- 8003484:	20010c60 	.word	0x20010c60
+ 8003484:	20010e58 	.word	0x20010e58
  8003488:	20000580 	.word	0x20000580
  800348c:	58020400 	.word	0x58020400
  8003490:	58021800 	.word	0x58021800
- 8003494:	20010c58 	.word	0x20010c58
+ 8003494:	20010e50 	.word	0x20010e50
  8003498:	0800c250 	.word	0x0800c250
 
 0800349c <recorder::StateMachine(bool)>:
@@ -6830,21 +6830,21 @@ public:
  80037a0:	f883 60ed 	strb.w	r6, [r3, #237]	@ 0xed
  80037a4:	e74d      	b.n	8003642 <recorder::StateMachine(bool)+0x1a6>
  80037a6:	bf00      	nop
- 80037a8:	20010eac 	.word	0x20010eac
- 80037ac:	20010c60 	.word	0x20010c60
+ 80037a8:	200110a4 	.word	0x200110a4
+ 80037ac:	20010e58 	.word	0x20010e58
  80037b0:	20000554 	.word	0x20000554
  80037b4:	40bfae14 	.word	0x40bfae14
  80037b8:	20000424 	.word	0x20000424
  80037bc:	20000024 	.word	0x20000024
- 80037c0:	20010c64 	.word	0x20010c64
- 80037c4:	20010fb4 	.word	0x20010fb4
+ 80037c0:	20010e5c 	.word	0x20010e5c
+ 80037c4:	200111ac 	.word	0x200111ac
  80037c8:	58021800 	.word	0x58021800
  80037cc:	58020400 	.word	0x58020400
- 80037d0:	20010c84 	.word	0x20010c84
+ 80037d0:	20010e7c 	.word	0x20010e7c
  80037d4:	3e6c2ad7 	.word	0x3e6c2ad7
  80037d8:	0800c230 	.word	0x0800c230
  80037dc:	0800c29c 	.word	0x0800c29c
- 80037e0:	20010c54 	.word	0x20010c54
+ 80037e0:	20010e4c 	.word	0x20010e4c
  80037e4:	20000420 	.word	0x20000420
         else if (in != state_)
  80037e8:	f893 70e1 	ldrb.w	r7, [r3, #225]	@ 0xe1
@@ -7296,27 +7296,27 @@ public:
  8003b74:	702a      	strb	r2, [r5, #0]
                     synthReleaseCounter = 0;
  8003b76:	e600      	b.n	800377a <recorder::StateMachine(bool)+0x2de>
- 8003b78:	20010c84 	.word	0x20010c84
+ 8003b78:	20010e7c 	.word	0x20010e7c
  8003b7c:	58020400 	.word	0x58020400
  8003b80:	58021800 	.word	0x58021800
- 8003b84:	20010ea8 	.word	0x20010ea8
+ 8003b84:	200110a0 	.word	0x200110a0
  8003b88:	0800c230 	.word	0x0800c230
  8003b8c:	0800c238 	.word	0x0800c238
- 8003b90:	20010c60 	.word	0x20010c60
+ 8003b90:	20010e58 	.word	0x20010e58
  8003b94:	0800c28c 	.word	0x0800c28c
- 8003b98:	20010c00 	.word	0x20010c00
+ 8003b98:	20010df8 	.word	0x20010df8
  8003b9c:	52005000 	.word	0x52005000
  8003ba0:	05000105 	.word	0x05000105
  8003ba4:	01002502 	.word	0x01002502
  8003ba8:	0800c2b4 	.word	0x0800c2b4
- 8003bac:	20010c80 	.word	0x20010c80
- 8003bb0:	20010c7c 	.word	0x20010c7c
- 8003bb4:	20010c78 	.word	0x20010c78
- 8003bb8:	20010c74 	.word	0x20010c74
+ 8003bac:	20010e78 	.word	0x20010e78
+ 8003bb0:	20010e74 	.word	0x20010e74
+ 8003bb4:	20010e70 	.word	0x20010e70
+ 8003bb8:	20010e6c 	.word	0x20010e6c
  8003bbc:	20000420 	.word	0x20000420
- 8003bc0:	20010c5c 	.word	0x20010c5c
- 8003bc4:	20010fb4 	.word	0x20010fb4
- 8003bc8:	20010c9c 	.word	0x20010c9c
+ 8003bc0:	20010e54 	.word	0x20010e54
+ 8003bc4:	200111ac 	.word	0x200111ac
+ 8003bc8:	20010e94 	.word	0x20010e94
  8003bcc:	2000041c 	.word	0x2000041c
         gpio_struct(gpio_base)->BSRR = kPinMask;
  8003bd0:	4b6c      	ldr	r3, [pc, #432]	@ (8003d84 <recorder::StateMachine(bool)+0x8e8>)
@@ -7587,17 +7587,17 @@ __STATIC_INLINE uint32_t LL_CRC_ReadData32(CRC_TypeDef *CRCx)
  8003d80:	e01c      	b.n	8003dbc <recorder::StateMachine(bool)+0x920>
  8003d82:	bf00      	nop
  8003d84:	58020800 	.word	0x58020800
- 8003d88:	20010fb4 	.word	0x20010fb4
+ 8003d88:	200111ac 	.word	0x200111ac
  8003d8c:	0800c230 	.word	0x0800c230
  8003d90:	0800c238 	.word	0x0800c238
- 8003d94:	20010c00 	.word	0x20010c00
- 8003d98:	20010c60 	.word	0x20010c60
+ 8003d94:	20010df8 	.word	0x20010df8
+ 8003d98:	20010e58 	.word	0x20010e58
  8003d9c:	58024c00 	.word	0x58024c00
  8003da0:	0800c258 	.word	0x0800c258
  8003da4:	20000420 	.word	0x20000420
- 8003da8:	20010c5c 	.word	0x20010c5c
+ 8003da8:	20010e54 	.word	0x20010e54
  8003dac:	46ea6000 	.word	0x46ea6000
- 8003db0:	20010c20 	.word	0x20010c20
+ 8003db0:	20010e18 	.word	0x20010e18
  8003db4:	f00f00f1 	.word	0xf00f00f1
             if (nvmem_.Writable(BlockLocation(next_block_n), kBlockSize))
             {
@@ -8006,19 +8006,19 @@ __STATIC_INLINE uint32_t LL_CRC_ReadData32(CRC_TypeDef *CRCx)
     }
  8004088:	f7ff bb77 	b.w	800377a <recorder::StateMachine(bool)+0x2de>
  800408c:	e01e01e1 	.word	0xe01e01e1
- 8004090:	20010c14 	.word	0x20010c14
+ 8004090:	20010e0c 	.word	0x20010e0c
  8004094:	52005000 	.word	0x52005000
  8004098:	0800c2c4 	.word	0x0800c2c4
  800409c:	0800c2d4 	.word	0x0800c2d4
  80040a0:	0800c2dc 	.word	0x0800c2dc
  80040a4:	0800c2f0 	.word	0x0800c2f0
  80040a8:	0800c304 	.word	0x0800c304
- 80040ac:	20010fb4 	.word	0x20010fb4
- 80040b0:	20010c00 	.word	0x20010c00
+ 80040ac:	200111ac 	.word	0x200111ac
+ 80040b0:	20010df8 	.word	0x20010df8
  80040b4:	05000105 	.word	0x05000105
  80040b8:	0800c230 	.word	0x0800c230
  80040bc:	0800c27c 	.word	0x0800c27c
- 80040c0:	20010c60 	.word	0x20010c60
+ 80040c0:	20010e58 	.word	0x20010e58
  80040c4:	01002502 	.word	0x01002502
         return dirty_ && audio_info_.size > 0;
  80040c8:	4bba      	ldr	r3, [pc, #744]	@ (80043b4 <recorder::StateMachine(bool)+0xf18>)
@@ -8394,18 +8394,18 @@ __STATIC_INLINE uint32_t LL_CRC_ReadData32(CRC_TypeDef *CRCx)
  80043ac:	f882 3032 	strb.w	r3, [r2, #50]	@ 0x32
         }
  80043b0:	f7ff b9e3 	b.w	800377a <recorder::StateMachine(bool)+0x2de>
- 80043b4:	20010c00 	.word	0x20010c00
+ 80043b4:	20010df8 	.word	0x20010df8
  80043b8:	0800c230 	.word	0x0800c230
  80043bc:	0800c268 	.word	0x0800c268
- 80043c0:	20010c60 	.word	0x20010c60
+ 80043c0:	20010e58 	.word	0x20010e58
  80043c4:	0800c270 	.word	0x0800c270
  80043c8:	2000041c 	.word	0x2000041c
- 80043cc:	20010fb4 	.word	0x20010fb4
+ 80043cc:	200111ac 	.word	0x200111ac
  80043d0:	58021800 	.word	0x58021800
  80043d4:	58020400 	.word	0x58020400
- 80043d8:	20010c5c 	.word	0x20010c5c
+ 80043d8:	20010e54 	.word	0x20010e54
  80043dc:	0800c240 	.word	0x0800c240
- 80043e0:	20010c58 	.word	0x20010c58
+ 80043e0:	20010e50 	.word	0x20010e50
  80043e4:	48927c00 	.word	0x48927c00
  80043e8:	20000580 	.word	0x20000580
  80043ec:	e01e01e1 	.word	0xe01e01e1
@@ -8775,10 +8775,10 @@ __STATIC_INLINE uint32_t LL_CRC_ReadData32(CRC_TypeDef *CRCx)
  800469c:	52005000 	.word	0x52005000
  80046a0:	05000105 	.word	0x05000105
  80046a4:	0800c2a4 	.word	0x0800c2a4
- 80046a8:	20010c5c 	.word	0x20010c5c
+ 80046a8:	20010e54 	.word	0x20010e54
  80046ac:	46ea6000 	.word	0x46ea6000
- 80046b0:	20010fb4 	.word	0x20010fb4
- 80046b4:	20010c84 	.word	0x20010c84
+ 80046b0:	200111ac 	.word	0x200111ac
+ 80046b4:	20010e7c 	.word	0x20010e7c
  80046b8:	3e6c2ad7 	.word	0x3e6c2ad7
  80046bc:	58021800 	.word	0x58021800
  80046c0:	58020400 	.word	0x58020400
@@ -8787,9 +8787,9 @@ __STATIC_INLINE uint32_t LL_CRC_ReadData32(CRC_TypeDef *CRCx)
 080046c8 <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()>:
         void Init(void)
  80046c8:	e92d 4ff8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, sl, fp, lr}
- 80046cc:	4681      	mov	r9, r0
+ 80046cc:	4682      	mov	sl, r0
         position_ = 0;
- 80046ce:	2600      	movs	r6, #0
+ 80046ce:	2500      	movs	r5, #0
 {
 public:
     void Init(float threshold_dB, float ratio, float softness,
@@ -8802,7 +8802,7 @@ public:
         t_scaler_ = 0.5 / softness;
  80046d2:	f04f 527c 	mov.w	r2, #1056964608	@ 0x3f000000
         pregain_ = std::pow(10.0, -threshold_dB / 20);
- 80046d6:	f509 3580 	add.w	r5, r9, #65536	@ 0x10000
+ 80046d6:	f50a 3680 	add.w	r6, sl, #65536	@ 0x10000
         softness_ = softness;
  80046da:	f04f 537e 	mov.w	r3, #1065353216	@ 0x3f800000
         SetQ(Q);
@@ -8815,7 +8815,7 @@ public:
         hold_count_ = 0;
  80046e0:	f44f 5efa 	mov.w	lr, #8000	@ 0x1f40
  80046e4:	4c5e      	ldr	r4, [pc, #376]	@ (8004860 <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x198>)
- 80046e6:	f109 0b34 	add.w	fp, r9, #52	@ 0x34
+ 80046e6:	f10a 0b34 	add.w	fp, sl, #52	@ 0x34
  80046ea:	f8df 8224 	ldr.w	r8, [pc, #548]	@ 8004910 <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x248>
         UpdateFilter();
     }
@@ -8824,101 +8824,101 @@ public:
     {
         Q_ = Q;
  80046ee:	495d      	ldr	r1, [pc, #372]	@ (8004864 <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x19c>)
- 80046f0:	444c      	add	r4, r9
+ 80046f0:	4454      	add	r4, sl
         envelope_ = 0;
  80046f2:	ed9f 0a5d 	vldr	s0, [pc, #372]	@ 8004868 <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x1a0>
- 80046f6:	44c8      	add	r8, r9
- 80046f8:	f8df a218 	ldr.w	sl, [pc, #536]	@ 8004914 <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x24c>
+ 80046f6:	44d0      	add	r8, sl
+ 80046f8:	f8df 9218 	ldr.w	r9, [pc, #536]	@ 8004914 <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x24c>
  80046fc:	ed2d 8b0e 	vpush	{d8-d14}
- 8004700:	f8c9 6014 	str.w	r6, [r9, #20]
+ 8004700:	f8ca 5014 	str.w	r5, [sl, #20]
         fade_out_ = 0;
- 8004704:	f8c9 6024 	str.w	r6, [r9, #36]	@ 0x24
+ 8004704:	f8ca 5024 	str.w	r5, [sl, #36]	@ 0x24
         pregain_ = std::pow(10.0, -threshold_dB / 20);
- 8004708:	63af      	str	r7, [r5, #56]	@ 0x38
+ 8004708:	63b7      	str	r7, [r6, #56]	@ 0x38
         ratio_ = 1 / ratio - 1;
  800470a:	4f58      	ldr	r7, [pc, #352]	@ (800486c <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x1a4>)
         t_scaler_ = 0.5 / softness;
- 800470c:	646a      	str	r2, [r5, #68]	@ 0x44
+ 800470c:	6472      	str	r2, [r6, #68]	@ 0x44
         ratio_ = 1 / ratio - 1;
- 800470e:	63ef      	str	r7, [r5, #60]	@ 0x3c
+ 800470e:	63f7      	str	r7, [r6, #60]	@ 0x3c
         attack_rate_ = 1 - std::exp(-1000 / (attack_ms * (sample_rate)));
  8004710:	4f57      	ldr	r7, [pc, #348]	@ (8004870 <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x1a8>)
         decay_rate_ = 1 - std::exp(-1000 / (decay_ms * (sample_rate)));
  8004712:	4a58      	ldr	r2, [pc, #352]	@ (8004874 <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x1ac>)
         attack_rate_ = 1 - std::exp(-1000 / (attack_ms * (sample_rate)));
- 8004714:	64af      	str	r7, [r5, #72]	@ 0x48
+ 8004714:	64b7      	str	r7, [r6, #72]	@ 0x48
         decay_rate_ = 1 - std::exp(-1000 / (decay_ms * (sample_rate)));
  8004716:	4f58      	ldr	r7, [pc, #352]	@ (8004878 <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x1b0>)
- 8004718:	662a      	str	r2, [r5, #96]	@ 0x60
- 800471a:	64ef      	str	r7, [r5, #76]	@ 0x4c
+ 8004718:	6632      	str	r2, [r6, #96]	@ 0x60
+ 800471a:	64f7      	str	r7, [r6, #76]	@ 0x4c
         hold_samples_ = std::round(hold_ms * (sample_rate) / 1000);
  800471c:	f44f 67c8 	mov.w	r7, #1600	@ 0x640
         factor_ = 1 - std::exp(-cutoff / sample_rate);
- 8004720:	672a      	str	r2, [r5, #112]	@ 0x70
- 8004722:	652f      	str	r7, [r5, #80]	@ 0x50
+ 8004720:	6732      	str	r2, [r6, #112]	@ 0x70
+ 8004722:	6537      	str	r7, [r6, #80]	@ 0x50
         attack_rate_ = 1 - std::exp(-1000 / (attack_ms * (sample_rate)));
  8004724:	4f55      	ldr	r7, [pc, #340]	@ (800487c <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x1b4>)
             sections_[n].b[0] = sections[n].b[0];
  8004726:	4a56      	ldr	r2, [pc, #344]	@ (8004880 <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x1b8>)
- 8004728:	65ef      	str	r7, [r5, #92]	@ 0x5c
+ 8004728:	65f7      	str	r7, [r6, #92]	@ 0x5c
         hold_samples_ = std::round(hold_ms * (sample_rate) / 1000);
  800472a:	f44f 577a 	mov.w	r7, #16000	@ 0x3e80
         softness_ = softness;
- 800472e:	642b      	str	r3, [r5, #64]	@ 0x40
- 8004730:	666f      	str	r7, [r5, #100]	@ 0x64
+ 800472e:	6433      	str	r3, [r6, #64]	@ 0x40
+ 8004730:	6677      	str	r7, [r6, #100]	@ 0x64
         num_sections_ = num_sections;
  8004732:	2705      	movs	r7, #5
             sections_[n].b[0] = sections[n].b[0];
- 8004734:	f8c5 313c 	str.w	r3, [r5, #316]	@ 0x13c
+ 8004734:	f8c6 313c 	str.w	r3, [r6, #316]	@ 0x13c
         num_sections_ = num_sections;
- 8004738:	f8c5 7124 	str.w	r7, [r5, #292]	@ 0x124
+ 8004738:	f8c6 7124 	str.w	r7, [r6, #292]	@ 0x124
             sections_[n].b[1] = sections[n].b[1];
  800473c:	4f51      	ldr	r7, [pc, #324]	@ (8004884 <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x1bc>)
             sections_[n].b[2] = sections[n].b[2];
- 800473e:	f8c5 3144 	str.w	r3, [r5, #324]	@ 0x144
+ 800473e:	f8c6 3144 	str.w	r3, [r6, #324]	@ 0x144
             sections_[n].b[1] = sections[n].b[1];
- 8004742:	f8c5 712c 	str.w	r7, [r5, #300]	@ 0x12c
+ 8004742:	f8c6 712c 	str.w	r7, [r6, #300]	@ 0x12c
             sections_[n].a[0] = sections[n].a[0];
  8004746:	4f50      	ldr	r7, [pc, #320]	@ (8004888 <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x1c0>)
             sections_[n].b[0] = sections[n].b[0];
- 8004748:	f8c5 3150 	str.w	r3, [r5, #336]	@ 0x150
+ 8004748:	f8c6 3150 	str.w	r3, [r6, #336]	@ 0x150
             sections_[n].a[0] = sections[n].a[0];
- 800474c:	f8c5 7134 	str.w	r7, [r5, #308]	@ 0x134
+ 800474c:	f8c6 7134 	str.w	r7, [r6, #308]	@ 0x134
             sections_[n].a[1] = sections[n].a[1];
  8004750:	4f4e      	ldr	r7, [pc, #312]	@ (800488c <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x1c4>)
             sections_[n].b[2] = sections[n].b[2];
- 8004752:	f8c5 3158 	str.w	r3, [r5, #344]	@ 0x158
+ 8004752:	f8c6 3158 	str.w	r3, [r6, #344]	@ 0x158
             sections_[n].a[1] = sections[n].a[1];
- 8004756:	f8c5 7138 	str.w	r7, [r5, #312]	@ 0x138
+ 8004756:	f8c6 7138 	str.w	r7, [r6, #312]	@ 0x138
             sections_[n].b[1] = sections[n].b[1];
  800475a:	4f4d      	ldr	r7, [pc, #308]	@ (8004890 <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x1c8>)
             sections_[n].b[0] = sections[n].b[0];
- 800475c:	f8c5 3164 	str.w	r3, [r5, #356]	@ 0x164
+ 800475c:	f8c6 3164 	str.w	r3, [r6, #356]	@ 0x164
             sections_[n].b[1] = sections[n].b[1];
- 8004760:	f8c5 7140 	str.w	r7, [r5, #320]	@ 0x140
+ 8004760:	f8c6 7140 	str.w	r7, [r6, #320]	@ 0x140
             sections_[n].a[0] = sections[n].a[0];
  8004764:	4f4b      	ldr	r7, [pc, #300]	@ (8004894 <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x1cc>)
             sections_[n].b[2] = sections[n].b[2];
- 8004766:	f8c5 316c 	str.w	r3, [r5, #364]	@ 0x16c
+ 8004766:	f8c6 316c 	str.w	r3, [r6, #364]	@ 0x16c
             sections_[n].a[0] = sections[n].a[0];
- 800476a:	f8c5 7148 	str.w	r7, [r5, #328]	@ 0x148
+ 800476a:	f8c6 7148 	str.w	r7, [r6, #328]	@ 0x148
             sections_[n].a[1] = sections[n].a[1];
  800476e:	4f4a      	ldr	r7, [pc, #296]	@ (8004898 <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x1d0>)
             sections_[n].b[0] = sections[n].b[0];
- 8004770:	f8c5 2128 	str.w	r2, [r5, #296]	@ 0x128
+ 8004770:	f8c6 2128 	str.w	r2, [r6, #296]	@ 0x128
             sections_[n].a[1] = sections[n].a[1];
- 8004774:	f8c5 714c 	str.w	r7, [r5, #332]	@ 0x14c
+ 8004774:	f8c6 714c 	str.w	r7, [r6, #332]	@ 0x14c
             sections_[n].b[1] = sections[n].b[1];
  8004778:	4f48      	ldr	r7, [pc, #288]	@ (800489c <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x1d4>)
             sections_[n].b[2] = sections[n].b[2];
- 800477a:	f8c5 2130 	str.w	r2, [r5, #304]	@ 0x130
+ 800477a:	f8c6 2130 	str.w	r2, [r6, #304]	@ 0x130
             sections_[n].b[1] = sections[n].b[1];
- 800477e:	f8c5 7154 	str.w	r7, [r5, #340]	@ 0x154
+ 800477e:	f8c6 7154 	str.w	r7, [r6, #340]	@ 0x154
             sections_[n].a[0] = sections[n].a[0];
  8004782:	4f47      	ldr	r7, [pc, #284]	@ (80048a0 <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x1d8>)
         sampleRate_ = sampleRate;
  8004784:	ed9f aa47 	vldr	s20, [pc, #284]	@ 80048a4 <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x1dc>
- 8004788:	f8c5 715c 	str.w	r7, [r5, #348]	@ 0x15c
+ 8004788:	f8c6 715c 	str.w	r7, [r6, #348]	@ 0x15c
             sections_[n].a[1] = sections[n].a[1];
  800478c:	4f46      	ldr	r7, [pc, #280]	@ (80048a8 <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x1e0>)
         b0_ = (1 - cos(omega)) / 2;
@@ -8928,41 +8928,41 @@ public:
         // Scaling coefficients for unity gain at DC
         b0_ /= a0_;
  800478e:	4a47      	ldr	r2, [pc, #284]	@ (80048ac <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x1e4>)
- 8004790:	f8c5 7160 	str.w	r7, [r5, #352]	@ 0x160
+ 8004790:	f8c6 7160 	str.w	r7, [r6, #352]	@ 0x160
             sections_[n].b[0] = sections[n].b[0];
- 8004794:	f8c5 3178 	str.w	r3, [r5, #376]	@ 0x178
+ 8004794:	f8c6 3178 	str.w	r3, [r6, #376]	@ 0x178
             sections_[n].b[2] = sections[n].b[2];
- 8004798:	f8c5 3180 	str.w	r3, [r5, #384]	@ 0x180
+ 8004798:	f8c6 3180 	str.w	r3, [r6, #384]	@ 0x180
             sections_[n].a[1] = sections[n].a[1];
  800479c:	4b44      	ldr	r3, [pc, #272]	@ (80048b0 <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x1e8>)
             sections_[n].b[1] = sections[n].b[1];
  800479e:	4f45      	ldr	r7, [pc, #276]	@ (80048b4 <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x1ec>)
             sections_[n].a[1] = sections[n].a[1];
- 80047a0:	f8c5 3174 	str.w	r3, [r5, #372]	@ 0x174
+ 80047a0:	f8c6 3174 	str.w	r3, [r6, #372]	@ 0x174
             sections_[n].b[1] = sections[n].b[1];
  80047a4:	4b44      	ldr	r3, [pc, #272]	@ (80048b8 <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x1f0>)
- 80047a6:	f8c5 7168 	str.w	r7, [r5, #360]	@ 0x168
- 80047aa:	f8c5 317c 	str.w	r3, [r5, #380]	@ 0x17c
+ 80047a6:	f8c6 7168 	str.w	r7, [r6, #360]	@ 0x168
+ 80047aa:	f8c6 317c 	str.w	r3, [r6, #380]	@ 0x17c
             sections_[n].a[0] = sections[n].a[0];
  80047ae:	4b43      	ldr	r3, [pc, #268]	@ (80048bc <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x1f4>)
  80047b0:	4f43      	ldr	r7, [pc, #268]	@ (80048c0 <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x1f8>)
- 80047b2:	f8c5 3184 	str.w	r3, [r5, #388]	@ 0x184
+ 80047b2:	f8c6 3184 	str.w	r3, [r6, #388]	@ 0x184
             sections_[n].a[1] = sections[n].a[1];
  80047b6:	4b43      	ldr	r3, [pc, #268]	@ (80048c4 <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x1fc>)
             sections_[n].a[0] = sections[n].a[0];
- 80047b8:	f8c5 7170 	str.w	r7, [r5, #368]	@ 0x170
+ 80047b8:	f8c6 7170 	str.w	r7, [r6, #368]	@ 0x170
         envelope_ = 0;
  80047bc:	2703      	movs	r7, #3
             sections_[n].a[1] = sections[n].a[1];
- 80047be:	f8c5 3188 	str.w	r3, [r5, #392]	@ 0x188
+ 80047be:	f8c6 3188 	str.w	r3, [r6, #392]	@ 0x188
         a0_ = 1 + alpha;
  80047c2:	4b41      	ldr	r3, [pc, #260]	@ (80048c8 <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x200>)
  80047c4:	ed9f ea41 	vldr	s28, [pc, #260]	@ 80048cc <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x204>
- 80047c8:	f8c5 3088 	str.w	r3, [r5, #136]	@ 0x88
+ 80047c8:	f8c6 3088 	str.w	r3, [r6, #136]	@ 0x88
         b1_ /= a0_;
  80047cc:	4b40      	ldr	r3, [pc, #256]	@ (80048d0 <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x208>)
  80047ce:	ed9f 8a41 	vldr	s16, [pc, #260]	@ 80048d4 <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x20c>
- 80047d2:	f8c5 3098 	str.w	r3, [r5, #152]	@ 0x98
+ 80047d2:	f8c6 3098 	str.w	r3, [r6, #152]	@ 0x98
         b2_ /= a0_;
         a1_ /= a0_;
  80047d6:	4b40      	ldr	r3, [pc, #256]	@ (80048d8 <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x210>)
@@ -8973,11 +8973,11 @@ protected:
     {
         omega = 2 * M_PI * centerFrequency_ / sampleRate_;
  80047d8:	ed9f ca40 	vldr	s24, [pc, #256]	@ 80048dc <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x214>
- 80047dc:	f8c5 308c 	str.w	r3, [r5, #140]	@ 0x8c
+ 80047dc:	f8c6 308c 	str.w	r3, [r6, #140]	@ 0x8c
         a2_ /= a0_;
  80047e0:	4b3f      	ldr	r3, [pc, #252]	@ (80048e0 <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x218>)
  80047e2:	eddf ba40 	vldr	s23, [pc, #256]	@ 80048e4 <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x21c>
- 80047e6:	f8c5 3090 	str.w	r3, [r5, #144]	@ 0x90
+ 80047e6:	f8c6 3090 	str.w	r3, [r6, #144]	@ 0x90
 public:
     void Init(float sampleRate, float frequency, float mix)
     {
@@ -8987,7 +8987,7 @@ public:
  80047ea:	4b3f      	ldr	r3, [pc, #252]	@ (80048e8 <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x220>)
         alpha = sin(omega) / (2 * Q_);
  80047ec:	ed9f ba3f 	vldr	s22, [pc, #252]	@ 80048ec <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x224>
- 80047f0:	f8c5 30c4 	str.w	r3, [r5, #196]	@ 0xc4
+ 80047f0:	f8c6 30c4 	str.w	r3, [r6, #196]	@ 0xc4
         envFollower_.Init(50, 200, 500, 16000);
     }
 
@@ -8997,12 +8997,12 @@ public:
  80047f4:	4b3e      	ldr	r3, [pc, #248]	@ (80048f0 <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x228>)
         omega = 2 * M_PI * centerFrequency_ / sampleRate_;
  80047f6:	eddf ca3f 	vldr	s25, [pc, #252]	@ 80048f4 <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x22c>
- 80047fa:	f8c5 30b4 	str.w	r3, [r5, #180]	@ 0xb4
+ 80047fa:	f8c6 30b4 	str.w	r3, [r6, #180]	@ 0xb4
         phaseIncrement_ = frequency_ * twoPiOverSampleRate_;
  80047fe:	4b3e      	ldr	r3, [pc, #248]	@ (80048f8 <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x230>)
         gain_ = std::pow(10, gainDB / 20.0); // Convert gain from dB to linear scale
  8004800:	eddf 8a3e 	vldr	s17, [pc, #248]	@ 80048fc <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x234>
- 8004804:	f8c5 30c0 	str.w	r3, [r5, #192]	@ 0xc0
+ 8004804:	f8c6 30c0 	str.w	r3, [r6, #192]	@ 0xc0
     }
 
     void SetMix(float mix)
@@ -9011,33 +9011,33 @@ public:
  8004808:	4b3d      	ldr	r3, [pc, #244]	@ (8004900 <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x238>)
         attack_rate_ = 1 - std::exp(-1000 / (attack_ms * (sample_rate)));
  800480a:	eddf aa3e 	vldr	s21, [pc, #248]	@ 8004904 <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x23c>
- 800480e:	f8c5 30b8 	str.w	r3, [r5, #184]	@ 0xb8
+ 800480e:	f8c6 30b8 	str.w	r3, [r6, #184]	@ 0xb8
  8004812:	4b3d      	ldr	r3, [pc, #244]	@ (8004908 <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x240>)
         cutoffFrequency_ = cutoffFrequency;
- 8004814:	f8c5 0080 	str.w	r0, [r5, #128]	@ 0x80
- 8004818:	f8c5 30c8 	str.w	r3, [r5, #200]	@ 0xc8
+ 8004814:	f8c6 0080 	str.w	r0, [r6, #128]	@ 0x80
+ 8004818:	f8c6 30c8 	str.w	r3, [r6, #200]	@ 0xc8
         decay_rate_ = 1 - std::exp(-1000 / (decay_ms * (sample_rate)));
  800481c:	4b3b      	ldr	r3, [pc, #236]	@ (800490c <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x244>)
         Q_ = Q;
- 800481e:	f8c5 1084 	str.w	r1, [r5, #132]	@ 0x84
- 8004822:	f8c5 30cc 	str.w	r3, [r5, #204]	@ 0xcc
+ 800481e:	f8c6 1084 	str.w	r1, [r6, #132]	@ 0x84
+ 8004822:	f8c6 30cc 	str.w	r3, [r6, #204]	@ 0xcc
         hold_count_ = 0;
  8004826:	2300      	movs	r3, #0
         sampleRate_ = sampleRate;
- 8004828:	ed85 aa1f 	vstr	s20, [r5, #124]	@ 0x7c
+ 8004828:	ed86 aa1f 	vstr	s20, [r6, #124]	@ 0x7c
         b0_ /= a0_;
- 800482c:	f8c5 2094 	str.w	r2, [r5, #148]	@ 0x94
+ 800482c:	f8c6 2094 	str.w	r2, [r6, #148]	@ 0x94
         b2_ /= a0_;
- 8004830:	f8c5 209c 	str.w	r2, [r5, #156]	@ 0x9c
+ 8004830:	f8c6 209c 	str.w	r2, [r6, #156]	@ 0x9c
         sampleRate_ = sampleRate;
- 8004834:	ed85 aa2c 	vstr	s20, [r5, #176]	@ 0xb0
+ 8004834:	ed86 aa2c 	vstr	s20, [r6, #176]	@ 0xb0
         phase_ = 0.0;
- 8004838:	f8c5 60bc 	str.w	r6, [r5, #188]	@ 0xbc
+ 8004838:	f8c6 50bc 	str.w	r5, [r6, #188]	@ 0xbc
         envelope_ = 0;
- 800483c:	f8c5 60d8 	str.w	r6, [r5, #216]	@ 0xd8
+ 800483c:	f8c6 50d8 	str.w	r5, [r6, #216]	@ 0xd8
  8004840:	ed9f 9b03 	vldr	d9, [pc, #12]	@ 8004850 <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x188>
         hold_count_ = 0;
- 8004844:	e9c5 e334 	strd	lr, r3, [r5, #208]	@ 0xd0
+ 8004844:	e9c6 e334 	strd	lr, r3, [r6, #208]	@ 0xd0
  8004848:	e079      	b.n	800493e <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x276>
  800484a:	bf00      	nop
  800484c:	f3af 8000 	nop.w
@@ -9089,10 +9089,10 @@ public:
  8004904:	3d782a00 	.word	0x3d782a00
  8004908:	3aa3bc00 	.word	0x3aa3bc00
  800490c:	39a3d000 	.word	0x39a3d000
- 8004910:	00010508 	.word	0x00010508
+ 8004910:	000106f4 	.word	0x000106f4
  8004914:	0800c604 	.word	0x0800c604
             bands[i].Init(kAudioSampleRate, cutoffFreqs[i]);
- 8004918:	ecba ea01 	vldmia	sl!, {s28}
+ 8004918:	ecb9 ea01 	vldmia	r9!, {s28}
     { return __builtin_log(__x); }
  800491c:	f005 fd8c 	bl	800a438 <log>
  8004920:	3701      	adds	r7, #1
@@ -9151,16 +9151,16 @@ public:
         gain_ = std::pow(10, gainDB / 20.0); // Convert gain from dB to linear scale
  8004982:	edc4 8a04 	vstr	s17, [r4, #16]
         x1_ = x2_ = y1_ = y2_ = 0;
- 8004986:	63a6      	str	r6, [r4, #56]	@ 0x38
+ 8004986:	63a5      	str	r5, [r4, #56]	@ 0x38
         omega = 2 * M_PI * centerFrequency_ / sampleRate_;
  8004988:	edc4 6a0f 	vstr	s13, [r4, #60]	@ 0x3c
         x1_ = x2_ = y1_ = y2_ = 0;
- 800498c:	6366      	str	r6, [r4, #52]	@ 0x34
- 800498e:	6326      	str	r6, [r4, #48]	@ 0x30
+ 800498c:	6365      	str	r5, [r4, #52]	@ 0x34
+ 800498e:	6325      	str	r5, [r4, #48]	@ 0x30
             b1_ = -2 * cos(omega);
  8004990:	ee20 6a2e 	vmul.f32	s12, s0, s29
         x1_ = x2_ = y1_ = y2_ = 0;
- 8004994:	62e6      	str	r6, [r4, #44]	@ 0x2c
+ 8004994:	62e5      	str	r5, [r4, #44]	@ 0x2c
             a1_ =  -2.0 * cos(omega);
             a2_ =   1.0 - alpha;
  8004996:	ee3d 5a47 	vsub.f32	s10, s26, s14
@@ -9171,7 +9171,7 @@ public:
         // Scaling coefficients for unity gain at the center frequency
         b0_ /= a0_;
         b1_ /= a0_;
- 800499e:	6266      	str	r6, [r4, #36]	@ 0x24
+ 800499e:	6265      	str	r5, [r4, #36]	@ 0x24
         sampleRate_ = sampleRate;
  80049a0:	ed84 aa13 	vstr	s20, [r4, #76]	@ 0x4c
         gain_ = std::pow(10, gainDB / 20.0); // Convert gain from dB to linear scale
@@ -9181,10 +9181,10 @@ public:
   { return __builtin_sinf(__x); }
  80049ac:	eeb0 0a6d 	vmov.f32	s0, s27
         x1_ = x2_ = y1_ = y2_ = 0;
- 80049b0:	f8c4 6080 	str.w	r6, [r4, #128]	@ 0x80
- 80049b4:	67e6      	str	r6, [r4, #124]	@ 0x7c
- 80049b6:	67a6      	str	r6, [r4, #120]	@ 0x78
- 80049b8:	6766      	str	r6, [r4, #116]	@ 0x74
+ 80049b0:	f8c4 5080 	str.w	r5, [r4, #128]	@ 0x80
+ 80049b4:	67e5      	str	r5, [r4, #124]	@ 0x7c
+ 80049b6:	67a5      	str	r5, [r4, #120]	@ 0x78
+ 80049b8:	6765      	str	r5, [r4, #116]	@ 0x74
         b0_ /= a0_;
  80049ba:	ee67 5a87 	vmul.f32	s11, s15, s14
         b2_ /= a0_;
@@ -9228,9 +9228,9 @@ public:
             a0_ = 1 + alpha / A;
  8004a0e:	ed84 ea17 	vstr	s28, [r4, #92]	@ 0x5c
         b1_ /= a0_;
- 8004a12:	66e6      	str	r6, [r4, #108]	@ 0x6c
+ 8004a12:	66e5      	str	r5, [r4, #108]	@ 0x6c
         for (int i = 0; i < kNumBands; i++) {
- 8004a14:	2f07      	cmp	r7, #7
+ 8004a14:	2f0a      	cmp	r7, #10
         attack_rate_ = 1 - std::exp(-1000 / (attack_ms * (sample_rate)));
  8004a16:	edc4 aa24 	vstr	s21, [r4, #144]	@ 0x90
         decay_rate_ = 1 - std::exp(-1000 / (decay_ms * (sample_rate)));
@@ -9238,7 +9238,7 @@ public:
             bandOutputGains[i] = log(i+2) * 0.5f;
  8004a1e:	ee29 6b06 	vmul.f64	d6, d9, d6
         envelope_ = 0;
- 8004a22:	f8c4 60a0 	str.w	r6, [r4, #160]	@ 0xa0
+ 8004a22:	f8c4 50a0 	str.w	r5, [r4, #160]	@ 0xa0
             b2_ =  -alpha;
  8004a26:	eef1 da48 	vneg.f32	s27, s16
  8004a2a:	eeb8 0be7 	vcvt.f64.s32	d0, s15
@@ -9274,114 +9274,114 @@ public:
         Q_ = Q;
  8004a6a:	f04f 537c 	mov.w	r3, #1056964608	@ 0x3f000000
         is_bandpass_ = is_bandpass;
- 8004a6e:	f885 10dc 	strb.w	r1, [r5, #220]	@ 0xdc
+ 8004a6e:	f886 10dc 	strb.w	r1, [r6, #220]	@ 0xdc
         x1_ = x2_ = y1_ = y2_ = 0;
- 8004a72:	f8c5 6114 	str.w	r6, [r5, #276]	@ 0x114
+ 8004a72:	f8c6 5114 	str.w	r5, [r6, #276]	@ 0x114
             buffer_[i] = 0;
  8004a76:	4658      	mov	r0, fp
         Q_ = Q;
- 8004a78:	f8c5 30e8 	str.w	r3, [r5, #232]	@ 0xe8
+ 8004a78:	f8c6 30e8 	str.w	r3, [r6, #232]	@ 0xe8
  8004a7c:	f44f 3280 	mov.w	r2, #65536	@ 0x10000
         gain_ = std::pow(10, gainDB / 20.0); // Convert gain from dB to linear scale
  8004a80:	4b2f      	ldr	r3, [pc, #188]	@ (8004b40 <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x478>)
         x1_ = x2_ = y1_ = y2_ = 0;
- 8004a82:	f8c5 6110 	str.w	r6, [r5, #272]	@ 0x110
+ 8004a82:	f8c6 5110 	str.w	r5, [r6, #272]	@ 0x110
         gain_ = std::pow(10, gainDB / 20.0); // Convert gain from dB to linear scale
- 8004a86:	f8c5 30ec 	str.w	r3, [r5, #236]	@ 0xec
+ 8004a86:	f8c6 30ec 	str.w	r3, [r6, #236]	@ 0xec
         A = gain_;
- 8004a8a:	f8c5 3120 	str.w	r3, [r5, #288]	@ 0x120
+ 8004a8a:	f8c6 3120 	str.w	r3, [r6, #288]	@ 0x120
         b1_ /= a0_;
  8004a8e:	4b2d      	ldr	r3, [pc, #180]	@ (8004b44 <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x47c>)
         x1_ = x2_ = y1_ = y2_ = 0;
- 8004a90:	f8c5 610c 	str.w	r6, [r5, #268]	@ 0x10c
+ 8004a90:	f8c6 510c 	str.w	r5, [r6, #268]	@ 0x10c
         b1_ /= a0_;
- 8004a94:	f8c5 3100 	str.w	r3, [r5, #256]	@ 0x100
+ 8004a94:	f8c6 3100 	str.w	r3, [r6, #256]	@ 0x100
         a1_ /= a0_;
- 8004a98:	f8c5 30f4 	str.w	r3, [r5, #244]	@ 0xf4
+ 8004a98:	f8c6 30f4 	str.w	r3, [r6, #244]	@ 0xf4
         sampleRate_ = sampleRate;
  8004a9c:	4b2a      	ldr	r3, [pc, #168]	@ (8004b48 <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x480>)
         x1_ = x2_ = y1_ = y2_ = 0;
- 8004a9e:	f8c5 6108 	str.w	r6, [r5, #264]	@ 0x108
+ 8004a9e:	f8c6 5108 	str.w	r5, [r6, #264]	@ 0x108
         sampleRate_ = sampleRate;
- 8004aa2:	f8c5 30e0 	str.w	r3, [r5, #224]	@ 0xe0
+ 8004aa2:	f8c6 30e0 	str.w	r3, [r6, #224]	@ 0xe0
         centerFrequency_ = centerFrequency;
  8004aa6:	4b29      	ldr	r3, [pc, #164]	@ (8004b4c <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x484>)
- 8004aa8:	f8c5 30e4 	str.w	r3, [r5, #228]	@ 0xe4
+ 8004aa8:	f8c6 30e4 	str.w	r3, [r6, #228]	@ 0xe4
         omega = 2 * M_PI * centerFrequency_ / sampleRate_;
  8004aac:	4b28      	ldr	r3, [pc, #160]	@ (8004b50 <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x488>)
- 8004aae:	f8c5 3118 	str.w	r3, [r5, #280]	@ 0x118
+ 8004aae:	f8c6 3118 	str.w	r3, [r6, #280]	@ 0x118
         alpha = sin(omega) / (2 * Q_);
  8004ab2:	4b28      	ldr	r3, [pc, #160]	@ (8004b54 <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x48c>)
- 8004ab4:	f8c5 311c 	str.w	r3, [r5, #284]	@ 0x11c
+ 8004ab4:	f8c6 311c 	str.w	r3, [r6, #284]	@ 0x11c
             a0_ = 1 + alpha / A;
  8004ab8:	4b27      	ldr	r3, [pc, #156]	@ (8004b58 <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x490>)
- 8004aba:	f8c5 30f0 	str.w	r3, [r5, #240]	@ 0xf0
+ 8004aba:	f8c6 30f0 	str.w	r3, [r6, #240]	@ 0xf0
         b0_ /= a0_;
  8004abe:	4b27      	ldr	r3, [pc, #156]	@ (8004b5c <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x494>)
- 8004ac0:	f8c5 30fc 	str.w	r3, [r5, #252]	@ 0xfc
+ 8004ac0:	f8c6 30fc 	str.w	r3, [r6, #252]	@ 0xfc
         b2_ /= a0_;
  8004ac4:	4b26      	ldr	r3, [pc, #152]	@ (8004b60 <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x498>)
- 8004ac6:	f8c5 3104 	str.w	r3, [r5, #260]	@ 0x104
+ 8004ac6:	f8c6 3104 	str.w	r3, [r6, #260]	@ 0x104
         a2_ /= a0_;
  8004aca:	4b26      	ldr	r3, [pc, #152]	@ (8004b64 <recorder::PlaybackEngine<recorder::SampleMemory<half> >::Init()+0x49c>)
- 8004acc:	f8c5 30f8 	str.w	r3, [r5, #248]	@ 0xf8
+ 8004acc:	f8c6 30f8 	str.w	r3, [r6, #248]	@ 0xf8
             state_ = STATE_STOPPED;
- 8004ad0:	f889 1030 	strb.w	r1, [r9, #48]	@ 0x30
+ 8004ad0:	f88a 1030 	strb.w	r1, [sl, #48]	@ 0x30
             cue_play_ = false;
- 8004ad4:	f8a9 1031 	strh.w	r1, [r9, #49]	@ 0x31
+ 8004ad4:	f8aa 1031 	strh.w	r1, [sl, #49]	@ 0x31
         state_ = STATE_STOPPED;
- 8004ad8:	f889 1018 	strb.w	r1, [r9, #24]
+ 8004ad8:	f88a 1018 	strb.w	r1, [sl, #24]
  8004adc:	f006 fbd7 	bl	800b28e <memset>
         write_head_ = 0;
  8004ae0:	2100      	movs	r1, #0
         envelope_ = 0;
- 8004ae2:	65ae      	str	r6, [r5, #88]	@ 0x58
- 8004ae4:	6369      	str	r1, [r5, #52]	@ 0x34
+ 8004ae2:	65b5      	str	r5, [r6, #88]	@ 0x58
+ 8004ae4:	6371      	str	r1, [r6, #52]	@ 0x34
         hold_count_ = 0;
- 8004ae6:	6569      	str	r1, [r5, #84]	@ 0x54
- 8004ae8:	66a9      	str	r1, [r5, #104]	@ 0x68
+ 8004ae6:	6571      	str	r1, [r6, #84]	@ 0x54
+ 8004ae8:	66b1      	str	r1, [r6, #104]	@ 0x68
         envelope_ = 0;
- 8004aea:	66ee      	str	r6, [r5, #108]	@ 0x6c
+ 8004aea:	66f5      	str	r5, [r6, #108]	@ 0x6c
         history_ = initial_value;
- 8004aec:	676e      	str	r6, [r5, #116]	@ 0x74
+ 8004aec:	6775      	str	r5, [r6, #116]	@ 0x74
         interpolator_history_ = 0;
- 8004aee:	67ae      	str	r6, [r5, #120]	@ 0x78
+ 8004aee:	67b5      	str	r5, [r6, #120]	@ 0x78
             x_[n][0] = 0;
- 8004af0:	f8c5 618c 	str.w	r6, [r5, #396]	@ 0x18c
+ 8004af0:	f8c6 518c 	str.w	r5, [r6, #396]	@ 0x18c
             x_[n][1] = 0;
- 8004af4:	f8c5 6190 	str.w	r6, [r5, #400]	@ 0x190
+ 8004af4:	f8c6 5190 	str.w	r5, [r6, #400]	@ 0x190
             x_[n][2] = 0;
- 8004af8:	f8c5 6194 	str.w	r6, [r5, #404]	@ 0x194
+ 8004af8:	f8c6 5194 	str.w	r5, [r6, #404]	@ 0x194
             x_[n][0] = 0;
- 8004afc:	f8c5 6198 	str.w	r6, [r5, #408]	@ 0x198
+ 8004afc:	f8c6 5198 	str.w	r5, [r6, #408]	@ 0x198
             x_[n][1] = 0;
- 8004b00:	f8c5 619c 	str.w	r6, [r5, #412]	@ 0x19c
+ 8004b00:	f8c6 519c 	str.w	r5, [r6, #412]	@ 0x19c
             x_[n][2] = 0;
- 8004b04:	f8c5 61a0 	str.w	r6, [r5, #416]	@ 0x1a0
+ 8004b04:	f8c6 51a0 	str.w	r5, [r6, #416]	@ 0x1a0
             x_[n][0] = 0;
- 8004b08:	f8c5 61a4 	str.w	r6, [r5, #420]	@ 0x1a4
+ 8004b08:	f8c6 51a4 	str.w	r5, [r6, #420]	@ 0x1a4
             x_[n][1] = 0;
- 8004b0c:	f8c5 61a8 	str.w	r6, [r5, #424]	@ 0x1a8
+ 8004b0c:	f8c6 51a8 	str.w	r5, [r6, #424]	@ 0x1a8
             x_[n][2] = 0;
- 8004b10:	f8c5 61ac 	str.w	r6, [r5, #428]	@ 0x1ac
+ 8004b10:	f8c6 51ac 	str.w	r5, [r6, #428]	@ 0x1ac
             x_[n][0] = 0;
- 8004b14:	f8c5 61b0 	str.w	r6, [r5, #432]	@ 0x1b0
+ 8004b14:	f8c6 51b0 	str.w	r5, [r6, #432]	@ 0x1b0
             x_[n][1] = 0;
- 8004b18:	f8c5 61b4 	str.w	r6, [r5, #436]	@ 0x1b4
+ 8004b18:	f8c6 51b4 	str.w	r5, [r6, #436]	@ 0x1b4
             x_[n][2] = 0;
- 8004b1c:	f8c5 61b8 	str.w	r6, [r5, #440]	@ 0x1b8
+ 8004b1c:	f8c6 51b8 	str.w	r5, [r6, #440]	@ 0x1b8
             x_[n][0] = 0;
- 8004b20:	f8c5 61bc 	str.w	r6, [r5, #444]	@ 0x1bc
+ 8004b20:	f8c6 51bc 	str.w	r5, [r6, #444]	@ 0x1bc
             x_[n][1] = 0;
- 8004b24:	f8c5 61c0 	str.w	r6, [r5, #448]	@ 0x1c0
+ 8004b24:	f8c6 51c0 	str.w	r5, [r6, #448]	@ 0x1c0
             x_[n][2] = 0;
- 8004b28:	f8c5 61c4 	str.w	r6, [r5, #452]	@ 0x1c4
+ 8004b28:	f8c6 51c4 	str.w	r5, [r6, #452]	@ 0x1c4
         x_[num_sections_][0] = 0;
- 8004b2c:	f8c5 61c8 	str.w	r6, [r5, #456]	@ 0x1c8
+ 8004b2c:	f8c6 51c8 	str.w	r5, [r6, #456]	@ 0x1c8
         x_[num_sections_][1] = 0;
- 8004b30:	f8c5 61cc 	str.w	r6, [r5, #460]	@ 0x1cc
+ 8004b30:	f8c6 51cc 	str.w	r5, [r6, #460]	@ 0x1cc
         x_[num_sections_][2] = 0;
- 8004b34:	f8c5 61d0 	str.w	r6, [r5, #464]	@ 0x1d0
+ 8004b34:	f8c6 51d0 	str.w	r5, [r6, #464]	@ 0x1d0
         }
  8004b38:	ecbd 8b0e 	vpop	{d8-d14}
  8004b3c:	e8bd 8ff8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, sl, fp, pc}
@@ -10353,15 +10353,15 @@ public:
  8005278:	e040      	b.n	80052fc <main+0x3e4>
  800527a:	bf00      	nop
  800527c:	08002479 	.word	0x08002479
- 8005280:	20010eac 	.word	0x20010eac
- 8005284:	20010c80 	.word	0x20010c80
- 8005288:	20010c54 	.word	0x20010c54
- 800528c:	20010c78 	.word	0x20010c78
- 8005290:	20010c7c 	.word	0x20010c7c
- 8005294:	20010c74 	.word	0x20010c74
+ 8005280:	200110a4 	.word	0x200110a4
+ 8005284:	20010e78 	.word	0x20010e78
+ 8005288:	20010e4c 	.word	0x20010e4c
+ 800528c:	20010e70 	.word	0x20010e70
+ 8005290:	20010e74 	.word	0x20010e74
+ 8005294:	20010e6c 	.word	0x20010e6c
  8005298:	58021800 	.word	0x58021800
  800529c:	58020400 	.word	0x58020400
- 80052a0:	20010aac 	.word	0x20010aac
+ 80052a0:	20010ca4 	.word	0x20010ca4
  80052a4:	3a85b218 	.word	0x3a85b218
  80052a8:	3a446737 	.word	0x3a446737
  80052ac:	beade39b 	.word	0xbeade39b
@@ -10378,12 +10378,12 @@ public:
  80052d8:	bf9e3e9d 	.word	0xbf9e3e9d
  80052dc:	bfb140a2 	.word	0xbfb140a2
  80052e0:	3f793977 	.word	0x3f793977
- 80052e4:	20010c9c 	.word	0x20010c9c
+ 80052e4:	20010e94 	.word	0x20010e94
  80052e8:	4382d0a4 	.word	0x4382d0a4
  80052ec:	20000554 	.word	0x20000554
- 80052f0:	20010fb4 	.word	0x20010fb4
+ 80052f0:	200111ac 	.word	0x200111ac
  80052f4:	20000580 	.word	0x20000580
- 80052f8:	20010c84 	.word	0x20010c84
+ 80052f8:	20010e7c 	.word	0x20010e7c
             x_[n][1] = 0;
  80052fc:	f8c4 61f0 	str.w	r6, [r4, #496]	@ 0x1f0
             x_[n][2] = 0;
@@ -10900,10 +10900,10 @@ inline size_t Decode(void* data, size_t size, const char* str)
  800564c:	43c40044 	.word	0x43c40044
  8005650:	4402d0a4 	.word	0x4402d0a4
  8005654:	20010760 	.word	0x20010760
- 8005658:	20010c00 	.word	0x20010c00
- 800565c:	20010fb4 	.word	0x20010fb4
+ 8005658:	20010df8 	.word	0x20010df8
+ 800565c:	200111ac 	.word	0x200111ac
  8005660:	3dd26a54 	.word	0x3dd26a54
- 8005664:	20010c5c 	.word	0x20010c5c
+ 8005664:	20010e54 	.word	0x20010e54
  8005668:	200004ac 	.word	0x200004ac
  800566c:	52005000 	.word	0x52005000
  8005670:	2000003c 	.word	0x2000003c
@@ -11283,7 +11283,7 @@ inline size_t Decode(void* data, size_t size, const char* str)
  8005964:	20000554 	.word	0x20000554
  8005968:	20000530 	.word	0x20000530
  800596c:	c0c0c0c1 	.word	0xc0c0c0c1
- 8005970:	20010c00 	.word	0x20010c00
+ 8005970:	20010df8 	.word	0x20010df8
  8005974:	05000105 	.word	0x05000105
  8005978:	2000052f 	.word	0x2000052f
         while (QUADSPI->SR & QUADSPI_SR_BUSY);
@@ -11608,8 +11608,8 @@ inline size_t Decode(void* data, size_t size, const char* str)
 class Vocoder 
  8005bdc:	f503 3480 	add.w	r4, r3, #65536	@ 0x10000
  8005be0:	629a      	str	r2, [r3, #40]	@ 0x28
- 8005be2:	f884 1520 	strb.w	r1, [r4, #1312]	@ 0x520
- 8005be6:	f204 541c 	addw	r4, r4, #1308	@ 0x51c
+ 8005be2:	f884 1718 	strb.w	r1, [r4, #1816]	@ 0x718
+ 8005be6:	f204 7414 	addw	r4, r4, #1812	@ 0x714
  8005bea:	6002      	str	r2, [r0, #0]
  8005bec:	6022      	str	r2, [r4, #0]
         phase_inc_(0.0f),
@@ -11656,17 +11656,17 @@ class Vocoder
  8005c34:	4770      	bx	lr
  8005c36:	bf00      	nop
 	...
- 8005c40:	20010c9c 	.word	0x20010c9c
+ 8005c40:	20010e94 	.word	0x20010e94
  8005c44:	4382d0a4 	.word	0x4382d0a4
  8005c48:	20000580 	.word	0x20000580
- 8005c4c:	20010c84 	.word	0x20010c84
- 8005c50:	20010c7c 	.word	0x20010c7c
- 8005c54:	20010c80 	.word	0x20010c80
- 8005c58:	20010c78 	.word	0x20010c78
- 8005c5c:	20010c74 	.word	0x20010c74
- 8005c60:	20010c64 	.word	0x20010c64
- 8005c64:	20010c00 	.word	0x20010c00
- 8005c68:	20010aa8 	.word	0x20010aa8
+ 8005c4c:	20010e7c 	.word	0x20010e7c
+ 8005c50:	20010e74 	.word	0x20010e74
+ 8005c54:	20010e78 	.word	0x20010e78
+ 8005c58:	20010e70 	.word	0x20010e70
+ 8005c5c:	20010e6c 	.word	0x20010e6c
+ 8005c60:	20010e5c 	.word	0x20010e5c
+ 8005c64:	20010df8 	.word	0x20010df8
+ 8005c68:	20010ca0 	.word	0x20010ca0
 
 08005c6c <recorder::Adc::DMAService()>:
     LL_DMA_DisableIT_HT(DMA1, LL_DMA_STREAM_1);
@@ -12077,7 +12077,7 @@ __STATIC_INLINE uint16_t LL_ADC_REG_ReadConversionData16(ADC_TypeDef *ADCx)
  8005f98:	37800080 	.word	0x37800080
  8005f9c:	3f8051ec 	.word	0x3f8051ec
  8005fa0:	34000000 	.word	0x34000000
- 8005fa4:	0800c614 	.word	0x0800c614
+ 8005fa4:	0800c620 	.word	0x0800c620
  8005fa8:	42800000 	.word	0x42800000
  8005fac:	00000000 	.word	0x00000000
  8005fb0:	3800fc00 	.word	0x3800fc00
@@ -12092,7 +12092,7 @@ void Adc::DMAHandler(void)
  8005fbc:	4b01      	ldr	r3, [pc, #4]	@ (8005fc4 <recorder::Adc::DMAHandler()+0x8>)
  8005fbe:	6818      	ldr	r0, [r3, #0]
  8005fc0:	f7ff be54 	b.w	8005c6c <recorder::Adc::DMAService()>
- 8005fc4:	20011118 	.word	0x20011118
+ 8005fc4:	20011310 	.word	0x20011310
 
 08005fc8 <recorder::Adc::InitADC(ADC_TypeDef*)>:
   if((DBGMCU->IDCODE & 0x30000000UL) == 0x10000000UL) /* Cut 1.x */
@@ -12916,7 +12916,7 @@ __STATIC_INLINE void LL_DMA_DisableIT_TC(DMA_TypeDef *DMAx, uint32_t Stream)
     irq::Enable(DMA1_Stream1_IRQn);
  800659e:	f000 bee5 	b.w	800736c <recorder::irq::Enable(IRQn_Type)>
  80065a2:	bf00      	nop
- 80065a4:	20011118 	.word	0x20011118
+ 80065a4:	20011310 	.word	0x20011310
  80065a8:	3a83126f 	.word	0x3a83126f
  80065ac:	3f8041ab 	.word	0x3f8041ab
  80065b0:	58024400 	.word	0x58024400
@@ -13498,12 +13498,12 @@ __STATIC_INLINE void LL_TIM_DisableCounter(TIM_TypeDef *TIMx)
  8006a24:	eeff 7a00 	vmov.f32	s15, #240	@ 0xbf800000 -1.0
  8006a28:	e779      	b.n	800691e <recorder::Analog::AdcCallback(std::array<float [3], 2u> const&, std::array<float, 8u> const&)+0x216>
  8006a2a:	bf00      	nop
- 8006a2c:	20011120 	.word	0x20011120
+ 8006a2c:	20011318 	.word	0x20011318
  8006a30:	00000000 	.word	0x00000000
  8006a34:	457ff000 	.word	0x457ff000
  8006a38:	3800fc30 	.word	0x3800fc30
  8006a3c:	aaaaaaab 	.word	0xaaaaaaab
- 8006a40:	2001111c 	.word	0x2001111c
+ 8006a40:	20011314 	.word	0x20011314
  8006a44:	58020400 	.word	0x58020400
  8006a48:	b9da740e 	.word	0xb9da740e
  8006a4c:	39da740e 	.word	0x39da740e
@@ -13698,9 +13698,9 @@ __STATIC_INLINE void LL_TIM_SetTriggerOutput(TIM_TypeDef *TIMx, uint32_t TimerSy
 }
  8006b98:	b00a      	add	sp, #40	@ 0x28
  8006b9a:	bd70      	pop	{r4, r5, r6, pc}
- 8006b9c:	20011120 	.word	0x20011120
+ 8006b9c:	20011318 	.word	0x20011318
  8006ba0:	58024400 	.word	0x58024400
- 8006ba4:	2001111c 	.word	0x2001111c
+ 8006ba4:	20011314 	.word	0x20011314
  8006ba8:	58020400 	.word	0x58020400
  8006bac:	58021800 	.word	0x58021800
  8006bb0:	08006709 	.word	0x08006709
@@ -16727,7 +16727,7 @@ void __attribute__((naked, noreturn)) Default_Handler()
  8007e9e:	bf00      	nop
  8007ea0:	20000000 	.word	0x20000000
  8007ea4:	2000008c 	.word	0x2000008c
- 8007ea8:	0800d35c 	.word	0x0800d35c
+ 8007ea8:	0800d36c 	.word	0x0800d36c
  8007eac:	20000400 	.word	0x20000400
  8007eb0:	2001194c 	.word	0x2001194c
 
@@ -18305,7 +18305,7 @@ __weak HAL_StatusTypeDef HAL_RCC_OscConfig(RCC_OscInitTypeDef  *RCC_OscInitStruc
  800883e:	bf00      	nop
  8008840:	52002000 	.word	0x52002000
  8008844:	58024400 	.word	0x58024400
- 8008848:	0800c718 	.word	0x0800c718
+ 8008848:	0800c724 	.word	0x0800c724
  800884c:	2000002c 	.word	0x2000002c
 
 08008850 <RCCEx_PLL2_Config.part.0>:
@@ -20502,7 +20502,7 @@ uint32_t LL_DMA_Init(DMA_TypeDef *DMAx, uint32_t Stream, LL_DMA_InitTypeDef *DMA
  8009870:	f843 2024 	str.w	r2, [r3, r4, lsl #2]
  8009874:	bd30      	pop	{r4, r5, pc}
  8009876:	bf00      	nop
- 8009878:	0800c728 	.word	0x0800c728
+ 8009878:	0800c734 	.word	0x0800c734
  800987c:	fffc801f 	.word	0xfffc801f
  8009880:	10008200 	.word	0x10008200
  8009884:	40020000 	.word	0x40020000
@@ -20912,7 +20912,7 @@ uint32_t LL_MDMA_Init(MDMA_TypeDef *MDMAx, uint32_t Channel, LL_MDMA_InitTypeDef
 }
  8009adc:	bc30      	pop	{r4, r5}
  8009ade:	4770      	bx	lr
- 8009ae0:	0800c730 	.word	0x0800c730
+ 8009ae0:	0800c73c 	.word	0x0800c73c
 
 08009ae4 <LL_RCC_GetPLL1ClockFreq>:
   return (uint32_t)(READ_BIT(RCC->PLLCKSELR, RCC_PLLCKSELR_PLLSRC));
@@ -21764,7 +21764,7 @@ uint32_t RCC_GetPCLK2ClockFreq(uint32_t HCLK_Frequency)
  800a174:	07040308 	.word	0x07040308
  800a178:	03d09000 	.word	0x03d09000
  800a17c:	07050008 	.word	0x07050008
- 800a180:	0800c770 	.word	0x0800c770
+ 800a180:	0800c77c 	.word	0x0800c77c
  800a184:	003d0900 	.word	0x003d0900
  800a188:	00f42400 	.word	0x00f42400
 
@@ -22096,7 +22096,7 @@ ErrorStatus LL_USART_Init(USART_TypeDef *USARTx, LL_USART_InitTypeDef *USART_Ini
  800a354:	40004800 	.word	0x40004800
  800a358:	07000008 	.word	0x07000008
  800a35c:	07000308 	.word	0x07000308
- 800a360:	0800c780 	.word	0x0800c780
+ 800a360:	0800c78c 	.word	0x0800c78c
 
 0800a364 <exp2f>:
  800a364:	ee10 3a10 	vmov	r3, s0
@@ -22156,7 +22156,7 @@ ErrorStatus LL_USART_Init(USART_TypeDef *USARTx, LL_USART_InitTypeDef *USART_Ini
  800a41c:	4770      	bx	lr
  800a41e:	2000      	movs	r0, #0
  800a420:	f000 bafa 	b.w	800aa18 <__math_uflowf>
- 800a424:	0800c798 	.word	0x0800c798
+ 800a424:	0800c7a8 	.word	0x0800c7a8
  800a428:	c3160000 	.word	0xc3160000
  800a42c:	c3150000 	.word	0xc3150000
 	...
@@ -22299,7 +22299,7 @@ ErrorStatus LL_USART_Init(USART_TypeDef *USARTx, LL_USART_InitTypeDef *USART_Ini
  800a60c:	43300000 	.word	0x43300000
 	...
  800a618:	000308ff 	.word	0x000308ff
- 800a61c:	0800c8e0 	.word	0x0800c8e0
+ 800a61c:	0800c8f0 	.word	0x0800c8f0
  800a620:	3ff00000 	.word	0x3ff00000
  800a624:	7ff00000 	.word	0x7ff00000
 
@@ -22438,9 +22438,9 @@ ErrorStatus LL_USART_Init(USART_TypeDef *USARTx, LL_USART_InitTypeDef *USART_Ini
  800a7ec:	f3af 8000 	nop.w
  800a7f0:	54442d18 	.word	0x54442d18
  800a7f4:	3c1921fb 	.word	0x3c1921fb
- 800a7f8:	0800d1d0 	.word	0x0800d1d0
- 800a7fc:	0800d170 	.word	0x0800d170
- 800a800:	0800d240 	.word	0x0800d240
+ 800a7f8:	0800d1e0 	.word	0x0800d1e0
+ 800a7fc:	0800d180 	.word	0x0800d180
+ 800a800:	0800d250 	.word	0x0800d250
  800a804:	00000000 	.word	0x00000000
 
 0800a808 <cosf>:
@@ -22573,9 +22573,9 @@ ErrorStatus LL_USART_Init(USART_TypeDef *USARTx, LL_USART_InitTypeDef *USART_Ini
  800a9c6:	bd38      	pop	{r3, r4, r5, pc}
  800a9c8:	54442d18 	.word	0x54442d18
  800a9cc:	3c1921fb 	.word	0x3c1921fb
- 800a9d0:	0800d1d0 	.word	0x0800d1d0
- 800a9d4:	0800d170 	.word	0x0800d170
- 800a9d8:	0800d240 	.word	0x0800d240
+ 800a9d0:	0800d1e0 	.word	0x0800d1e0
+ 800a9d4:	0800d180 	.word	0x0800d180
+ 800a9d8:	0800d250 	.word	0x0800d250
 
 0800a9dc <with_errnof>:
  800a9dc:	b510      	push	{r4, lr}
@@ -22701,10 +22701,10 @@ ErrorStatus LL_USART_Init(USART_TypeDef *USARTx, LL_USART_InitTypeDef *USART_Ini
  800ab3c:	ee87 0a87 	vdiv.f32	s0, s15, s14
  800ab40:	e7b4      	b.n	800aaac <tanhf+0x50>
  800ab42:	bf00      	nop
- 800ab44:	0800d2b8 	.word	0x0800d2b8
+ 800ab44:	0800d2c8 	.word	0x0800d2c8
  800ab48:	41afffff 	.word	0x41afffff
- 800ab4c:	0800d2b0 	.word	0x0800d2b0
- 800ab50:	0800d2b4 	.word	0x0800d2b4
+ 800ab4c:	0800d2c0 	.word	0x0800d2c0
+ 800ab50:	0800d2c4 	.word	0x0800d2c4
 
 0800ab54 <with_errno>:
  800ab54:	b510      	push	{r4, lr}
@@ -22955,9 +22955,9 @@ ErrorStatus LL_USART_Init(USART_TypeDef *USARTx, LL_USART_InitTypeDef *USART_Ini
  800ae64:	e7f3      	b.n	800ae4e <__assert_func+0x12>
  800ae66:	bf00      	nop
  800ae68:	2000003c 	.word	0x2000003c
- 800ae6c:	0800d2bc 	.word	0x0800d2bc
- 800ae70:	0800d2c9 	.word	0x0800d2c9
- 800ae74:	0800d2f7 	.word	0x0800d2f7
+ 800ae6c:	0800d2cc 	.word	0x0800d2cc
+ 800ae70:	0800d2d9 	.word	0x0800d2d9
+ 800ae74:	0800d307 	.word	0x0800d307
 
 0800ae78 <clearerr>:
  800ae78:	4b10      	ldr	r3, [pc, #64]	@ (800aebc <clearerr+0x44>)
@@ -23451,7 +23451,7 @@ ErrorStatus LL_USART_Init(USART_TypeDef *USARTx, LL_USART_InitTypeDef *USART_Ini
  800b2ba:	d109      	bne.n	800b2d0 <__libc_init_array+0x24>
  800b2bc:	4d0b      	ldr	r5, [pc, #44]	@ (800b2ec <__libc_init_array+0x40>)
  800b2be:	4c0c      	ldr	r4, [pc, #48]	@ (800b2f0 <__libc_init_array+0x44>)
- 800b2c0:	f002 f834 	bl	800d32c <_init>
+ 800b2c0:	f002 f83c 	bl	800d33c <_init>
  800b2c4:	1b64      	subs	r4, r4, r5
  800b2c6:	10a4      	asrs	r4, r4, #2
  800b2c8:	2600      	movs	r6, #0
@@ -23466,10 +23466,10 @@ ErrorStatus LL_USART_Init(USART_TypeDef *USARTx, LL_USART_InitTypeDef *USART_Ini
  800b2de:	4798      	blx	r3
  800b2e0:	3601      	adds	r6, #1
  800b2e2:	e7f2      	b.n	800b2ca <__libc_init_array+0x1e>
- 800b2e4:	0800d34c 	.word	0x0800d34c
- 800b2e8:	0800d34c 	.word	0x0800d34c
- 800b2ec:	0800d34c 	.word	0x0800d34c
- 800b2f0:	0800d358 	.word	0x0800d358
+ 800b2e4:	0800d35c 	.word	0x0800d35c
+ 800b2e8:	0800d35c 	.word	0x0800d35c
+ 800b2ec:	0800d35c 	.word	0x0800d35c
+ 800b2f0:	0800d368 	.word	0x0800d368
 
 0800b2f4 <__retarget_lock_init_recursive>:
  800b2f4:	4770      	bx	lr
@@ -23764,11 +23764,11 @@ ErrorStatus LL_USART_Init(USART_TypeDef *USARTx, LL_USART_InitTypeDef *USART_Ini
  800b58c:	4630      	mov	r0, r6
  800b58e:	f000 f91b 	bl	800b7c8 <_printf_i>
  800b592:	e7e4      	b.n	800b55e <_vfiprintf_r+0x1e6>
- 800b594:	0800d2f8 	.word	0x0800d2f8
- 800b598:	0800d302 	.word	0x0800d302
+ 800b594:	0800d308 	.word	0x0800d308
+ 800b598:	0800d312 	.word	0x0800d312
  800b59c:	00000000 	.word	0x00000000
  800b5a0:	0800b353 	.word	0x0800b353
- 800b5a4:	0800d2fe 	.word	0x0800d2fe
+ 800b5a4:	0800d30e 	.word	0x0800d30e
 
 0800b5a8 <sbrk_aligned>:
  800b5a8:	b570      	push	{r4, r5, r6, lr}
@@ -24237,8 +24237,8 @@ ErrorStatus LL_USART_Init(USART_TypeDef *USARTx, LL_USART_InitTypeDef *USART_Ini
  800b9f4:	2500      	movs	r5, #0
  800b9f6:	f104 0619 	add.w	r6, r4, #25
  800b9fa:	e7f5      	b.n	800b9e8 <_printf_i+0x220>
- 800b9fc:	0800d309 	.word	0x0800d309
- 800ba00:	0800d31a 	.word	0x0800d31a
+ 800b9fc:	0800d319 	.word	0x0800d319
+ 800ba00:	0800d32a 	.word	0x0800d32a
 
 0800ba04 <__sflush_r>:
  800ba04:	f9b1 200c 	ldrsh.w	r2, [r1, #12]
@@ -25360,261 +25360,261 @@ ErrorStatus LL_USART_Init(USART_TypeDef *USARTx, LL_USART_InitTypeDef *USART_Ini
  800c5fc:	3f000000                                ...?
 
 0800c600 <recorder::Vocoder::cutoffFreqs>:
- 800c600:	43960000 43fa0000 44610000 44c80000     ...C...C..aD...D
- 800c610:	45354000                                .@5E
+ 800c600:	43960000 43d20000 44160000 44520000     ...C...C...D..RD
+ 800c610:	44960000 44d20000 45160000 45520000     ...D...D...E..RE
 
-0800c614 <recorder::Adc::PotFilter::kPotCorrection>:
- 800c614:	00000000 3c805439 3d00a626 3d41709b     ....9T.<&..=.pA=
- 800c624:	3d8142f1 3da1f120 3dc2c0f0 3de3b06c     .B.= ..=...=l..=
- 800c634:	3e025ec9 3e12f32c 3e239452 3e34412e     .^.>,..>R.#>.A4>
- 800c644:	3e44f8aa 3e55b9af 3e668323 3e7753e8     ..D>..U>#.f>.Sw>
- 800c654:	3e84156f 3e8c8371 3e94f36b 3e9d64c9     o..>q..>k..>.d.>
- 800c664:	3ea5d6fa 3eae496d 3eb6bb8f 3ebf2cd1     ...>mI.>...>.,.>
- 800c674:	3ec79ca3 3ed00a76 3ed875bd 3ee0dded     ...>v..>.u.>...>
- 800c684:	3ee9427b 3ef1a2e0 3ef9fe97 3f012a8f     {B.>...>...>.*.?
- 800c694:	3f0552f9 3f09784b 3f0d9a49 3f11b8b5     .R.?Kx.?I..?...?
- 800c6a4:	3f15d358 3f19e9f6 3f1dfc5b 3f220a51     X..?...?[..?Q."?
- 800c6b4:	3f2613a4 3f2a1825 3f2e17a2 3f3211ef     ..&?%.*?...?..2?
- 800c6c4:	3f3606e0 3f39f64c 3f3de00a 3f41c3f6     ..6?L.9?..=?..A?
- 800c6d4:	3f45a1ea 3f4979c6 3f4d4b69 3f5116b5     ..E?.yI?iKM?..Q?
- 800c6e4:	3f54db8e 3f5899da 3f5c5180 3f600268     ..T?..X?.Q\?h.`?
- 800c6f4:	3f63ac7f 3f674fb1 3f6aebed 3f6e8121     ..c?.Og?..j?!.n?
- 800c704:	3f720f41 3f75963e 3f79160e 3f7c8ea7     A.r?>.u?..y?..|?
- 800c714:	3f800000                                ...?
+0800c620 <recorder::Adc::PotFilter::kPotCorrection>:
+ 800c620:	00000000 3c805439 3d00a626 3d41709b     ....9T.<&..=.pA=
+ 800c630:	3d8142f1 3da1f120 3dc2c0f0 3de3b06c     .B.= ..=...=l..=
+ 800c640:	3e025ec9 3e12f32c 3e239452 3e34412e     .^.>,..>R.#>.A4>
+ 800c650:	3e44f8aa 3e55b9af 3e668323 3e7753e8     ..D>..U>#.f>.Sw>
+ 800c660:	3e84156f 3e8c8371 3e94f36b 3e9d64c9     o..>q..>k..>.d.>
+ 800c670:	3ea5d6fa 3eae496d 3eb6bb8f 3ebf2cd1     ...>mI.>...>.,.>
+ 800c680:	3ec79ca3 3ed00a76 3ed875bd 3ee0dded     ...>v..>.u.>...>
+ 800c690:	3ee9427b 3ef1a2e0 3ef9fe97 3f012a8f     {B.>...>...>.*.?
+ 800c6a0:	3f0552f9 3f09784b 3f0d9a49 3f11b8b5     .R.?Kx.?I..?...?
+ 800c6b0:	3f15d358 3f19e9f6 3f1dfc5b 3f220a51     X..?...?[..?Q."?
+ 800c6c0:	3f2613a4 3f2a1825 3f2e17a2 3f3211ef     ..&?%.*?...?..2?
+ 800c6d0:	3f3606e0 3f39f64c 3f3de00a 3f41c3f6     ..6?L.9?..=?..A?
+ 800c6e0:	3f45a1ea 3f4979c6 3f4d4b69 3f5116b5     ..E?.yI?iKM?..Q?
+ 800c6f0:	3f54db8e 3f5899da 3f5c5180 3f600268     ..T?..X?.Q\?h.`?
+ 800c700:	3f63ac7f 3f674fb1 3f6aebed 3f6e8121     ..c?.Og?..j?!.n?
+ 800c710:	3f720f41 3f75963e 3f79160e 3f7c8ea7     A.r?>.u?..y?..|?
+ 800c720:	3f800000                                ...?
 
-0800c718 <D1CorePrescTable>:
- 800c718:	00000000 04030201 04030201 09080706     ................
+0800c724 <D1CorePrescTable>:
+ 800c724:	00000000 04030201 04030201 09080706     ................
 
-0800c728 <LL_DMA_STR_OFFSET_TAB>:
- 800c728:	58402810 b8a08870                       .(@Xp...
+0800c734 <LL_DMA_STR_OFFSET_TAB>:
+ 800c734:	58402810 b8a08870                       .(@Xp...
 
-0800c730 <LL_MDMA_CH_OFFSET_TAB>:
- 800c730:	00000040 00000080 000000c0 00000100     @...............
- 800c740:	00000140 00000180 000001c0 00000200     @...............
- 800c750:	00000240 00000280 000002c0 00000300     @...............
- 800c760:	00000340 00000380 000003c0 00000400     @...............
+0800c73c <LL_MDMA_CH_OFFSET_TAB>:
+ 800c73c:	00000040 00000080 000000c0 00000100     @...............
+ 800c74c:	00000140 00000180 000001c0 00000200     @...............
+ 800c75c:	00000240 00000280 000002c0 00000300     @...............
+ 800c76c:	00000340 00000380 000003c0 00000400     @...............
 
-0800c770 <LL_RCC_PrescTable>:
- 800c770:	00000000 04030201 04030201 09080706     ................
+0800c77c <LL_RCC_PrescTable>:
+ 800c77c:	00000000 04030201 04030201 09080706     ................
 
-0800c780 <USART_PRESCALER_TAB>:
- 800c780:	00020001 00060004 000a0008 0010000c     ................
- 800c790:	00400020 01000080                        .@.....
+0800c78c <USART_PRESCALER_TAB>:
+ 800c78c:	00020001 00060004 000a0008 0010000c     ................
+ 800c79c:	00400020 01000080 00000000               .@.........
 
-0800c798 <__exp2f_data>:
- 800c798:	00000000 3ff00000 d3158574 3fefd9b0     .......?t......?
- 800c7a8:	6cf9890f 3fefb558 d0125b51 3fef9301     ...lX..?Q[.....?
- 800c7b8:	3c7d517b 3fef72b8 3168b9aa 3fef5487     {Q}<.r.?..h1.T.?
- 800c7c8:	6e756238 3fef387a f51fdee1 3fef1e9d     8bunz8.?.......?
- 800c7d8:	0a31b715 3fef06fe 373aa9cb 3feef1a7     ..1....?..:7...?
- 800c7e8:	4c123422 3feedea6 6061892d 3feece08     "4.L...?-.a`...?
- 800c7f8:	d5362a27 3feebfda 569d4f82 3feeb42b     '*6....?.O.V+..?
- 800c808:	dd485429 3feeab07 b03a5585 3feea47e     )TH....?.U:.~..?
- 800c818:	667f3bcd 3feea09e e8ec5f74 3fee9f75     .;.f...?t_..u..?
- 800c828:	73eb0187 3feea114 994cce13 3feea589     ...s...?..L....?
- 800c838:	422aa0db 3feeace5 b0cdc5e5 3feeb737     ..*B...?....7..?
- 800c848:	82a3f090 3feec491 b23e255d 3feed503     .......?]%>....?
- 800c858:	995ad3ad 3feee89f f2fb5e47 3feeff76     ..Z....?G^..v..?
- 800c868:	dd85529c 3fef199b dcef9069 3fef3720     .R.....?i... 7.?
- 800c878:	dcfba487 3fef5818 337b9b5f 3fef7c97     .....X.?_.{3.|.?
- 800c888:	a2a490da 3fefa4af 5b6e4540 3fefd076     .......?@En[v..?
- 800c898:	00000000 42e80000 4b912394 3fac6af8     .......B.#.K.j.?
- 800c8a8:	50fac4f3 3fcebfce ff0c52d6 3fe62e42     ...P...?.R..B..?
- 800c8b8:	00000000 43380000 652b82fe 40471547     ......8C..+eG.G@
- 800c8c8:	4b912394 3ebc6af8 50fac4f3 3f2ebfce     .#.K.j.>...P...?
- 800c8d8:	ff0c52d6 3f962e42                       .R..B..?
+0800c7a8 <__exp2f_data>:
+ 800c7a8:	00000000 3ff00000 d3158574 3fefd9b0     .......?t......?
+ 800c7b8:	6cf9890f 3fefb558 d0125b51 3fef9301     ...lX..?Q[.....?
+ 800c7c8:	3c7d517b 3fef72b8 3168b9aa 3fef5487     {Q}<.r.?..h1.T.?
+ 800c7d8:	6e756238 3fef387a f51fdee1 3fef1e9d     8bunz8.?.......?
+ 800c7e8:	0a31b715 3fef06fe 373aa9cb 3feef1a7     ..1....?..:7...?
+ 800c7f8:	4c123422 3feedea6 6061892d 3feece08     "4.L...?-.a`...?
+ 800c808:	d5362a27 3feebfda 569d4f82 3feeb42b     '*6....?.O.V+..?
+ 800c818:	dd485429 3feeab07 b03a5585 3feea47e     )TH....?.U:.~..?
+ 800c828:	667f3bcd 3feea09e e8ec5f74 3fee9f75     .;.f...?t_..u..?
+ 800c838:	73eb0187 3feea114 994cce13 3feea589     ...s...?..L....?
+ 800c848:	422aa0db 3feeace5 b0cdc5e5 3feeb737     ..*B...?....7..?
+ 800c858:	82a3f090 3feec491 b23e255d 3feed503     .......?]%>....?
+ 800c868:	995ad3ad 3feee89f f2fb5e47 3feeff76     ..Z....?G^..v..?
+ 800c878:	dd85529c 3fef199b dcef9069 3fef3720     .R.....?i... 7.?
+ 800c888:	dcfba487 3fef5818 337b9b5f 3fef7c97     .....X.?_.{3.|.?
+ 800c898:	a2a490da 3fefa4af 5b6e4540 3fefd076     .......?@En[v..?
+ 800c8a8:	00000000 42e80000 4b912394 3fac6af8     .......B.#.K.j.?
+ 800c8b8:	50fac4f3 3fcebfce ff0c52d6 3fe62e42     ...P...?.R..B..?
+ 800c8c8:	00000000 43380000 652b82fe 40471547     ......8C..+eG.G@
+ 800c8d8:	4b912394 3ebc6af8 50fac4f3 3f2ebfce     .#.K.j.>...P...?
+ 800c8e8:	ff0c52d6 3f962e42                       .R..B..?
 
-0800c8e0 <__log_data>:
- 800c8e0:	fefa3800 3fe62e42 93c76730 3d2ef357     .8..B..?0g..W..=
- 800c8f0:	00000001 bfe00000 5551305b 3fd55555     ........[0QUUU.?
- 800c900:	ffeb4590 bfcfffff 24f10111 3fc999b3     .E.........$...?
- 800c910:	e506c89f bfc55575 00000000 bfe00000     ....uU..........
- 800c920:	55555577 3fd55555 fffffdcb bfcfffff     wUUUUU.?........
- 800c930:	9995dd0c 3fc99999 556745a7 bfc55555     .......?.EgUUU..
- 800c940:	a344de30 3fc24924 a4423d65 bfbfffff     0.D.$I.?e=B.....
- 800c950:	282ad6ca 3fbc7184 43b068ff bfb999eb     ..*(.q.?.h.C....
- 800c960:	f7afd085 3fb78182 75d145cd bfb55213     .......?.E.u.R..
- 800c970:	c3e0de9f 3ff734f0 79e69000 bfd7cc7f     .....4.?...y....
- 800c980:	6a2ce91f 3ff71378 c20d0000 bfd76fee     ..,jx..?.....o..
- 800c990:	08fab5a0 3ff6f260 1351e000 bfd713e3     ....`..?..Q.....
- 800c9a0:	1f138c7d 3ff6d1a6 38287800 bfd6b85b     }......?.x(8[...
- 800c9b0:	0bc5b4d1 3ff6b149 90807800 bfd65d55     ....I..?.x..U]..
- 800c9c0:	332f0cba 3ff69147 76180000 bfd602d0     ../3G..?...v....
- 800c9d0:	18224223 3ff6719f 86909000 bfd5a8ca     #B"..q.?........
- 800c9e0:	99a51ed9 3ff6524f 56035000 bfd54f43     ....OR.?.P.VCO..
- 800c9f0:	aa8f24c4 3ff63356 c36b4000 bfd4f637     .$..V3.?.@k.7...
- 800ca00:	6b9ddc14 3ff614b3 fda85000 bfd49da7     ...k...?.P......
- 800ca10:	52c65c4c 3ff5f664 3989a800 bfd44592     L\.Rd..?...9.E..
- 800ca20:	b5912c4f 3ff5d867 39b0b800 bfd3edf4     O,..g..?...9....
- 800ca30:	cb5b90de 3ff5babc 448f7000 bfd396ce     ..[....?.p.D....
- 800ca40:	f2d91a78 3ff59d61 17bda000 bfd3401e     x...a..?.....@..
- 800ca50:	12465687 3ff58056 ef468000 bfd2e9e2     .VF.V..?..F.....
- 800ca60:	cee76bd3 3ff56397 3830e000 bfd2941b     .k...c.?..08....
- 800ca70:	e2a77f93 3ff54725 8cda8800 bfd23ec5     ....%G.?.....>..
- 800ca80:	42064583 3ff52aff 29279000 bfd1e9e1     .E.B.*.?..')....
- 800ca90:	dbb2bddf 3ff50f22 2b48f800 bfd1956d     ...."..?..H+m...
- 800caa0:	4734ded7 3ff4f38f 9ab9f800 bfd14167     ..4G...?....gA..
- 800cab0:	cfde2840 3ff4d843 94ef9800 bfd0edd0     @(..C..?........
- 800cac0:	c078a3c8 3ff4bd3e 18db1000 bfd09aa5     ..x.>..?........
- 800cad0:	c3e0258a 3ff4a27f 5263b800 bfd047e6     .%.....?..cR.G..
- 800cae0:	24d48434 3ff48805 4586f000 bfcfeb22     4..$...?...E"...
- 800caf0:	1b192d0b 3ff46dce 7517b000 bfcf474a     .-...m.?...uJG..
- 800cb00:	d3391854 3ff453d9 3d103000 bfcea444     T.9..S.?.0.=D...
- 800cb10:	44b4845a 3ff43a27 44e9b000 bfce020d     Z..D':.?...D....
- 800cb20:	4115f8fb 3ff420b5 2977f000 bfcd60a2     ...A. .?..w).`..
- 800cb30:	da3ef4b1 3ff40782 04959000 bfccc001     ..>....?........
- 800cb40:	5d57fe8f 3ff3ee8f 56891000 bfcc2029     ..W]...?...V) ..
- 800cb50:	a00b4ce9 3ff3d5d9 8d811000 bfcb8117     .L.....?........
- 800cb60:	c010c12b 3ff3bd60 ccd3d000 bfcae2c9     +...`..?........
- 800cb70:	2b75dab8 3ff3a524 2e129000 bfca4540     ..u+$..?....@E..
- 800cb80:	cd9fd002 3ff38d22 681df000 bfc9a877     ...."..?...hw...
- 800cb90:	c5847a1c 3ff3755b 69483000 bfc90c6d     .z..[u.?.0Him...
- 800cba0:	49ad36e2 3ff35dce a645c000 bfc87120     .6.I.].?..E. q..
- 800cbb0:	984dd440 3ff34679 b4143000 bfc7d68f     @.M.yF.?.0......
- 800cbc0:	ceffcb24 3ff32f5c 3c627000 bfc73cb8     $...\/.?.pb<.<..
- 800cbd0:	75a10d49 3ff31877 9b376000 bfc6a39a     I..uw..?.`7.....
- 800cbe0:	373e3990 3ff301c8 54b7a000 bfc60b31     .9>7...?...T1...
- 800cbf0:	bb95f841 3ff2eb4e 76243000 bfc5737d     A...N..?.0$v}s..
- 800cc00:	0219a9d1 3ff2d50a 8fc23000 bfc4dc7b     .......?.0..{...
- 800cc10:	a8b7fd2a 3ff2bef9 51d20000 bfc4462c     *......?...Q,F..
- 800cc20:	7a0c1bab 3ff2a91c bc830000 bfc3b08a     ...z...?........
- 800cc30:	6014b530 3ff29372 6b490000 bfc31b99     0..`r..?..Ik....
- 800cc40:	5757a1f5 3ff27dfa 90a44000 bfc28754     ..WW.}.?.@..T...
- 800cc50:	9b1d3bbf 3ff268b3 f879a000 bfc1f3b9     .;...h.?..y.....
- 800cc60:	838ff5bd 3ff2539d 252ca000 bfc160c8     .....S.?..,%.`..
- 800cc70:	aac9083b 3ff23eb7 57f72000 bfc0ce7f     ;....>.?. .W....
- 800cc80:	2ba940b6 3ff22a01 49fea000 bfc03cdc     .@.+.*.?...I.<..
- 800cc90:	96cc4132 3ff21579 bc4b8000 bfbf57bd     2A..y..?..K..W..
- 800cca0:	1dd2fc9b 3ff20120 96404000 bfbe3708     .... ..?.@@..7..
- 800ccb0:	494d480b 3ff1ecf4 3ef94000 bfbd1798     .HMI...?.@.>....
- 800ccc0:	528f6569 3ff1d8f5 4ed8a000 bfbbf967     ie.R...?...Ng...
- 800ccd0:	11577e7c 3ff1c523 202f6000 bfbadc79     |~W.#..?.`/ y...
- 800cce0:	74cb26e9 3ff1b17c e7288000 bfb9c0c3     .&.t|..?..(.....
- 800ccf0:	0c2c1ab6 3ff19e01 b372c000 bfb8a646     ..,....?..r.F...
- 800cd00:	7bb670bd 3ff18ab0 b3ac0000 bfb78d01     .p.{...?........
- 800cd10:	25efbcb6 3ff1778a 45380000 bfb674f1     ...%.w.?..8E.t..
- 800cd20:	354c31da 3ff1648d 6d878000 bfb55e0e     .1L5.d.?...m.^..
- 800cd30:	90275fdd 3ff151b9 dea1e000 bfb4485c     ._'..Q.?....\H..
- 800cd40:	a432d24c 3ff13f0e 4d6aa000 bfb333d9     L.2..?.?..jM.3..
- 800cd50:	7210f9da 3ff12c8b f8c56000 bfb22079     ...r.,.?.`..y ..
- 800cd60:	28ecb531 3ff11a30 98622000 bfb10e46     1..(0..?. b.F...
- 800cd70:	da8434af 3ff107fb 6ad20000 bfaffa6c     .4.....?...jl...
- 800cd80:	0f4e6bb3 3ff0f5ee 4a774000 bfadda8d     .kN....?.@wJ....
- 800cd90:	5d2a9fce 3ff0e406 e4850000 bfabbcec     ..*]...?........
- 800cda0:	632ca521 3ff0d244 4012c000 bfa9a189     !.,cD..?...@....
- 800cdb0:	7ce2981a 3ff0c0a7 3302c000 bfa78858     ...|...?...3X...
- 800cdc0:	83c636d1 3ff0af2f 67d68000 bfa5715e     .6../..?...g^q..
- 800cdd0:	98a01339 3ff09ddb 49658000 bfa35c8a     9......?..eI.\..
- 800cde0:	af52e7df 3ff08cab 64154000 bfa149e3     ..R....?.@.d.I..
- 800cdf0:	2f4e28fb 3ff07b9f 82eb8000 bf9e72c0     .(N/.{.?.....r..
- 800ce00:	8c358f19 3ff06ab5 52528000 bf9a55f1     ..5..j.?..RR.U..
- 800ce10:	a5ecf92c 3ff059ee cf818000 bf963d62     ,....Y.?....b=..
- 800ce20:	cdd12c90 3ff04949 8caa0000 bf9228fb     .,..II.?.....(..
- 800ce30:	c6f0ada9 3ff038c6 20f90000 bf8c317b     .....8.?... {1..
- 800ce40:	137932a9 3ff02865 5daa0000 bf841935     .2y.e(.?...]5...
- 800ce50:	27ea7348 3ff01824 c2ec0000 bf781203     Hs.'$..?......x.
- 800ce60:	0614b195 3ff00804 79240000 bf600409     .......?..$y..`.
- 800ce70:	f726fa1a 3fefe01f 84900000 3f6feff3     ..&....?......o?
- 800ce80:	c261ea74 3fefa11c 353d0000 3f87dc41     t.a....?..=5A..?
- 800ce90:	b081992e 3fef6310 c4c28000 3f93cea3     .....c.?.......?
- 800cea0:	3ceeadcd 3fef25f6 14890000 3f9b9fc1     ...<.%.?.......?
- 800ceb0:	039113e7 3feee9c8 ce110000 3fa1b0d8     .......?.......?
- 800cec0:	78cbb1ab 3feeae80 d001c000 3fa58a5b     ...x...?....[..?
- 800ced0:	a29d0c9b 3fee741a 40d88000 3fa95c83     .....t.?...@.\.?
- 800cee0:	830a99b5 3fee3a91 ef578000 3fad276a     .....:.?..W.j'.?
- 800cef0:	09609a56 3fee01e0 e598c000 3fb07598     V.`....?.....u.?
- 800cf00:	e577bb98 3fedca01 e30d2000 3fb253f5     ..w....?. ...S.?
- 800cf10:	0b7c9103 3fed92f2 8b380000 3fb42edd     ..|....?..8....?
- 800cf20:	66fb5cce 3fed5cac 8757c000 3fb60659     .\.f.\.?..W.Y..?
- 800cf30:	aa5ede9d 3fed272c 356a0000 3fb7da76     ..^.,'.?..j5v..?
- 800cf40:	3e6b2ccd 3fecf26e 4e1c6000 3fb9ab43     .,k>n..?.`.NC..?
- 800cf50:	a2a77902 3fecbe6d bb0d6000 3fbb78c7     .y..m..?.`...x.?
- 800cf60:	6d37086d 3fec8b26 32e72000 3fbd4313     m.7m&..?. .2.C.?
- 800cf70:	bd5d5804 3fec5894 71de6000 3fbf0a31     .X]..X.?.`.q1..?
- 800cf80:	33bb9f8c 3fec26b5 2b914000 3fc06715     ...3.&.?.@.+.g.?
- 800cf90:	eeece73f 3febf583 8292b000 3fc14785     ?......?.....G.?
- 800cfa0:	75db96c1 3febc4fd cdca3000 3fc2266e     ...u...?.0..n&.?
- 800cfb0:	0c864a28 3feb951e a6c55000 3fc303d7     (J.....?.P.....?
- 800cfc0:	c5ef3e2c 3feb65e2 3c331000 3fc3dfc3     ,>...e.?..3<...?
- 800cfd0:	67c9888b 3feb3748 6b7a8000 3fc4ba36     ...gH7.?..zk6..?
- 800cfe0:	211d304a 3feb094b 28d1f000 3fc59339     J0.!K..?...(9..?
- 800cff0:	85f2ef7e 3feadbe8 2418f000 3fc66acd     ~......?...$.j.?
- 800d000:	31603da2 3feaaf1d ec669000 3fc740f8     .=`1...?..f..@.?
- 800d010:	3fd358a7 3fea82e6 f51af000 3fc815c0     .X.?...?.......?
- 800d020:	ef09738b 3fea5740 54f68000 3fc8e929     .s..@W.?...T)..?
- 800d030:	90ab4b27 3fea2c2a 02f84000 3fc9bb36     'K..*,.?.@..6..?
- 800d040:	1393f2d1 3fea01a0 1c2c0000 3fca8bed     .......?..,....?
- 800d050:	24db3c1b 3fe9d79f 5c01d000 3fcb5b51     .<.$...?...\Q[.?
- 800d060:	05c7b190 3fe9ae25 ccbcc000 3fcc2967     ....%..?....g).?
- 800d070:	f297ce2f 3fe9852e d5486000 3fccf635     /......?.`H.5..?
- 800d080:	eea44b75 3fe95cba 3446c000 3fcdc1bd     uK...\.?..F4...?
- 800d090:	9de74838 3fe934c6 b8cfe000 3fce8c01     8H...4.?.......?
- 800d0a0:	2f6752e6 3fe90d4f c0179000 3fcf5509     .Rg/O..?.....U.?
- 800d0b0:	8effd79d 3fe8e652 121fb800 3fd00e6c     ....R..?....l..?
- 800d0c0:	9fcc007c 3fe8bfce 0e93d000 3fd071b8     |......?.....q.?
- 800d0d0:	dabec30e 3fe899c0 9e867000 3fd0d46b     .......?.p..k..?
- 800d0e0:	aa2317fb 3fe87427 334bd000 3fd13687     ..#.'t.?..K3.6.?
- 800d0f0:	acb39a08 3fe84f00 67234800 3fd1980d     .....O.?.H#g...?
- 800d100:	e8653e55 3fe82a49 e0cc8000 3fd1f8ff     U>e.I*.?.......?
- 800d110:	95f40260 3fe80601 d7636800 3fd2595f     `......?.hc._Y.?
- 800d120:	63e0a329 3fe7e225 0914a800 3fd2b930     )..c%..?....0..?
- 800d130:	77dcb5ad 3fe7beb3 10436000 3fd31872     ...w...?.`C.r..?
- 800d140:	679725c2 3fe79baa 6dec1800 3fd37726     .%.g...?...m&w.?
- 800d150:	f2170657 3fe77907 fbaf3000 3fd3d54f     W....y.?.0..O..?
- 800d160:	dbd6130c 3fe756ca e32fe000 3fd432ee     .....V.?../..2.?
+0800c8f0 <__log_data>:
+ 800c8f0:	fefa3800 3fe62e42 93c76730 3d2ef357     .8..B..?0g..W..=
+ 800c900:	00000001 bfe00000 5551305b 3fd55555     ........[0QUUU.?
+ 800c910:	ffeb4590 bfcfffff 24f10111 3fc999b3     .E.........$...?
+ 800c920:	e506c89f bfc55575 00000000 bfe00000     ....uU..........
+ 800c930:	55555577 3fd55555 fffffdcb bfcfffff     wUUUUU.?........
+ 800c940:	9995dd0c 3fc99999 556745a7 bfc55555     .......?.EgUUU..
+ 800c950:	a344de30 3fc24924 a4423d65 bfbfffff     0.D.$I.?e=B.....
+ 800c960:	282ad6ca 3fbc7184 43b068ff bfb999eb     ..*(.q.?.h.C....
+ 800c970:	f7afd085 3fb78182 75d145cd bfb55213     .......?.E.u.R..
+ 800c980:	c3e0de9f 3ff734f0 79e69000 bfd7cc7f     .....4.?...y....
+ 800c990:	6a2ce91f 3ff71378 c20d0000 bfd76fee     ..,jx..?.....o..
+ 800c9a0:	08fab5a0 3ff6f260 1351e000 bfd713e3     ....`..?..Q.....
+ 800c9b0:	1f138c7d 3ff6d1a6 38287800 bfd6b85b     }......?.x(8[...
+ 800c9c0:	0bc5b4d1 3ff6b149 90807800 bfd65d55     ....I..?.x..U]..
+ 800c9d0:	332f0cba 3ff69147 76180000 bfd602d0     ../3G..?...v....
+ 800c9e0:	18224223 3ff6719f 86909000 bfd5a8ca     #B"..q.?........
+ 800c9f0:	99a51ed9 3ff6524f 56035000 bfd54f43     ....OR.?.P.VCO..
+ 800ca00:	aa8f24c4 3ff63356 c36b4000 bfd4f637     .$..V3.?.@k.7...
+ 800ca10:	6b9ddc14 3ff614b3 fda85000 bfd49da7     ...k...?.P......
+ 800ca20:	52c65c4c 3ff5f664 3989a800 bfd44592     L\.Rd..?...9.E..
+ 800ca30:	b5912c4f 3ff5d867 39b0b800 bfd3edf4     O,..g..?...9....
+ 800ca40:	cb5b90de 3ff5babc 448f7000 bfd396ce     ..[....?.p.D....
+ 800ca50:	f2d91a78 3ff59d61 17bda000 bfd3401e     x...a..?.....@..
+ 800ca60:	12465687 3ff58056 ef468000 bfd2e9e2     .VF.V..?..F.....
+ 800ca70:	cee76bd3 3ff56397 3830e000 bfd2941b     .k...c.?..08....
+ 800ca80:	e2a77f93 3ff54725 8cda8800 bfd23ec5     ....%G.?.....>..
+ 800ca90:	42064583 3ff52aff 29279000 bfd1e9e1     .E.B.*.?..')....
+ 800caa0:	dbb2bddf 3ff50f22 2b48f800 bfd1956d     ...."..?..H+m...
+ 800cab0:	4734ded7 3ff4f38f 9ab9f800 bfd14167     ..4G...?....gA..
+ 800cac0:	cfde2840 3ff4d843 94ef9800 bfd0edd0     @(..C..?........
+ 800cad0:	c078a3c8 3ff4bd3e 18db1000 bfd09aa5     ..x.>..?........
+ 800cae0:	c3e0258a 3ff4a27f 5263b800 bfd047e6     .%.....?..cR.G..
+ 800caf0:	24d48434 3ff48805 4586f000 bfcfeb22     4..$...?...E"...
+ 800cb00:	1b192d0b 3ff46dce 7517b000 bfcf474a     .-...m.?...uJG..
+ 800cb10:	d3391854 3ff453d9 3d103000 bfcea444     T.9..S.?.0.=D...
+ 800cb20:	44b4845a 3ff43a27 44e9b000 bfce020d     Z..D':.?...D....
+ 800cb30:	4115f8fb 3ff420b5 2977f000 bfcd60a2     ...A. .?..w).`..
+ 800cb40:	da3ef4b1 3ff40782 04959000 bfccc001     ..>....?........
+ 800cb50:	5d57fe8f 3ff3ee8f 56891000 bfcc2029     ..W]...?...V) ..
+ 800cb60:	a00b4ce9 3ff3d5d9 8d811000 bfcb8117     .L.....?........
+ 800cb70:	c010c12b 3ff3bd60 ccd3d000 bfcae2c9     +...`..?........
+ 800cb80:	2b75dab8 3ff3a524 2e129000 bfca4540     ..u+$..?....@E..
+ 800cb90:	cd9fd002 3ff38d22 681df000 bfc9a877     ...."..?...hw...
+ 800cba0:	c5847a1c 3ff3755b 69483000 bfc90c6d     .z..[u.?.0Him...
+ 800cbb0:	49ad36e2 3ff35dce a645c000 bfc87120     .6.I.].?..E. q..
+ 800cbc0:	984dd440 3ff34679 b4143000 bfc7d68f     @.M.yF.?.0......
+ 800cbd0:	ceffcb24 3ff32f5c 3c627000 bfc73cb8     $...\/.?.pb<.<..
+ 800cbe0:	75a10d49 3ff31877 9b376000 bfc6a39a     I..uw..?.`7.....
+ 800cbf0:	373e3990 3ff301c8 54b7a000 bfc60b31     .9>7...?...T1...
+ 800cc00:	bb95f841 3ff2eb4e 76243000 bfc5737d     A...N..?.0$v}s..
+ 800cc10:	0219a9d1 3ff2d50a 8fc23000 bfc4dc7b     .......?.0..{...
+ 800cc20:	a8b7fd2a 3ff2bef9 51d20000 bfc4462c     *......?...Q,F..
+ 800cc30:	7a0c1bab 3ff2a91c bc830000 bfc3b08a     ...z...?........
+ 800cc40:	6014b530 3ff29372 6b490000 bfc31b99     0..`r..?..Ik....
+ 800cc50:	5757a1f5 3ff27dfa 90a44000 bfc28754     ..WW.}.?.@..T...
+ 800cc60:	9b1d3bbf 3ff268b3 f879a000 bfc1f3b9     .;...h.?..y.....
+ 800cc70:	838ff5bd 3ff2539d 252ca000 bfc160c8     .....S.?..,%.`..
+ 800cc80:	aac9083b 3ff23eb7 57f72000 bfc0ce7f     ;....>.?. .W....
+ 800cc90:	2ba940b6 3ff22a01 49fea000 bfc03cdc     .@.+.*.?...I.<..
+ 800cca0:	96cc4132 3ff21579 bc4b8000 bfbf57bd     2A..y..?..K..W..
+ 800ccb0:	1dd2fc9b 3ff20120 96404000 bfbe3708     .... ..?.@@..7..
+ 800ccc0:	494d480b 3ff1ecf4 3ef94000 bfbd1798     .HMI...?.@.>....
+ 800ccd0:	528f6569 3ff1d8f5 4ed8a000 bfbbf967     ie.R...?...Ng...
+ 800cce0:	11577e7c 3ff1c523 202f6000 bfbadc79     |~W.#..?.`/ y...
+ 800ccf0:	74cb26e9 3ff1b17c e7288000 bfb9c0c3     .&.t|..?..(.....
+ 800cd00:	0c2c1ab6 3ff19e01 b372c000 bfb8a646     ..,....?..r.F...
+ 800cd10:	7bb670bd 3ff18ab0 b3ac0000 bfb78d01     .p.{...?........
+ 800cd20:	25efbcb6 3ff1778a 45380000 bfb674f1     ...%.w.?..8E.t..
+ 800cd30:	354c31da 3ff1648d 6d878000 bfb55e0e     .1L5.d.?...m.^..
+ 800cd40:	90275fdd 3ff151b9 dea1e000 bfb4485c     ._'..Q.?....\H..
+ 800cd50:	a432d24c 3ff13f0e 4d6aa000 bfb333d9     L.2..?.?..jM.3..
+ 800cd60:	7210f9da 3ff12c8b f8c56000 bfb22079     ...r.,.?.`..y ..
+ 800cd70:	28ecb531 3ff11a30 98622000 bfb10e46     1..(0..?. b.F...
+ 800cd80:	da8434af 3ff107fb 6ad20000 bfaffa6c     .4.....?...jl...
+ 800cd90:	0f4e6bb3 3ff0f5ee 4a774000 bfadda8d     .kN....?.@wJ....
+ 800cda0:	5d2a9fce 3ff0e406 e4850000 bfabbcec     ..*]...?........
+ 800cdb0:	632ca521 3ff0d244 4012c000 bfa9a189     !.,cD..?...@....
+ 800cdc0:	7ce2981a 3ff0c0a7 3302c000 bfa78858     ...|...?...3X...
+ 800cdd0:	83c636d1 3ff0af2f 67d68000 bfa5715e     .6../..?...g^q..
+ 800cde0:	98a01339 3ff09ddb 49658000 bfa35c8a     9......?..eI.\..
+ 800cdf0:	af52e7df 3ff08cab 64154000 bfa149e3     ..R....?.@.d.I..
+ 800ce00:	2f4e28fb 3ff07b9f 82eb8000 bf9e72c0     .(N/.{.?.....r..
+ 800ce10:	8c358f19 3ff06ab5 52528000 bf9a55f1     ..5..j.?..RR.U..
+ 800ce20:	a5ecf92c 3ff059ee cf818000 bf963d62     ,....Y.?....b=..
+ 800ce30:	cdd12c90 3ff04949 8caa0000 bf9228fb     .,..II.?.....(..
+ 800ce40:	c6f0ada9 3ff038c6 20f90000 bf8c317b     .....8.?... {1..
+ 800ce50:	137932a9 3ff02865 5daa0000 bf841935     .2y.e(.?...]5...
+ 800ce60:	27ea7348 3ff01824 c2ec0000 bf781203     Hs.'$..?......x.
+ 800ce70:	0614b195 3ff00804 79240000 bf600409     .......?..$y..`.
+ 800ce80:	f726fa1a 3fefe01f 84900000 3f6feff3     ..&....?......o?
+ 800ce90:	c261ea74 3fefa11c 353d0000 3f87dc41     t.a....?..=5A..?
+ 800cea0:	b081992e 3fef6310 c4c28000 3f93cea3     .....c.?.......?
+ 800ceb0:	3ceeadcd 3fef25f6 14890000 3f9b9fc1     ...<.%.?.......?
+ 800cec0:	039113e7 3feee9c8 ce110000 3fa1b0d8     .......?.......?
+ 800ced0:	78cbb1ab 3feeae80 d001c000 3fa58a5b     ...x...?....[..?
+ 800cee0:	a29d0c9b 3fee741a 40d88000 3fa95c83     .....t.?...@.\.?
+ 800cef0:	830a99b5 3fee3a91 ef578000 3fad276a     .....:.?..W.j'.?
+ 800cf00:	09609a56 3fee01e0 e598c000 3fb07598     V.`....?.....u.?
+ 800cf10:	e577bb98 3fedca01 e30d2000 3fb253f5     ..w....?. ...S.?
+ 800cf20:	0b7c9103 3fed92f2 8b380000 3fb42edd     ..|....?..8....?
+ 800cf30:	66fb5cce 3fed5cac 8757c000 3fb60659     .\.f.\.?..W.Y..?
+ 800cf40:	aa5ede9d 3fed272c 356a0000 3fb7da76     ..^.,'.?..j5v..?
+ 800cf50:	3e6b2ccd 3fecf26e 4e1c6000 3fb9ab43     .,k>n..?.`.NC..?
+ 800cf60:	a2a77902 3fecbe6d bb0d6000 3fbb78c7     .y..m..?.`...x.?
+ 800cf70:	6d37086d 3fec8b26 32e72000 3fbd4313     m.7m&..?. .2.C.?
+ 800cf80:	bd5d5804 3fec5894 71de6000 3fbf0a31     .X]..X.?.`.q1..?
+ 800cf90:	33bb9f8c 3fec26b5 2b914000 3fc06715     ...3.&.?.@.+.g.?
+ 800cfa0:	eeece73f 3febf583 8292b000 3fc14785     ?......?.....G.?
+ 800cfb0:	75db96c1 3febc4fd cdca3000 3fc2266e     ...u...?.0..n&.?
+ 800cfc0:	0c864a28 3feb951e a6c55000 3fc303d7     (J.....?.P.....?
+ 800cfd0:	c5ef3e2c 3feb65e2 3c331000 3fc3dfc3     ,>...e.?..3<...?
+ 800cfe0:	67c9888b 3feb3748 6b7a8000 3fc4ba36     ...gH7.?..zk6..?
+ 800cff0:	211d304a 3feb094b 28d1f000 3fc59339     J0.!K..?...(9..?
+ 800d000:	85f2ef7e 3feadbe8 2418f000 3fc66acd     ~......?...$.j.?
+ 800d010:	31603da2 3feaaf1d ec669000 3fc740f8     .=`1...?..f..@.?
+ 800d020:	3fd358a7 3fea82e6 f51af000 3fc815c0     .X.?...?.......?
+ 800d030:	ef09738b 3fea5740 54f68000 3fc8e929     .s..@W.?...T)..?
+ 800d040:	90ab4b27 3fea2c2a 02f84000 3fc9bb36     'K..*,.?.@..6..?
+ 800d050:	1393f2d1 3fea01a0 1c2c0000 3fca8bed     .......?..,....?
+ 800d060:	24db3c1b 3fe9d79f 5c01d000 3fcb5b51     .<.$...?...\Q[.?
+ 800d070:	05c7b190 3fe9ae25 ccbcc000 3fcc2967     ....%..?....g).?
+ 800d080:	f297ce2f 3fe9852e d5486000 3fccf635     /......?.`H.5..?
+ 800d090:	eea44b75 3fe95cba 3446c000 3fcdc1bd     uK...\.?..F4...?
+ 800d0a0:	9de74838 3fe934c6 b8cfe000 3fce8c01     8H...4.?.......?
+ 800d0b0:	2f6752e6 3fe90d4f c0179000 3fcf5509     .Rg/O..?.....U.?
+ 800d0c0:	8effd79d 3fe8e652 121fb800 3fd00e6c     ....R..?....l..?
+ 800d0d0:	9fcc007c 3fe8bfce 0e93d000 3fd071b8     |......?.....q.?
+ 800d0e0:	dabec30e 3fe899c0 9e867000 3fd0d46b     .......?.p..k..?
+ 800d0f0:	aa2317fb 3fe87427 334bd000 3fd13687     ..#.'t.?..K3.6.?
+ 800d100:	acb39a08 3fe84f00 67234800 3fd1980d     .....O.?.H#g...?
+ 800d110:	e8653e55 3fe82a49 e0cc8000 3fd1f8ff     U>e.I*.?.......?
+ 800d120:	95f40260 3fe80601 d7636800 3fd2595f     `......?.hc._Y.?
+ 800d130:	63e0a329 3fe7e225 0914a800 3fd2b930     )..c%..?....0..?
+ 800d140:	77dcb5ad 3fe7beb3 10436000 3fd31872     ...w...?.`C.r..?
+ 800d150:	679725c2 3fe79baa 6dec1800 3fd37726     .%.g...?...m&w.?
+ 800d160:	f2170657 3fe77907 fbaf3000 3fd3d54f     W....y.?.0..O..?
+ 800d170:	dbd6130c 3fe756ca e32fe000 3fd432ee     .....V.?../..2.?
 
-0800d170 <__inv_pio4>:
- 800d170:	000000a2 0000a2f9 00a2f983 a2f9836e     ............n...
- 800d180:	f9836e4e 836e4e44 6e4e4415 4e441529     Nn..DNn..DNn).DN
- 800d190:	441529fc 1529fc27 29fc2757 fc2757d1     .).D'.).W'.).W'.
- 800d1a0:	2757d1f5 57d1f534 d1f534dd f534ddc0     ..W'4..W.4....4.
- 800d1b0:	34ddc0db ddc0db62 c0db6295 db629599     ...4b....b....b.
- 800d1c0:	6295993c 95993c43 993c4390 3c439041     <..bC<...C<.A.C<
+0800d180 <__inv_pio4>:
+ 800d180:	000000a2 0000a2f9 00a2f983 a2f9836e     ............n...
+ 800d190:	f9836e4e 836e4e44 6e4e4415 4e441529     Nn..DNn..DNn).DN
+ 800d1a0:	441529fc 1529fc27 29fc2757 fc2757d1     .).D'.).W'.).W'.
+ 800d1b0:	2757d1f5 57d1f534 d1f534dd f534ddc0     ..W'4..W.4....4.
+ 800d1c0:	34ddc0db ddc0db62 c0db6295 db629599     ...4b....b....b.
+ 800d1d0:	6295993c 95993c43 993c4390 3c439041     <..bC<...C<.A.C<
 
-0800d1d0 <__sincosf_table>:
- 800d1d0:	00000000 3ff00000 00000000 bff00000     .......?........
- 800d1e0:	00000000 bff00000 00000000 3ff00000     ...............?
- 800d1f0:	6dc9c883 41645f30 54442d18 3ff921fb     ...m0_dA.-DT.!.?
- 800d200:	00000000 3ff00000 fd0c621c bfdfffff     .......?.b......
- 800d210:	e1068f19 3fa55553 e89a359d bf56c087     ....SU.?.5....V.
- 800d220:	027bf8c3 3ef99343 5995a603 bfc55554     ..{.C..>...YTU..
- 800d230:	05230bc4 3f811076 3774cf24 bf2994eb     ..#.v..?$.t7..).
- 800d240:	00000000 3ff00000 00000000 bff00000     .......?........
- 800d250:	00000000 bff00000 00000000 3ff00000     ...............?
- 800d260:	6dc9c883 41645f30 54442d18 3ff921fb     ...m0_dA.-DT.!.?
- 800d270:	00000000 bff00000 fd0c621c 3fdfffff     .........b.....?
- 800d280:	e1068f19 bfa55553 e89a359d 3f56c087     ....SU...5....V?
- 800d290:	027bf8c3 bef99343 5995a603 bfc55554     ..{.C......YTU..
- 800d2a0:	05230bc4 3f811076 3774cf24 bf2994eb     ..#.v..?$.t7..).
+0800d1e0 <__sincosf_table>:
+ 800d1e0:	00000000 3ff00000 00000000 bff00000     .......?........
+ 800d1f0:	00000000 bff00000 00000000 3ff00000     ...............?
+ 800d200:	6dc9c883 41645f30 54442d18 3ff921fb     ...m0_dA.-DT.!.?
+ 800d210:	00000000 3ff00000 fd0c621c bfdfffff     .......?.b......
+ 800d220:	e1068f19 3fa55553 e89a359d bf56c087     ....SU.?.5....V.
+ 800d230:	027bf8c3 3ef99343 5995a603 bfc55554     ..{.C..>...YTU..
+ 800d240:	05230bc4 3f811076 3774cf24 bf2994eb     ..#.v..?$.t7..).
+ 800d250:	00000000 3ff00000 00000000 bff00000     .......?........
+ 800d260:	00000000 bff00000 00000000 3ff00000     ...............?
+ 800d270:	6dc9c883 41645f30 54442d18 3ff921fb     ...m0_dA.-DT.!.?
+ 800d280:	00000000 bff00000 fd0c621c 3fdfffff     .........b.....?
+ 800d290:	e1068f19 bfa55553 e89a359d 3f56c087     ....SU...5....V?
+ 800d2a0:	027bf8c3 bef99343 5995a603 bfc55554     ..{.C......YTU..
+ 800d2b0:	05230bc4 3f811076 3774cf24 bf2994eb     ..#.v..?$.t7..).
 
-0800d2b0 <tiny>:
- 800d2b0:	0da24260                                `B..
+0800d2c0 <tiny>:
+ 800d2c0:	0da24260                                `B..
 
-0800d2b4 <two>:
- 800d2b4:	40000000                                ...@
+0800d2c4 <two>:
+ 800d2c4:	40000000                                ...@
 
-0800d2b8 <one>:
- 800d2b8:	3f800000 7566202c 6974636e 203a6e6f     ...?, function: 
- 800d2c8:	73736100 69747265 22206e6f 20227325     .assertion "%s" 
- 800d2d8:	6c696166 203a6465 656c6966 73252220     failed: file "%s
- 800d2e8:	6c202c22 20656e69 73256425 000a7325     ", line %d%s%s..
- 800d2f8:	2b302d23 6c680020 6665004c 47464567     #-0+ .hlL.efgEFG
- 800d308:	32313000 36353433 41393837 45444342     .0123456789ABCDE
- 800d318:	31300046 35343332 39383736 64636261     F.0123456789abcd
- 800d328:	00006665                                ef..
+0800d2c8 <one>:
+ 800d2c8:	3f800000 7566202c 6974636e 203a6e6f     ...?, function: 
+ 800d2d8:	73736100 69747265 22206e6f 20227325     .assertion "%s" 
+ 800d2e8:	6c696166 203a6465 656c6966 73252220     failed: file "%s
+ 800d2f8:	6c202c22 20656e69 73256425 000a7325     ", line %d%s%s..
+ 800d308:	2b302d23 6c680020 6665004c 47464567     #-0+ .hlL.efgEFG
+ 800d318:	32313000 36353433 41393837 45444342     .0123456789ABCDE
+ 800d328:	31300046 35343332 39383736 64636261     F.0123456789abcd
+ 800d338:	00006665                                ef..
 
-0800d32c <_init>:
- 800d32c:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
- 800d32e:	bf00      	nop
- 800d330:	bcf8      	pop	{r3, r4, r5, r6, r7}
- 800d332:	bc08      	pop	{r3}
- 800d334:	469e      	mov	lr, r3
- 800d336:	4770      	bx	lr
+0800d33c <_init>:
+ 800d33c:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+ 800d33e:	bf00      	nop
+ 800d340:	bcf8      	pop	{r3, r4, r5, r6, r7}
+ 800d342:	bc08      	pop	{r3}
+ 800d344:	469e      	mov	lr, r3
+ 800d346:	4770      	bx	lr
 
-0800d338 <_fini>:
- 800d338:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
- 800d33a:	bf00      	nop
- 800d33c:	bcf8      	pop	{r3, r4, r5, r6, r7}
- 800d33e:	bc08      	pop	{r3}
- 800d340:	469e      	mov	lr, r3
- 800d342:	4770      	bx	lr
+0800d348 <_fini>:
+ 800d348:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+ 800d34a:	bf00      	nop
+ 800d34c:	bcf8      	pop	{r3, r4, r5, r6, r7}
+ 800d34e:	bc08      	pop	{r3}
+ 800d350:	469e      	mov	lr, r3
+ 800d352:	4770      	bx	lr
