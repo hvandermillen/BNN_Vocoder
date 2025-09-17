@@ -500,7 +500,7 @@ namespace recorder
             synth_engine_.Process(
                 audio_out[AUDIO_OUT_LINE],
                 synth_buttons,
-                chord_pot, hold, last_strum_idx, strum_idx_changed,
+                chord_pot, hold, last_strum_idx,
                 mode, seventh, minor_seventh, true);
         }
 
@@ -512,7 +512,7 @@ namespace recorder
             //strum mode is off
             float synth_sample = synth_engine_.ProcessSample(
                 synth_buttons,
-                chord_pot, hold, last_strum_idx, strum_idx_changed,
+                chord_pot, hold, last_strum_idx,
                 mode, seventh, minor_seventh, false);
 
             //process playback with vocoder

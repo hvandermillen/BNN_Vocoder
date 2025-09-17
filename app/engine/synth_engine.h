@@ -95,14 +95,13 @@ public:
                  float chord_pot,
                  float hold_pot,
                  int strum_idx,
-                 int strum_idx_changed,
                  bool mode,
                  bool major7,
                  bool minor7,
                  bool strum_on) {
 
         float mix = ProcessSample(button, chord_pot, hold_pot, strum_idx, 
-            strum_idx_changed, mode, major7, minor7, strum_on);
+            mode, major7, minor7, strum_on);
         for (uint32_t i = 0; i < kAudioOSFactor; ++i){
            // block[i] = aa_filter_.Process(i == 0 ? mix : 0.0f);
            block[i] = mix;
@@ -118,12 +117,13 @@ public:
                  float chord_pot,
                  float hold_pot,
                  int strum_idx,
-                 int strum_idx_changed,
                  bool mode,
                  bool major7,
                  bool minor7,
                  bool strum_on)
     {
+        int strum_idx_changed = strum_idx != last_strum_;
+
         // Check for entering/exiting base frequency mode
         if (major7 && minor7) {
             seventh_hold_counter_++;
@@ -178,8 +178,8 @@ public:
                 
                 
                 // Calculate the target frequency immediately
-                int idx = voice_idx % kNumVoices;
-                int oct = voice_idx / kNumVoices;
+                int idx = voice_idx % (kNumVoices-1);
+                int oct = voice_idx / (kNumVoices-1);
                 const float* scale_multipliers = mode_ ? minor_scale_multipliers_ : major_scale_multipliers_;
                 const int* chord_types = mode_ ? minor_scale_chord_types_ : major_scale_chord_types_;
                 float root_freq = base_frequency_ * scale_multipliers[current_chord_];
@@ -240,6 +240,9 @@ public:
             voices_[v].SetFrequency(current_freq_[v]);
         }
 
+        //is slewing necessary for strum voices?
+
+        /*
         if (strum_on) {
             // slew strum freqs
             for (int s = 0; s < kNumStrum; ++s)
@@ -247,7 +250,7 @@ public:
                 slew(strum_current_[s], strum_target_[s], kStrumFreqSlew);
                 strum_voices_[s].SetFrequency(strum_current_[s]);
             }
-        }
+        } */
 
         // 5) gates → envelopes (hold=1 → infinite sustain)
         for (int v = 0; v < kNumVoices; ++v)
