@@ -91,6 +91,8 @@ private:
     //there will be this many analysis bands and this many synthesis bands
     static constexpr int kNumBands = 8;
     //the cutoff frequencies for the analysis and synthesis filters
+    //static constexpr std::array<float, kNumBands> cutoffFreqs = {300, 420, 600, 840, 1200, 1680, 2400, 3360, 4600, 6000};
+    //static constexpr std::array<float, kNumBands> cutoffFreqs = {300, 420, 600, 840, 1200, 1680, 2400, 3360, 4600};
     static constexpr std::array<float, kNumBands> cutoffFreqs = {300, 420, 600, 840, 1200, 1680, 2400, 3360};
     //static constexpr float cutoffFreqs[kNumBands] = {300, 500, 800, 1300, 2000, 2700};
     //static constexpr std::array<float, kNumBands> cutoffFreqs = {300, 500, 900, 1600, 2900};
