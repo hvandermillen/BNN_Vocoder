@@ -9,6 +9,7 @@
 #include "app/engine/resonant_filter.h"
 #include "app/engine/ring_modulator.h"
 #include "app/engine/biquad.h"
+#include "app/engine/lowpass.h"
 #include "app/engine/vocoder_engine.h"
 
 namespace recorder
@@ -29,9 +30,8 @@ namespace recorder
             ring_mod_.Init(16000, 400, .7);
             //initialize the vocoder
             vocoder_.Init();
-            // below is the filter responsible for boosting level in certain freq ranges (vocals, kalimba, etc), currently commented out here and on line 184. Arguments are Init(samplerate, freq, Q, db boost) and SetParameters(freq, Q, dbBoost).
-            main_filter_.Init(false, 16000, 900, .5, 10);
-            main_filter_.SetParameters(900, .5, 10);
+            //below is the filter attempting to remove the high pitched buzz
+            main_filter_.Init(true, 16000, 4200, 4, 20);
             Reset();
         }
 
@@ -191,6 +191,8 @@ namespace recorder
                 // sample = ring_mod_.Process(sample);
             }
 
+            sample -= main_filter_.Process(sample); //main filter, used to boost output in certain frequency ranges for different units (vocal, kalimba, etc.)
+
             //process vocoder
             if (vocoderOn) {
                 sample = vocoder_.Process(sample, synthSample);
@@ -199,7 +201,6 @@ namespace recorder
             //sample = sample + synthSample;
             // sample = vocoder_.Process(sample, synthSample);
 
-            // sample = main_filter_.Process(sample); //main filter, used to boost output in certain frequency ranges for different units (vocal, kalimba, etc.)
             sample *= kAudioOSFactor * kAudioOutputLevel;
 
             for (uint32_t i = 0; i < kAudioOSFactor; i++)

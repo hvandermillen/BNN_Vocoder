@@ -166,15 +166,20 @@ public:
             // strum trigger (now 6 positions for 6 voices)
             if (strum_on && strum_idx_changed)
             { 
+
+                //make voice consistent on way up and down
+                int voice_idx = strum_idx > last_strum_ 
+                                                    ? last_strum_
+                                                    : strum_idx;
                 
                 last_strum_ = strum_idx;
                 
                 // Direct voice mapping - no cycling needed
-                int voice_idx = strum_idx;
+                
                 
                 // Calculate the target frequency immediately
-                int idx = strum_idx % kNumVoices;
-                int oct = strum_idx / kNumVoices;
+                int idx = voice_idx % kNumVoices;
+                int oct = voice_idx / kNumVoices;
                 const float* scale_multipliers = mode_ ? minor_scale_multipliers_ : major_scale_multipliers_;
                 const int* chord_types = mode_ ? minor_scale_chord_types_ : major_scale_chord_types_;
                 float root_freq = base_frequency_ * scale_multipliers[current_chord_];

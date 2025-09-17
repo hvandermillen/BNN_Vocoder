@@ -282,6 +282,8 @@ namespace recorder
             
             if (synth_inactive_)
             {
+                
+                //Transition(STATE_PLAY);
                 // Wake on key or strum
                 bool anyKey = false;
                 for (int i = 0; i < numButtons; ++i)
@@ -290,15 +292,18 @@ namespace recorder
                         anyKey = true;
                         break;
                     }
-
-                if (anyKey || strum_idx_changed)
+                if (record)
+                {
+                    Transition(STATE_PLAY);
+                    //this seems counterintuitive, but this actually fixes the issue of
+                    //recording not working right after synth mode
+                } else if (checkRecordPlayback(record, play_button_.is_high())) {
+                    //handled in function
+                } else if (anyKey || strum_idx_changed)
                 {
                     analog_.Start(true);
                     synth_inactive_ = false;
                     idle_timeout_ = 0; // Reset timeout on activity
-                }
-                else if (checkRecordPlayback(record, play_button_.is_high())) {
-                    //handled in function
                 }
                 else if (kEnableIdleStandby &&
                          ++idle_timeout_ > kIdleStandbyTime * 1000)
