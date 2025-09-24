@@ -194,9 +194,9 @@ namespace recorder
             sample -= main_filter_.Process(sample); //main filter, used to boost output in certain frequency ranges for different units (vocal, kalimba, etc.)
 
             //process vocoder
-            if (vocoderOn) {
-                sample = vocoder_.Process(sample, synthSample);
-            }
+            //if (vocoderOn) {
+            sample = vocoder_.Process(sample, synthSample);
+            //}
 
             //sample = sample + synthSample;
             // sample = vocoder_.Process(sample, synthSample);

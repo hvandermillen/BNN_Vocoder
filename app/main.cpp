@@ -267,6 +267,10 @@ namespace recorder
                 jingle_engine_.EndingJingle();
                 Transition(STATE_ENDING);
             }
+             if (standby)
+            {
+                Transition(STATE_SAVE);
+            }
         }
         else if (cur == STATE_SYNTH)
         {
