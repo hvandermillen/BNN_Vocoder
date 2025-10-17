@@ -125,7 +125,7 @@ namespace recorder
             // {
             //     pitch = 1.0;
             // }
-            pitch = 1.0f;
+            pitch = (1 - pot[kPotPitch]) * 2 - 1;
             float speed = 2.0f;//std::exp2(pitch);
             float sample = 0;
 
