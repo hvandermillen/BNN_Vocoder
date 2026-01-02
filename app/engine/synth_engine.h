@@ -480,6 +480,13 @@ private:
         2.0f             // octave
     };
 
+    static constexpr float dominant_chord_multipliers_[kNumVoices] = {
+        1.0f,            // root
+        1.259921f,       // major 3rd
+        1.498307f,       // perfect 5th
+        1.7813,          // dominant 7th
+    };
+
     // Diatonic chord types for major and minor scales
     // 0 = major, 1 = minor, 2 = diminished
     static constexpr int major_scale_chord_types_[kNumChords] = {

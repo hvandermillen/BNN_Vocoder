@@ -125,8 +125,9 @@ namespace recorder
             // {
             //     pitch = 1.0;
             // }
-            pitch = (1 - pot[kPotPitch]) * 2 - 1;
-            float speed = 2.0f;//std::exp2(pitch);
+            pitch = (2-pot[POT_2]) * 2 - 0.5;
+            float speed = pitch;//std::exp2(pitch);
+            //the exp2 is causing issues with CPU overburden
             float sample = 0;
 
             if (state_ == STATE_STOPPED)
