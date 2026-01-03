@@ -46,7 +46,8 @@ namespace recorder
         STATE_SAVE_COMMIT,
         STATE_STANDBY,
         STATE_STARTUP,   // New state for startup jingle
-        STATE_ENDING     // New state for ending jingle
+        STATE_ENDING,     // New state for ending jingle
+        STATE_MODE_TRANSITION, //New state for mode transition jingles
     };
 
     // SYNTH VARIABLES
@@ -128,17 +129,16 @@ namespace recorder
         case STATE_ENDING:
             printf("ENDING\n");
             break;
+        case STATE_MODE_TRANSITION:
+            printf("ENDING\n");
+            break;
         }
         state_.store(new_state, std::memory_order_acq_rel);
     }
 
-    //starts appropriate processes if record or playback buttons are pressed
-    //return true if either record or playback are held
-    bool checkRecordPlayback(bool record, bool playback) {
-        if (record)
-        { 
-            //if both buttons are held, and the jingle isn't playing, change modes
-            if (playback && !jingle_engine_.JingleActive()) {
+    bool modeTransition() {
+        //if the jingle isn't currently playing, change modes
+            if (!jingle_engine_.JingleActive()) {
                 if (operation_mode == 0) {
                     operation_mode = 1;
                     jingle_engine_.Mode1Jingle();
@@ -146,7 +146,21 @@ namespace recorder
                     operation_mode = 0;
                     jingle_engine_.Mode0Jingle();
                 }
+                playback_.Stop();
+                Transition(STATE_MODE_TRANSITION);
                 return true;
+            }
+    }
+
+    //starts appropriate processes if record or playback buttons are pressed
+    //return true if either record or playback are held
+    bool checkRecordPlayback(bool record, bool playback) {
+        if (record)
+        { 
+            //if both buttons are held, change modes
+            if (playback) {
+                //modeTransition();
+                //return true;
             }
             recording_.Reset();
             analog_.StartRecording();
@@ -179,8 +193,8 @@ namespace recorder
         float strum_pot;
         int strum_idx;
 
-        //only update strum pot if not in playback mode
-        if (cur != STATE_PLAY) {
+        //only update strum pot if not in playback mode or if in mode 1
+        if (cur != STATE_PLAY && operation_mode != 0) {
             // Read strum pot and detect movement
             strum_pot = io_.human.in.pot[POT_2];
             //also update index of strum position
@@ -189,30 +203,6 @@ namespace recorder
         }
         last_strum_pot = strum_pot;
         last_strum_idx = strum_idx;
-
-        //if we are holding the record button, we are recording
-        //maybe change record and playback to one button? hold vs tap?
-
-        //bool record; //true if we have held rec button for long enough
-        //bool tap; //true if we have not been holding record button for long
-
-        //timer for how long record button has been held
-        /*
-        if (record_button_.is_high()) {
-            record_button_hold_timer++;
-            //if it has been held for long enough, start recording
-            if (record_button_hold_timer * 1000 > kButtonTapLength_ms) {
-                record = true;
-                tap = false;
-            } else {
-                tap = true; 
-                record = false;
-            }
-        } else {
-            //we are not recording, reset timer
-            record = false;
-            record_button_hold_timer = 0;
-        } */
 
         //check if record button was held for 
 
@@ -250,6 +240,18 @@ namespace recorder
             }
             return;
         }
+        else if (cur == STATE_MODE_TRANSITION)
+        {
+            // Check if ending jingle is still playing
+            if (!jingle_engine_.JingleActive())
+            {
+                //synth_inactive_ = true;   // Set the inactive flag
+                
+                //Transition(STATE_IDLE);
+                Transition(STATE_PLAY);
+            }
+            return;
+        }
 
         // Handle external standby request
         if (standby)
@@ -264,6 +266,9 @@ namespace recorder
 
         if (cur == STATE_IDLE)
         {
+            //change modes if both buttons are pressed
+            if (record && play_button_.is_high()) modeTransition();
+
             if (checkRecordPlayback(record, play_button_.is_high())) {
             }
             // Wake on any key, or strum move
@@ -296,6 +301,9 @@ namespace recorder
             {
                 idle_timeout_ = 0;
             }
+
+            //change modes if both buttons are pressed
+            if (record && play_button_.is_high()) modeTransition();
 
             //set waveforms to triangles
             synth_engine_.SetWaveform(WaveformGenerator::Waveform::TRIANGLE);
@@ -354,6 +362,9 @@ namespace recorder
 
         else if (cur == STATE_RECORD)
         {
+            //if play button is also pressed, transition modes
+            //if (play_button_.is_high()) modeTransition();
+
             ledPin.Write(1);
             if (!record)
             {
@@ -366,6 +377,8 @@ namespace recorder
         { 
             //set synth waveform to saw waves
             synth_engine_.SetWaveform(WaveformGenerator::Waveform::SAW);
+
+            if (record && play_button_.is_high()) modeTransition();
 
             ledPin.Write(1);
             if (analog_.running())
@@ -524,7 +537,7 @@ namespace recorder
                 mode, seventh, minor_seventh, true);
         }
 
-        if (cur == STATE_STARTUP || cur == STATE_ENDING)
+        if (cur == STATE_STARTUP || cur == STATE_ENDING || cur == STATE_MODE_TRANSITION)
         {
             // Process jingle audio
             jingle_engine_.Process(audio_out[AUDIO_OUT_LINE]);
@@ -535,8 +548,9 @@ namespace recorder
                 chord_pot, hold, last_strum_idx,
                 mode, seventh, minor_seventh, false);
 
-            //process playback with vocoder
-            playback_.Process(audio_out[AUDIO_OUT_LINE], true, false, pot, anyNote, synth_sample);
+            //process playback with vocoder in operation mode 0 only
+            playback_.Process(audio_out[AUDIO_OUT_LINE], true, false, pot, operation_mode==0
+            ,synth_sample);
 
             
         }
@@ -546,7 +560,20 @@ namespace recorder
             AudioInputID id = io_.human.in.detect[DETECT_LINE_IN] ?
                 AUDIO_IN_LINE : AUDIO_IN_MIC;
             float pitch = 1;//(1-io_.human.in.pot[POT_1]) * 2 - 1;
-            recording_.Process(audio_in[id], pitch);
+            //in mode 0, record vocals. in mode 1, record synth
+            //MUST BE UDPDATED TO MAKE VOCAL PLAYBACK HAPPEN DURING MODE 1 RECORDING
+            if (operation_mode == 0)
+            {
+                recording_.Process(audio_in[id], pitch);
+            } else {
+                float synth_sample = synth_engine_.Process(
+                    audio_out[AUDIO_OUT_LINE],
+                    synth_buttons,
+                    chord_pot, hold, last_strum_idx,
+                    mode, seventh, minor_seventh, true);
+                recording_.ProcessSample(synth_sample, pitch);
+            }
+            
         }
 
         return audio_out;

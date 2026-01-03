@@ -30,6 +30,25 @@ public:
         sampleSum = 0;
     }
 
+    void ProcessSample(float in, float pitch) {
+        float ratio = std::exp2(pitch);
+        float sample = in;
+
+        for (uint32_t i = 0; i < kAudioOSFactor; i++)
+        {
+            sample = aa_filter_.Process(sample);
+        }
+
+        resampler_.Push(sample, ratio);
+
+        while (resampler_.Pop(sample))
+        {
+            sampleSum += sample;
+            numSamples++;
+            memory_.Append(sample);
+        }
+    }
+
     void Process(const float (&block)[kAudioOSFactor], float pitch)
     {
         float ratio = std::exp2(pitch);

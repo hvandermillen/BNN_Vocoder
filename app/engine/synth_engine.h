@@ -90,7 +90,7 @@ public:
         return base_frequency_;
     }
 
-    void Process(float (&block)[kAudioOSFactor],
+    float Process(float (&block)[kAudioOSFactor],
                  const bool button[kNumVoices],
                  float chord_pot,
                  float hold_pot,
@@ -106,6 +106,7 @@ public:
            // block[i] = aa_filter_.Process(i == 0 ? mix : 0.0f);
            block[i] = mix;
         }
+        return mix;
 
     }
 
