@@ -80,6 +80,9 @@ namespace recorder
     //true if the strum pot has changed between positions (0-6), activating a strum
     bool strum_idx_changed = false;
 
+    int operation_mode = 0;
+    //mode 0: rec records vocal, etc
+    //mode 1: rec records synth, playback plays vocal, etc
 
     void Transition(State new_state)
     {
@@ -133,7 +136,18 @@ namespace recorder
     //return true if either record or playback are held
     bool checkRecordPlayback(bool record, bool playback) {
         if (record)
-        {
+        { 
+            //if both buttons are held, and the jingle isn't playing, change modes
+            if (playback && !jingle_engine_.JingleActive()) {
+                if (operation_mode == 0) {
+                    operation_mode = 1;
+                    jingle_engine_.Mode1Jingle();
+                } else if (operation_mode == 1) {
+                    operation_mode = 0;
+                    jingle_engine_.Mode0Jingle();
+                }
+                return true;
+            }
             recording_.Reset();
             analog_.StartRecording();
             sample_memory_.StartRecording();
@@ -199,6 +213,8 @@ namespace recorder
             record = false;
             record_button_hold_timer = 0;
         } */
+
+        //check if record button was held for 
 
         bool record = io_.human.in.sw[SWITCH_RECORD];
 

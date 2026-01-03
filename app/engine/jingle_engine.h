@@ -27,7 +27,7 @@ namespace recorder
         void StartupJingle()
         {
             is_active_ = true;
-            is_startup_ = true;
+            jingle_type = 0;
             current_note_ = 0;
             note_timer_ = 0;
             UpdateNoteFrequency();
@@ -37,7 +37,27 @@ namespace recorder
         void EndingJingle()
         {
             is_active_ = true;
-            is_startup_ = false;
+            jingle_type = 1;
+            current_note_ = 0;
+            note_timer_ = 0;
+            UpdateNoteFrequency();
+        }
+
+        // Start playing the mode 0 transition jingle
+        void Mode0Jingle()
+        {
+            is_active_ = true;
+            jingle_type = 2;
+            current_note_ = 0;
+            note_timer_ = 0;
+            UpdateNoteFrequency();
+        }
+
+        // Start playing the mode 1 transition jingle
+        void Mode1Jingle()
+        {
+            is_active_ = true;
+            jingle_type = 3;
             current_note_ = 0;
             note_timer_ = 0;
             UpdateNoteFrequency();
@@ -70,8 +90,8 @@ namespace recorder
                 current_note_++;
 
                 // Check if we've reached the end of the jingle
-                const float *current_jingle = is_startup_ ? startup_jingle_ : ending_jingle_;
-                int jingle_length = is_startup_ ? kStartupJingleLength : kEndingJingleLength;
+                const float *current_jingle = jingles[jingle_type];
+                int jingle_length = jingle_lengths[jingle_type];
 
                 if (current_note_ >= jingle_length)
                 {
@@ -116,8 +136,8 @@ namespace recorder
         // Update the waveform generator frequency based on current note
         void UpdateNoteFrequency()
         {
-            const float *current_jingle = is_startup_ ? startup_jingle_ : ending_jingle_;
-            int jingle_length = is_startup_ ? kStartupJingleLength : kEndingJingleLength;
+            const float *current_jingle = jingles[jingle_type];
+            int jingle_length = jingle_lengths[jingle_type];
 
             if (current_note_ < jingle_length)
             {
@@ -138,25 +158,53 @@ namespace recorder
         // Jingle note sequences (frequencies in Hz)
         static constexpr int kStartupJingleLength = 4;
         static constexpr float startup_jingle_[kStartupJingleLength] = {
-            261.63f, // G4
-            329.63f, // A4
-            392.9f,  // B4
-            587.33f, // C5
+            261.63f, // C4
+            329.63f, // E4
+            392.9f,  // G4
+            587.33f, // D5
         };
 
         static constexpr int kEndingJingleLength = 4;
         static constexpr float ending_jingle_[kEndingJingleLength] = {
             587.3f,  // D5
-            392.9f,  // C5
-            329.63f, // B4
-            261.63f, // A4
+            392.9f,  // G4
+            329.63f, // E4
+            261.63f, // C4
+        };
 
+        static constexpr int kMode0JingleLength = 3;
+        static constexpr float mode_0_jingle_[kMode0JingleLength] = {
+            293.7,  // D4
+            392.9f,  // G4
+            329.63f, // E4
+        };
+
+        static constexpr int kMode1JingleLength = 3;
+        static constexpr float mode_1_jingle_[kMode1JingleLength] = {
+            392.9f,  // G4
+            329.63f, // E4
+            293.7,  // D4
+        };
+
+        static constexpr const float* jingles[4] = {
+            startup_jingle_,
+            ending_jingle_,
+            mode_0_jingle_,
+            mode_1_jingle_
+        };
+
+        static constexpr int jingle_lengths[4] = {
+            4,
+            4,
+            3,
+            3
         };
 
         WaveformGenerator voice_;
         bool is_active_ = false;
         bool is_startup_ = true;
         int current_note_ = 0;
+        int jingle_type = 0;
         int note_timer_ = 0;
     };
 
